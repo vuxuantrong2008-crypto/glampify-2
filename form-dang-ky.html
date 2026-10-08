@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Đăng Ký Tự Thiết Kế Combo - Glampify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F1DF;
+    --white: #FFFFFF;
+    --terracotta: #3F5035;
+    --terracotta-dark: #273321;
+    --accent: #A7B77B;
+    --cream: #FFF9E9;
+    --text: #30382B;
+    --text-light: #66705E;
+    --border: #D7D8B8;
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(58, 69, 48, 0.1);
+    overflow: hidden;
+  }
+
+  .header {
+    background: linear-gradient(150deg, var(--terracotta) 0%, #c98a5c 60%, #8fae72 100%);
+    color: var(--white);
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .header p {
+    font-size: 1.05rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  .form-content {
+    padding: 40px 30px;
+  }
+
+  .page-title {
+    color: var(--terracotta-dark);
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-group {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+  }
+
+  .section-title {
+    color: var(--terracotta);
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .field-group {
+    margin-bottom: 16px;
+  }
+
+  .field-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .field-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    color: var(--terracotta-dark);
+  }
+
+  .checkbox-item, .radio-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+
+  .checkbox-item input[type="checkbox"], 
+  .radio-item input[type="radio"] {
+    margin-top: 5px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--terracotta);
+    cursor: pointer;
+  }
+
+  .item-text {
+    flex: 1;
+  }
+
+  .item-title {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .item-desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 4px;
+    font-style: italic;
+    background: rgba(167, 183, 123, 0.15);
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .input-text {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: var(--white);
+    color: var(--text);
+    transition: border-color 0.2s;
+  }
+
+  .input-text:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .input-small {
+    width: 80px;
+    display: inline-block;
+    padding: 6px 10px;
+    margin-left: 8px;
+  }
+
+  .btn-submit {
+    background: var(--terracotta);
+    color: var(--white);
+    border: none;
+    padding: 18px 32px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    margin-top: 20px;
+    font-family: inherit;
+  }
+
+  .btn-submit:hover {
+    background: var(--terracotta-dark);
+    transform: translateY(-2px);
+  }
+
+  .form-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .grid-2col, .grid-3col { grid-template-columns: 1fr; }
+    .form-content { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Tự Thiết Kế Combo Glampify</h1>
+    <p>Chọn sự kiện – Chọn phong cách – Chọn trải nghiệm<br>Glampify chuẩn bị trọn gói.</p>
+  </div>
+
+  <form class="form-content" onsubmit="event.preventDefault(); alert('Form đã được gửi thành công!');">
+    
+    <!-- TRANG 1: LỰA CHỌN THIẾT BỊ -->
+    <h2 class="page-title">🏕️ TRANG 1: LỰA CHỌN THIẾT BỊ</h2>
+    
+    <!-- 1. Khu vực Lều -->
+    <div class="section-group">
+      <h3 class="section-title">1. Khu vực Lều</h3>
+      <div class="field-group">
+        <span class="field-label">Bạn muốn loại lều nào?</span>
+        <label class="checkbox-item">
+          <input type="checkbox" name="leu" value="pop-up">
+          <div class="item-text">
+            <span class="item-title">Lều Pop-up – mở nhanh, dễ dựng (⏱ ~5 phút)</span>
+            <div class="item-desc">Chú thích: Khung đàn hồi bật căng ra ngay khi mở túi, gần như không cần lắp ráp. Rất hợp cho Newbie.</div>
+          </div>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="leu" value="khung-tu-dung">
+          <div class="item-text">
+            <span class="item-title">Lều khung tự dựng – cần lắp khung (⏱ ~15 phút)</span>
+            <div class="item-desc">Chú thích: Khung gồm nhiều thanh rời, tự lắp rồi luồn vào thân lều cố định.</div>
+          </div>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="leu" value="trekking">
+          <div class="item-text">
+            <span class="item-title">Lều trekking – gọn nhẹ, tự dựng (⏱ ~20 phút)</span>
+            <div class="item-desc">Chú thích: Lều siêu nhẹ, xếp gọn, thiết kế cho người đeo ba lô đi bộ; thường 1-2 người.</div>
+          </div>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="leu" value="2-tang">
+          <div class="item-text">
+            <span class="item-title">Lều 2 tầng rộng rãi, có không gian để đồ (⏱ ~25 phút)</span>
+            <div class="item-desc">Chú thích: Gồm lớp ngủ bên trong và mái chống mưa bên ngoài. Tiền sảnh để giày dép, balo không bị ướt.</div>
+          </div>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="leu" value="khong-leu">
+          <div class="item-text"><span class="item-title">Không cần lều (chỉ dã ngoại trong ngày)</span></div>
+        </label>
+      </div>
+
+      <div class="field-group grid-2col">
+        <div>
+          <span class="field-label">Số lượng người ngủ / lều:</span>
+          <select class="input-text" name="nguoi-ngu">
+            <option value="1">1 người</option>
+            <option value="2">2 người</option>
+            <option value="3-4">3-4 người</option>
+            <option value="5-6">5-6 người</option>
+            <option value="8+">8 người trở lên</option>
+          </select>
+        </div>
+        <div>
+          <span class="field-label">Số lượng lều cần thuê:</span>
+          <input type="number" class="input-text" name="so-luong-leu" min="1" placeholder="Nhập số lượng">
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Khu vực Ngủ nghỉ -->
+    <div class="section-group">
+      <h3 class="section-title">🛏️ 2. Khu vực Ngủ nghỉ</h3>
+      <div class="field-group">
+        <span class="field-label">Túi ngủ & Chăn:</span>
+        <label class="checkbox-item">
+          <input type="checkbox" name="ngu_nghi" value="tui-ngu-thuong">
+          <div class="item-text"><span class="item-title">Túi ngủ thường (mùa thu mát mẻ)</span></div>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="ngu_nghi" value="tui-ngu-long-vu">
+          <div class="item-text">
+            <span class="item-title">Túi ngủ lông vũ chịu lạnh (khuyên dùng mùa đông)</span>
+            <div class="item-desc">Chú thích: Túi nhồi lông vịt/ngỗng, giữ ấm rất tốt cho đêm lạnh sâu.</div>
+          </div>
+        </label>
+        <div class="grid-2col" style="margin-top: 10px;">
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Chăn mỏng (mùa thu)</span></label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Chăn dày/len (mùa đông)</span></label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <span class="field-label">Đệm lót:</span>
+        <label class="checkbox-item">
+          <input type="checkbox" name="dem" value="dem-mini">
+          <div class="item-text">
+            <span class="item-title">Đệm cách nhiệt mini (1 người)</span>
+            <div class="item-desc">Chú thích: Tấm lót dưới lưng ngăn hơi lạnh từ mặt đất truyền lên người.</div>
+          </div>
+        </label>
+        <div class="grid-2col" style="margin-top: 10px;">
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Đệm đôi</span></label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Đệm 2 lớp (chịu lạnh tốt)</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Khu vực Bàn Ghế & Bếp -->
+    <div class="section-group">
+      <h3 class="section-title">🔥 3. Bàn Ghế & Bếp Nấu</h3>
+      <div class="grid-2col">
+        <div class="field-group">
+          <span class="field-label">Bàn & Ghế:</span>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Bàn mini (2 người)</span></label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Bàn camping (4-8 người)</span></label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Bàn thấp phong cách picnic</span></label>
+          <label class="checkbox-item">
+            <input type="checkbox"> 
+            <span class="item-title">Số lượng ghế: <input type="number" class="input-text input-small" placeholder="SL"></span>
+          </label>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Thiết bị Bếp:</span>
+          <label class="checkbox-item">
+            <input type="checkbox">
+            <div class="item-text">
+              <span class="item-title">Bếp gas mini</span>
+              <div class="item-desc">Chú thích: Dùng bình gas cỡ lon nước, không cần nhóm lửa.</div>
+            </div>
+          </label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Bếp gas + nồi lẩu (Mùa đông)</span></label>
+          <label class="checkbox-item">
+            <input type="checkbox">
+            <div class="item-text">
+              <span class="item-title">Bộ nướng mini an toàn</span>
+              <div class="item-desc">Chú thích: Nướng không cần than/lửa hở, an toàn sát lều.</div>
+            </div>
+          </label>
+        </div>
+      </div>
+      
+      <div class="field-group" style="margin-top: 15px;">
+        <span class="field-label">Bảo quản thực phẩm:</span>
+        <div class="grid-3col">
+          <label class="radio-item"><input type="radio" name="thung_da"> <span class="item-title">Thùng đá nhỏ</span></label>
+          <label class="radio-item"><input type="radio" name="thung_da"> <span class="item-title">Thùng đá lớn</span></label>
+          <label class="radio-item"><input type="radio" name="thung_da"> <span class="item-title">Không cần</span></label>
+        </div>
+        <div class="item-desc" style="margin-top: 8px;">Chú thích: Thùng giữ lạnh cách nhiệt; cho đá vào để giữ đồ ăn/nước uống mát nhiều giờ.</div>
+      </div>
+    </div>
+
+    <!-- 4. Chiếu sáng & Giải trí -->
+    <div class="section-group">
+      <h3 class="section-title">💡 4. Chiếu Sáng, Decor & Giải Trí</h3>
+      <div class="field-group">
+        <label class="checkbox-item">
+          <input type="checkbox">
+          <div class="item-text">
+            <span class="item-title">Đèn dây LED trang trí (Vàng ấm / Trắng)</span>
+            <div class="item-desc">Chú thích: Dây đèn nhỏ li ti treo quanh lều tạo không khí lãng mạn.</div>
+          </div>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox">
+          <div class="item-text">
+            <span class="item-title">Đèn sưởi mini tích điện (Mùa đông)</span>
+            <div class="item-desc">Chú thích: Có pin sạc, tỏa nhiệt sưởi ấm khu vực ngồi.</div>
+          </div>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox">
+          <div class="item-text">
+            <span class="item-title">Đèn LED mô phỏng lửa trại</span>
+            <div class="item-desc">Chú thích: Hiệu ứng nhấp nháy giống lửa trại, không khói an toàn.</div>
+          </div>
+        </label>
+      </div>
+      
+      <div class="grid-2col" style="margin-top: 15px;">
+        <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Loa bluetooth mini / lớn</span></label>
+        <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Bộ decor check-in (biển gỗ, hoa khô)</span></label>
+        <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Banner sự kiện (Sinh nhật, Noel...)</span></label>
+        <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Sổ tay + Bút viết nhật ký</span></label>
+      </div>
+    </div>
+
+    <!-- TRANG 2: THÔNG TIN CHUYẾN ĐI -->
+    <h2 class="page-title" style="margin-top: 40px;">🚙 TRANG 2: THÔNG TIN CHUYẾN ĐI & GIAO NHẬN</h2>
+    
+    <div class="section-group">
+      <div class="grid-2col">
+        <div class="field-group">
+          <span class="field-label">Thời gian sử dụng:</span>
+          <select class="input-text">
+            <option>Trong ngày (4-5 tiếng)</option>
+            <option>1 ngày 1 đêm</option>
+            <option>2 ngày 1 đêm</option>
+            <option>Dài ngày hơn</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Ngày dự kiến đi:</span>
+          <input type="date" class="input-text">
+        </div>
+        <div class="field-group">
+          <span class="field-label">Mùa dự kiến:</span>
+          <select class="input-text">
+            <option>Mùa Thu (Mát mẻ)</option>
+            <option>Mùa Đông (Lạnh sâu - Cần giữ ấm)</option>
+            <option>Mùa Hè / Khác</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Kinh nghiệm cắm trại:</span>
+          <select class="input-text">
+            <option>Người mới (Chưa từng cắm trại)</option>
+            <option>Đã có kinh nghiệm</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="field-group" style="margin-top: 15px;">
+        <span class="field-label">Chọn Vibe cho chuyến đi (Glampify sẽ dựa vào đây để decor):</span>
+        <div class="grid-3col">
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Natural (Mộc mạc)</span></label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Minimal (Tối giản)</span></label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Chill & Cozy</span></label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Birthday Party</span></label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Christmas (Noel)</span></label>
+          <label class="checkbox-item"><input type="checkbox"> <span class="item-title">Sôi động (Party)</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thông tin liên hệ -->
+    <div class="section-group">
+      <h3 class="section-title">📍 Thông tin Giao nhận & Liên hệ</h3>
+      <div class="grid-2col">
+        <div class="field-group">
+          <span class="field-label">Họ và tên:</span>
+          <input type="text" class="input-text" placeholder="Nhập họ tên" required>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Số điện thoại:</span>
+          <input type="tel" class="input-text" placeholder="Nhập số điện thoại" required>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Địa chỉ giao đồ:</span>
+          <input type="text" class="input-text" placeholder="Nơi Glampify mang đồ tới">
+        </div>
+        <div class="field-group">
+          <span class="field-label">Địa chỉ thu đồ (Nếu khác):</span>
+          <input type="text" class="input-text" placeholder="Nơi Glampify tới lấy đồ">
+        </div>
+      </div>
+      <div class="field-group" style="margin-top: 15px;">
+        <span class="field-label">Ghi chú thêm (Yêu cầu đặc biệt...):</span>
+        <textarea class="input-text" rows="3" placeholder="Ví dụ: Giờ giao nhận cụ thể, lưu ý dị ứng..."></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit">Hoàn Tất & Gửi Yêu Cầu</button>
+    <p class="form-note">Glampify sẽ liên hệ lại với bạn trong vòng 30 phút để xác nhận và báo giá chi tiết.</p>
+  </form>
+</div>
+
+</body>
+</html>

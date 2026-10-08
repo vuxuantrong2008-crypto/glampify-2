@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Liên Hệ - Glampify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F1DF;
+  --bg-white:#FFFFFF;
+  --terracotta:#3F5035;
+  --terracotta-dark:#273321;
+  --accent:#A7B77B;
+  --cream:#FFF9E9;
+  --text:#30382B;
+  padding-top: env(safe-area-inset-top,0px);
+  padding-bottom: env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-family:'Inter',sans-serif;color:var(--terracotta);font-weight:700}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:72px 0}
+.bg-white{background:var(--bg-white)}
+.section-kicker{color:var(--accent);font-weight:700;font-size:.95rem;display:block;margin-bottom:6px}
+.section-title{font-size:clamp(2rem,4vw,2.6rem);color:var(--terracotta-dark);line-height:1.15}
+.section-center{text-align:center;max-width:640px;margin:0 auto 48px}
+.btn{border:none;border-radius:12px;font-family:'Inter',system-ui,sans-serif;font-weight:700;cursor:pointer;transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-solid{background:var(--accent);color:#fff;padding:16px 40px;font-size:1.02rem;box-shadow:0 8px 20px rgba(201,138,61,.35)}
+.btn-outline{background:transparent;border:1.5px solid var(--terracotta);color:var(--terracotta);padding:14px 32px}
+.btn-outline:hover{background:var(--terracotta);color:#fff}
+
+/* ---------- 1. HERO ---------- */
+.page-hero{
+  background:linear-gradient(150deg,var(--terracotta) 0%,#c98a5c 60%,#8fae72 100%);
+  padding:76px 24px 66px;text-align:center;color:#fff;
+}
+.page-hero h1{color:#fff;font-size:clamp(2.1rem,4.5vw,3rem);margin-bottom:14px}
+.page-hero p{color:#F3EFDE;font-size:1.05rem;font-weight:600;max-width:560px;margin:0 auto}
+
+/* ---------- 2. CONTACT INFO CARDS ---------- */
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.info-card{background:var(--cream);border-radius:20px;padding:30px 24px;text-align:center;box-shadow:0 10px 26px rgba(58,69,48,.1)}
+.info-icon{width:54px;height:54px;border-radius:50%;background:var(--terracotta);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.info-icon svg{width:24px;height:24px}
+.info-card h3{font-size:1rem;margin-bottom:8px}
+.info-card p{color:#66705E;font-size:.92rem;line-height:1.6}
+
+/* ---------- 3. FORM ---------- */
+.form-wrap{max-width:760px;margin:0 auto}
+.form-card{background:#fff;border-radius:24px;padding:44px;box-shadow:0 20px 48px rgba(58,69,48,.14)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.85rem;font-weight:700;color:var(--terracotta)}
+.field input,.field select,.field textarea{
+  border:1.5px solid #D8D8BC;border-radius:12px;padding:13px 15px;font-family:'Inter',system-ui,sans-serif;
+  background:var(--cream);color:var(--text);
+}
+.field textarea{resize:vertical;min-height:120px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:1px;background:#fff}
+.form-cta{grid-column:1/-1;display:flex;justify-content:center;margin-top:4px}
+
+/* ---------- 4. BẢN ĐỒ ---------- */
+.map-box svg{width:44px;height:44px}
+.map-box p{max-width:420px;font-weight:600;color:#fdfbf7}
+/* ---------- 4. BẢN ĐỒ NHÚNG TRỰC TIẾP ---------- */
+.map-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21/9;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(58,69,48,.18);
+  border: 1px solid rgba(58,69,48,.08);
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ---------- 5. FAQ ---------- */
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.faq-item{background:var(--cream);border-radius:16px;padding:22px 26px;box-shadow:0 8px 20px rgba(58,69,48,.08)}
+.faq-item h3{font-size:1.02rem;margin-bottom:8px}
+.faq-item p{color:#66705E;font-size:.92rem;line-height:1.65}
+
+/* ---------- FOOTER (giống hệt các trang khác) ---------- */
+footer{background:var(--terracotta-dark);color:#F7F1DF;padding:60px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand svg{width:26px;height:26px;color:var(--accent)}
+.foot-logo{font-family:'Inter',sans-serif;font-weight:700;font-size:1.7rem;color:#fff}
+.foot-grid p,.foot-grid a{color:#EDE9D7;text-decoration:none;font-size:.94rem}
+.foot-grid h4{color:#fff;font-family:'Inter',sans-serif;margin-bottom:16px;font-size:1.15rem}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-links a{transition:color .2s ease}
+.foot-links a:hover{color:#fff}
+.foot-bottom{text-align:center;font-size:.82rem;color:#C9CFB0;border-top:1px solid rgba(255,255,255,.15);padding-top:22px}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .info-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  section{padding:52px 0}
+  .info-grid{grid-template-columns:1fr}
+  form{grid-template-columns:1fr}
+  .form-card{padding:28px 22px}
+  .map-box{aspect-ratio:4/3}
+}
+
+/* =========================================================
+   HEADER & DROPDOWN MENU CHUẨN
+========================================================= */
+.site-header{
+  position:sticky;top:0;z-index:200;
+  background:var(--terracotta-dark);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;
+}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-logo{width:74px;height:56px;object-fit:contain;border-radius:12px;display:block;flex:0 0 auto;filter:drop-shadow(0 3px 8px rgba(0,0,0,.14))}
+.brand-name{font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:.3px}
+.main-nav{display:flex;align-items:center;gap:28px}
+.main-nav > a{font-weight:600;font-size:.94rem;color:rgba(255,255,255,.88);text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;transition:color .2s ease,border-color .2s ease}
+.main-nav > a:hover{color:#fff}
+.main-nav > a.active{color:var(--accent);border-color:var(--accent)}
+.nav-toggle{display:none;width:40px;height:40px;border:none;background:none;cursor:pointer;color:#fff;font-size:1.5rem;align-items:center;justify-content:center}
+
+/* ---- MENU CON (DROPDOWN) ĐÃ SỬA MÀU SẮC & CẤU TRÚC ---- */
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-item > a{font-weight:600;font-size:.94rem;color:rgba(255,255,255,.88);text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;display:flex;align-items:center}
+.nav-item > a:hover{color:#fff}
+.nav-item > a::after{content:'';display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+
+.sub-menu{
+  position:absolute;top:100%;left:-14px;min-width:210px;
+  background:#FFFFFF; /* Đã sửa thành màu trắng tinh, bỏ màu đen cũ */
+  border-radius:14px;padding:8px;
+  box-shadow:0 18px 36px rgba(38,46,28,.18);
+  border:1px solid rgba(58,69,48,.1);
+  opacity:0;visibility:hidden;transform:translateY(6px);
+  transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:50;
+}
+.nav-item:hover .sub-menu,.nav-item:focus-within .sub-menu{opacity:1;visibility:visible;transform:none}
+.main-nav .sub-menu a{display:block;padding:10px 14px;border:0;border-radius:9px;font-size:.92rem;white-space:nowrap;color:var(--text);text-decoration:none}
+.main-nav .sub-menu a:hover,.main-nav .sub-menu a.current{background:var(--bg);color:var(--terracotta)}
+.main-nav .sub-menu a.sub-child{padding-left:30px;font-weight:500;color:#66705E}
+
+@media (max-width:860px){
+  .main-nav{
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--terracotta-dark);flex-direction:column;align-items:stretch;gap:0;
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+    box-shadow:0 16px 28px rgba(0,0,0,.25);
+  }
+  .main-nav.open{max-height:680px;overflow-y:auto}
+  .nav-item{display:block}
+  .nav-item > a{display:block;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.88)}
+  .nav-item > a::after{display:none}
+  .sub-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;padding:0;background:var(--terracotta-dark)}
+  .main-nav .sub-menu a{padding:13px 24px 13px 40px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.8)}
+  .main-nav .sub-menu a.sub-child{padding-left:56px}
+  .main-nav > a{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav-toggle{display:flex}
+}
+
+/* =========================================================
+   CHAT WIDGET NỔI (ZALO + FANPAGE) - DÙNG CHUNG
+========================================================= */
+.chat-widget{position:fixed;right:20px;bottom:20px;z-index:999;display:flex;flex-direction:column;gap:14px}
+.chat-bubble{
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;text-decoration:none;
+  box-shadow:0 12px 26px rgba(0,0,0,.25);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.chat-bubble:hover{transform:scale(1.08);box-shadow:0 16px 32px rgba(0,0,0,.32)}
+.chat-zalo{background:#0068FF;font-family:'Inter',system-ui,sans-serif;font-weight:800;font-size:1.3rem}
+.chat-fb{background:#0084FF}
+.chat-fb svg{width:28px;height:28px;fill:#fff}
+
+@media (max-width:600px){
+  .chat-widget{right:14px;bottom:14px;gap:12px}
+  .chat-bubble{width:50px;height:50px}
+}
+
+
+/* ---- FONT: Inter cho toàn bộ tiêu đề và nội dung ---- */
+button,input,select,textarea{font-family:inherit}
+
+/* ---- MENU CON "COMBO BOX" ---- */
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-item>a::after{content:'';display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+.sub-menu{position:absolute;top:100%;left:-14px;min-width:210px;background:#fff;border-radius:14px;padding:8px;box-shadow:0 18px 36px rgba(38,46,28,.18);border:1px solid rgba(58,69,48,.1);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:50}
+.nav-item:hover .sub-menu,.nav-item:focus-within .sub-menu{opacity:1;visibility:visible;transform:none}
+.main-nav .sub-menu a{display:block;padding:10px 14px;border:0;border-radius:9px;font-size:.92rem;white-space:nowrap}
+.main-nav .sub-menu a:hover,.main-nav .sub-menu a.current{background:var(--bg);color:var(--terracotta)}
+.main-nav .sub-menu a.sub-child{padding-left:30px;font-weight:500;color:#66705E}
+@media (max-width:860px){
+  .main-nav.open{max-height:680px;overflow-y:auto}
+  .nav-item{display:block}
+  .nav-item>a{display:block}
+  .nav-item>a::after{display:none}
+  .sub-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;padding:0;background:var(--bg)}
+  .main-nav .sub-menu a{padding:13px 24px 13px 40px;border-radius:0;border-bottom:1px solid rgba(0,0,0,.05)}
+  .main-nav .sub-menu a.sub-child{padding-left:56px}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <!-- Đã sửa tên file logo thành logo-header.png -->
+      <img src="images/logo-header.png" alt="Glampify Logo" class="brand-logo">
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Trang Chủ</a>
+      
+      <!-- MENU COMBO BOX -->
+      <div class="nav-item">
+        <a href="thue-box.html" class="active">Combo Box</a>
+        <div class="sub-menu">
+          <a href="combo-kinh-nghiem.html">Theo Kinh Nghiệm</a>
+          <a href="combo-mua.html">Theo Mùa</a>
+          <a href="combo-su-kien.html">Theo Sự Kiện</a>
+          <a href="combo-thoi-gian.html">Theo Thời Gian</a>
+          <a href="combo-quy-mo.html">Theo Quy Mô</a>
+          
+          <!-- Nút Tự Thiết Kế Combo -->
+          <a href="form-dang-ky.html" style="border-top: 1.5px dashed #D7D8B8; margin-top: 6px; padding-top: 12px; color: var(--terracotta); font-weight: 800;">
+            ✨ Tự Thiết Kế Combo
+          </a>
+        </div>
+      </div>
+      
+      <!-- MENU BLOG -->
+      <div class="nav-item">
+        <a href="blog.html">Blog</a>
+        <div class="sub-menu">
+          <a href="blog-dong-van.html">Địa Điểm Nổi Bật</a>
+          <a href="blog-hop-tac-dong-mo.html">Blog Nổi Bật</a>
+        </div>
+      </div>
+      
+      <a href="ve-chung-toi.html">Về Chúng Tôi</a>
+      <a href="lien-he.html">Liên Hệ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Mở menu">&#9776;</button>
+  </div>
+</header>
+
+
+
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="icon-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 19h18L12 3Z"/><path d="M8.5 19 12 11l3.5 8"/></symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2C10.5 21 3 13.5 3 6a2 2 0 0 1 2-2Z"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+</svg>
+
+<!-- 1. HERO -->
+<div class="page-hero">
+  <h1>Kết Nối Cùng Glampify</h1>
+  <p>Bạn cần tư vấn chọn combo dã ngoại, hỗ trợ lịch trình hay hợp tác? Hãy nhắn cho chúng tôi nhé!</p>
+</div>
+
+<!-- 2. THÔNG TIN LIÊN HỆ -->
+<section class="bg-white">
+  <div class="wrap">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon"><svg><use href="#icon-pin"/></svg></div>
+        <h3>Địa Chỉ</h3>
+        <p>79 Hồ Tùng Mậu, Hà Nội</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><svg><use href="#icon-phone"/></svg></div>
+        <h3>Hotline</h3>
+        <p>0334 373 048</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><svg><use href="#icon-mail"/></svg></div>
+        <h3>Email</h3>
+        <p>support@glampify.com</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><svg><use href="#icon-clock"/></svg></div>
+        <h3>Giờ Làm Việc</h3>
+        <p>Thứ Hai – Chủ Nhật<br>8:00 – 21:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. FORM LIÊN HỆ -->
+<section>
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-kicker">Gửi yêu cầu</span>
+      <h2 class="section-title">Để Lại Lời Nhắn Cho Chúng Tôi</h2>
+    </div>
+    <div class="form-wrap">
+      <div class="form-card">
+        <form>
+          <div class="field"><label>Họ Và Tên *</label><input type="text" placeholder="Nguyễn Văn A"></div>
+          <div class="field"><label>Số Điện Thoại *</label><input type="tel" placeholder="09xx xxx xxx"></div>
+          <div class="field full"><label>Email *</label><input type="email" placeholder="ban@email.com"></div>
+          <div class="field full">
+            <label>Nhu Cầu / Chủ Đề Quan Tâm</label>
+            <select>
+              <option>Tư vấn thuê đồ dã ngoại</option>
+              <option>Đổi lịch / Khiếu nại</option>
+              <option>Hợp tác kinh doanh</option>
+              <option>Khác</option>
+            </select>
+          </div>
+          <div class="field full"><label>Nội Dung Tin Nhắn</label><textarea placeholder="Bạn cần hỗ trợ điều gì..."></textarea></div>
+          <div class="form-cta"><button class="btn btn-solid" type="submit">Gửi Tin Nhắn Ngay</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. BẢN ĐỒ -->
+<section class="bg-white">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-kicker">Ghé thăm chúng tôi</span>
+      <h2 class="section-title">Tìm Đường Đến Glampify</h2>
+    </div>
+    <div class="map-box">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4417.290762158217!2d105.77640162120971!3d21.03640560431204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b6163c392f%3A0x9e92db6da69cbfe9!2zNzkgxJAuIEjhu5MgVMO5bmcgTeG6rXUsIFThu6sgTGnDqm0sIEjDoCBO4buZaSAxMjI4NjgsIFZp4buHdCBOYW0!5e1!3m2!1svi!2s!4v1790780253084!5m2!1svi!2s" 
+        width="600" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FAQ -->
+<section>
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-kicker">Giải đáp nhanh</span>
+      <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Tôi có thể nhận đồ trước 1 ngày không?</h3>
+        <p>Có, bạn có thể đăng ký nhận đồ trước 1 ngày với phụ phí giữ đồ nhỏ, vui lòng ghi rõ trong phần nội dung tin nhắn.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Thủ tục đặt cọc gồm những gì?</h3>
+        <p>Bạn cần đặt cọc bằng CCCD hoặc một khoản tiền mặt theo quy định của từng combo, hoàn trả đầy đủ khi trả đồ đúng hạn.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Nếu trời mưa vào ngày đi thì sao?</h3>
+        <p>Glampify hỗ trợ đổi lịch miễn phí trong vòng 7 ngày kể từ ngày đặt, chỉ cần liên hệ trước ít nhất 24 giờ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg><use href="#icon-tent"/></svg><span class="foot-logo">Glampify</span></div>
+        <p>Mang đến trải nghiệm dã ngoại trọn vẹn và tinh tế nhất.</p>
+        <p style="margin-top:10px">79 Hồ Tùng Mậu, Hà Nội</p>
+        <p>www.glampify.com</p>
+        <p>support@glampify.com</p>
+      </div>
+      <div>
+        <h4>Chính Sách</h4>
+        <ul class="foot-links">
+          <li><a href="#">Chính sách đổi trả</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Chính sách vận chuyển</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hỗ Trợ</h4>
+        <ul class="foot-links">
+          <li><a href="#">Thuê đồ có cần cọc không?</a></li>
+          <li><a href="#">Trời mưa có được dời lịch?</a></li>
+          <li><a href="#">Hỗ trợ setup tại bãi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Glampify. All rights reserved.</div>
+  </div>
+</footer>
+
+
+<!-- CHAT WIDGET: ZALO + FANPAGE (thay link thật của bạn vào 2 href bên dưới) -->
+<div class="chat-widget">
+  <a href="https://zalo.me/" target="_blank" rel="noopener" class="chat-bubble chat-zalo" aria-label="Chat qua Zalo">Z</a>
+  <a href="https://www.facebook.com/glampify" target="_blank" rel="noopener" class="chat-bubble chat-fb" aria-label="Nhắn tin qua Fanpage">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.45 5.49 3.72 7.19V22l3.4-1.87c.91.25 1.87.38 2.88.38 5.52 0 10-4.14 10-9.26C22 6.14 17.52 2 12 2zm1.02 12.47-2.56-2.73-4.99 2.73 5.49-5.84 2.62 2.73 4.93-2.73-5.49 5.84z"/></svg>
+  </a>
+</div>
+
+<script>
+  (function(){
+    var navToggle = document.getElementById('navToggle');
+    var mainNav = document.getElementById('mainNav');
+    if(navToggle && mainNav){
+      navToggle.addEventListener('click', function(){ mainNav.classList.toggle('open'); });
+    }
+  })();
+</script>
+
+<script>
+  (function(){
+    var q=new URLSearchParams(location.search);
+    if(!q.get('combo'))return;
+    var t=document.querySelector('textarea');
+    if(t){t.value='Mình muốn thuê: '+q.get('combo')+'\nSố người: '+q.get('people')+'\nThời gian: '+q.get('dur')+' (từ '+q.get('from')+' đến '+q.get('to')+')\nNhờ Glampify báo giá và xác nhận lịch giúp mình.';}
+  })();
+</script>
+</body>
+</html>

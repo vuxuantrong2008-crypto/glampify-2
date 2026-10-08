@@ -1,0 +1,113 @@
+window.GLAMPIFY={
+ IMG:[
+  "https://plus.unsplash.com/premium_photo-1726754592337-9838092f3839?w=500&auto=format&fit=crop&q=60", 
+  "https://plus.unsplash.com/premium_photo-1723291430835-18f62f56f445?w=500&auto=format&fit=crop&q=60", 
+  "https://images.unsplash.com/photo-1744317287172-8ee74d6e14d9?w=500&auto=format&fit=crop&q=60", 
+  "https://images.unsplash.com/photo-1634805522019-e9c3c1d25e4c?w=500&auto=format&fit=crop&q=60", 
+  "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=500&auto=format&fit=crop&q=60"
+ ],
+ CATS:{
+   "nguoi-moi": {"label": "Combo Người Mới", "href": "combo-nguoi-moi.html", "note": "Combo dành riêng cho người chưa có kinh nghiệm: mọi thứ đều bật là lên, dễ tháo lắp."},
+   "lao-lang": {"label": "Combo Lão Làng", "href": "combo-lao-lang.html", "note": "Combo đầy thách thức: lều dựng thủ công, bếp củi, dành cho dân camp thứ thiệt."},
+   "mua-thu": {"label": "Combo Mùa Thu", "href": "#", "note": "Gọn nhẹ, tiện nghi, lãng mạn, phù hợp với thời tiết mát mẻ mùa thu."},
+   "mua-dong": {"label": "Combo Mùa Đông", "href": "#", "note": "Trang bị đầy đủ túi ngủ lông vũ, đèn sưởi và đệm cách nhiệt chống rét."},
+   "dac-biet": {"label": "Combo Đặc Biệt", "href": "#", "note": "Tập trung vào trải nghiệm cảm xúc, decor đẹp, góc chụp ảnh sống ảo."},
+   "su-kien": {"label": "CampBox Sự Kiện", "href": "combo-su-kien.html", "note": "Được thiết kế trọn gói cho tiệc sinh nhật, họp lớp, tất niên hay ngày lễ."},
+   "tram-box": {"label": "Hệ thống Trạm Box", "href": "#", "note": "Gói trang bị tối ưu từ dã ngoại sống ảo trong ngày đến sinh tồn sâu trong rừng."},
+   "glam-line": {"label": "Dòng Glam", "href": "#", "note": "Hệ sinh thái linh hoạt theo số lượng người, phù hợp mọi điều kiện thời tiết."}
+ },
+ GUIDE:[
+  "Nhận đồ và đối chiếu với danh sách bên cạnh trước khi rời điểm giao nhận.", 
+  "Dựng lều trên nền phẳng, tránh chỗ trũng; cắm cọc và căng dây chằng đủ chắc.", 
+  "Dùng bếp ga ở nơi thoáng gió, không nấu trong lều.", 
+  "Trả đồ đúng hạn, gấp gọn và dọn rác. Glampify sẽ vệ sinh phần còn lại.", 
+  "Trời mưa vào ngày đi: nhắn Glampify để đổi lịch miễn phí."
+ ],
+ PRODUCTS:[
+ // ==========================================
+ // 1. NHÓM NGƯỜI MỚI & LÃO LÀNG
+ // ==========================================
+ {"id": "combo-nguoi-moi", "name": "Gà Mờ Vào Lều", "cat": "nguoi-moi", "img": 0, "people": [2], "chips": ["Lều tự bật", "Dễ lắp đặt"], "lead": "Tân Binh Lên Núi – Combo Cho Người Chưa Từng Có Kinh Nghiệm", "desc": ["Lều Liều là combo dành riêng cho bạn – tiêu chí 'bật là lên', mọi thứ đều dễ lắp, dễ tháo. Giao tận campsite, bạn đến là có sẵn.", "✅ Dành riêng cho người mới: lều pop-up tự bật 10 giây.", "✅ Tiện lợi tối đa: đèn sạc 2 in 1, bếp gas mini + nồi."], "items": [{"n": "Lều 2 người pop-up", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Thảm picnic", "u": "tấm", "per": 0, "fix": 1, "night": 0}, {"n": "Túi ngủ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sạc 2 in 1", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Bếp gas mini + nồi", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Set dụng cụ ăn", "u": "set", "per": 1, "fix": 0, "night": 0}, {"n": "Túi rác", "u": "túi", "per": 0, "fix": 1, "night": 0}], "stock": true},
+
+ {"id": "combo-lao-lang", "name": "Lão Làng Xuất Sơn", "cat": "lao-lang", "img": 3, "people": [4, 6], "chips": ["Lều dome", "Bếp củi"], "lead": "Thuê Combo Cắm Trại Thách Thức Cho Dân Camp Muốn Tăng Độ Khó", "desc": ["Tiêu chí 'khó mới vui – dễ thì chán', mọi thứ đều thách thức kỹ năng dựng lều, nhóm lửa.", "✅ Dành riêng cho lão làng: lều dome dựng thủ công, bếp củi.", "✅ Sinh tồn cơ bản: la bàn, dao đa năng chặt củi."], "items": [{"n": "Lều dome 6 người", "u": "chiếc", "per": 6, "fix": 0, "night": 0}, {"n": "Thảm ngủ", "u": "tấm", "per": 1, "fix": 0, "night": 0}, {"n": "Thảm picnic", "u": "tấm", "per": 0, "fix": 1, "night": 0}, {"n": "Chăn mỏng", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Dụng cụ tạo lửa - bếp củi", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Nồi đa năng", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Đèn sạc 2 in 1", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Set dụng cụ ăn uống", "u": "set", "per": 1, "fix": 0, "night": 0}, {"n": "Bàn ghế gập", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Đồ trang trí", "u": "bộ", "per": 0, "fix": 1, "night": 0}], "stock": true},
+
+ // ==========================================
+ // 2. NHÓM COMBO MÙA THU
+ // ==========================================
+ {"id": "thu-solo", "name": "Một Mình Cũng Chill", "cat": "mua-thu", "img": 1, "people": [1], "chips": ["1 Người"], "lead": "Solo Autumn Wanderer – Combo Cho Người Thích Đi Một Mình", "desc": ["Gọn nhẹ, dễ mang, không cần ai hỗ trợ dựng lều. Đèn sạc 2 in 1 chiếu sáng kiêm sạc dự phòng.", "Giá: 350.000đ/1 đêm — 550.000đ/2N1Đ"], "items": [{"n": "Lều 1 người pop-up", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Thảm picnic mini", "u": "tấm", "per": 1, "fix": 0, "night": 0}, {"n": "Túi ngủ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Đệm cách nhiệt mini", "u": "tấm", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sạc 2 in 1", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Bàn gấp mini", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Bộ dụng cụ ăn", "u": "bộ", "per": 1, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "thu-couple", "name": "Đôi Ta Mùa Lá", "cat": "mua-thu", "img": 0, "people": [2], "chips": ["Cặp Đôi"], "lead": "Autumn Leaves Date – Cho Cặp Đôi Yêu Thiên Nhiên", "desc": ["Không gian riêng tư ấm cúng, đủ đầy để cùng nhau nấu ăn giữa thiên nhiên mùa lá vàng.", "Giá: 650.000đ/1 đêm — 950.000đ/2N1Đ"], "items": [{"n": "Lều 2 người pop-up", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Thảm picnic", "u": "tấm", "per": 1, "fix": 0, "night": 0}, {"n": "Túi ngủ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sạc 2 in 1", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Bếp gas mini + Nồi", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Bộ ăn uống", "u": "bộ", "per": 1, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "thu-family", "name": "Tổ Ấm Giữa Rừng", "cat": "mua-thu", "img": 4, "people": [3, 4], "chips": ["Gia Đình"], "lead": "Family Autumn Nest – Trọn Gói Cho Gia Đình", "desc": ["Gói gọn mọi thứ gia đình cần từ chỗ ngủ, bàn ăn đến đồ nấu nướng. Thùng đá mini giữ thực phẩm tươi ngon.", "Giá: 950.000đ/1 đêm — 1.350.000đ/2N1Đ"], "items": [{"n": "Lều 4 người (khung tự dựng)", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Túi ngủ + đệm cách nhiệt", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Bàn ghế gấp", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Bếp gas + Nồi chảo", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sạc 2 in 1", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Thùng đá mini", "u": "chiếc", "per": 1, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "thu-squad", "name": "Hội Ngộ Mùa Thu", "cat": "mua-thu", "img": 3, "people": [8], "chips": ["Nhóm Bạn"], "lead": "Autumn Squad Reunion – Cho Nhóm Bạn Thân", "desc": ["Trang bị bếp gas cỡ lớn, thùng đá lớn và loa bluetooth cho bữa tiệc tụ họp đông vui.", "Giá: 1.650.000đ/1 đêm — 2.300.000đ/2N1Đ"], "items": [{"n": "Lều 4 người", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Túi ngủ + đệm cách nhiệt", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Bàn ghế gấp", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Bếp lớn + Nồi lớn", "u": "bộ", "per": 8, "fix": 0, "night": 0}, {"n": "Loa bluetooth", "u": "chiếc", "per": 8, "fix": 0, "night": 0}, {"n": "Thùng đá lớn", "u": "chiếc", "per": 8, "fix": 0, "night": 0}, {"n": "Đèn sạc", "u": "chiếc", "per": 4, "fix": 0, "night": 0}], "stock": true},
+
+ // ==========================================
+ // 3. NHÓM COMBO MÙA ĐÔNG
+ // ==========================================
+ {"id": "dong-solo", "name": "Ẩn Mình Mùa Đông", "cat": "mua-dong", "img": 1, "people": [1], "chips": ["Chống lạnh"], "lead": "Solo Winter Hideaway – Giữ Ấm Tối Đa Mùa Lạnh", "desc": ["Trang bị túi ngủ lông vũ, đệm 2 lớp chống hơi đất và đèn sưởi mini tích điện an toàn.", "Giá: 450.000đ/1 đêm — 700.000đ/2N1Đ"], "items": [{"n": "Lều 1 người chống gió", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Túi ngủ lông vũ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Đệm cách nhiệt 2 lớp", "u": "tấm", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sưởi mini tích điện", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Chăn dày", "u": "chiếc", "per": 1, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "dong-couple", "name": "Sưởi Ấm Đôi Ta", "cat": "mua-dong", "img": 0, "people": [2], "chips": ["Ấm áp"], "lead": "Winter Warmth for Two – Ăn Lẩu Ngắm Sao Mùa Đông", "desc": ["Cung cấp bếp lẩu mini nóng hổi, đèn sưởi và lều chống gió an toàn.", "Giá: 850.000đ/1 đêm — 1.200.000đ/2N1Đ"], "items": [{"n": "Lều 2 người chống gió", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Túi ngủ lông vũ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Đệm cách nhiệt 2 lớp lớn", "u": "tấm", "per": 2, "fix": 0, "night": 0}, {"n": "Đèn sưởi tích điện", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Bếp gas + Nồi lẩu mini", "u": "bộ", "per": 2, "fix": 0, "night": 0}, {"n": "Chăn dày đôi", "u": "chiếc", "per": 2, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "dong-family", "name": "Mái Ấm Đông Về", "cat": "mua-dong", "img": 4, "people": [3, 4], "chips": ["Gia Đình"], "lead": "Family Winter Homecoming – Đông Lạnh Mấy, Gia Đình Vẫn Ấm", "desc": ["Giữ ấm toàn diện cho gia đình có trẻ nhỏ với 2 đèn sưởi và túi ngủ lông vũ.", "Giá: 1.250.000đ/1 đêm — 1.750.000đ/2N1Đ"], "items": [{"n": "Lều 4 người chống gió", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Túi ngủ lông vũ + Đệm", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sưởi tích điện", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Bếp gas + Nồi lẩu lớn", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Chăn dày", "u": "chiếc", "per": 2, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "dong-squad", "name": "Băng Đảng Mùa Đông", "cat": "mua-dong", "img": 3, "people": [8], "chips": ["Nhóm Đông"], "lead": "Winter Squad Camp – Sôi Động Bất Chấp Lạnh Giá", "desc": ["3 đèn sưởi tích điện phủ ấm toàn trại, lẩu cỡ lớn và loa bluetooth khuấy động màn đêm.", "Giá: 2.100.000đ/1 đêm — 2.900.000đ/2N1Đ"], "items": [{"n": "Lều chống gió", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Túi ngủ lông vũ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sưởi tích điện", "u": "chiếc", "per": 3, "fix": 0, "night": 0}, {"n": "Bếp gas + Nồi lẩu cỡ lớn", "u": "bộ", "per": 8, "fix": 0, "night": 0}, {"n": "Loa bluetooth + Thùng đá", "u": "bộ", "per": 8, "fix": 0, "night": 0}], "stock": true},
+
+ // ==========================================
+ // 4. NHÓM COMBO ĐẶC BIỆT
+ // ==========================================
+ {"id": "dac-biet-bonfire", "name": "Đặc Biệt: Đêm Lửa Tình Thu Đông", "cat": "dac-biet", "img": 2, "people": [2, 4], "chips": ["Cozy Bonfire"], "lead": "Cozy Bonfire Night – Camping Cảm Xúc Sâu Sắc", "desc": ["Bộ nướng mini mô phỏng lửa trại an toàn, kết hợp lẩu tự sôi, trà nóng và sổ tay ghi nhật ký.", "Giá: 1.450.000đ/2N1Đ"], "items": [{"n": "Lều cửa sổ lưới ngắm sao", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Túi ngủ lông vũ + đệm 2 lớp", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sưởi tích điện", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Bộ nướng mini + Nồi lẩu tự sôi", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Trà/cacao + Marshmallow", "u": "set", "per": 4, "fix": 0, "night": 0}, {"n": "Đèn LED lửa trại + Sổ tay", "u": "bộ", "per": 4, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "dac-biet-picnic", "name": "Đặc Biệt: Khoảnh Khắc Hoàng Hôn Vàng", "cat": "dac-biet", "img": 0, "people": [2, 4], "chips": ["Picnic"], "lead": "Golden Hour Picnic – Check-in Sống Ảo Hàn Quốc", "desc": ["Không cần qua đêm. Thiết kế giỏ picnic, thảm, bàn thấp, hoa khô, gương cầm tay phục vụ chụp ảnh.", "Giá: 890.000đ/buổi"], "items": [{"n": "Thảm họa tiết + bàn thấp", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Gối tựa lưng", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Giỏ picnic (trái cây, bánh ngọt)", "u": "giỏ", "per": 4, "fix": 0, "night": 0}, {"n": "Khung tranh, hoa khô, gương", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Dây đèn LED + Biển gỗ check-in", "u": "bộ", "per": 4, "fix": 0, "night": 0}], "stock": true},
+
+ // ==========================================
+ // 5. CAMPBOX SỰ KIỆN
+ // ==========================================
+ {"id": "campbox-sinh-nhat", "name": "CampBox 1: Sinh Nhật", "cat": "su-kien", "img": 4, "people": [4, 10], "chips": ["Sinh nhật", "Tiệc ngoài trời"], "lead": "Biến Sinh Nhật Thành Chuyến Camping Đáng Nhớ", "desc": ["Không gian sinh nhật ngoài trời với lều glamping, đèn dây, phụ kiện trang trí sinh nhật, loa bluetooth."], "items": [{"n": "Lều glamping/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Bộ bàn ghế + thảm picnic", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Bộ decor sinh nhật", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Loa Bluetooth + Thùng đá", "u": "bộ", "per": 0, "fix": 1, "night": 0}], "stock": true},
+
+ {"id": "campbox-hop-lop", "name": "CampBox 2: Họp Lớp", "cat": "su-kien", "img": 3, "people": [10, 20], "chips": ["BBQ", "Hội khóa"], "lead": "Gặp Lại Bạn Cũ, Dựng Lại Thanh Xuân", "desc": ["Hỗ trợ không gian BBQ chung, bàn ghế, bếp nướng, nồi đa năng để ôn lại kỷ niệm tuổi học trò."], "items": [{"n": "Lều dome/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Bếp camping + Dụng cụ BBQ", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Bàn ghế tập thể", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Loa Bluetooth + Thùng giữ nhiệt", "u": "bộ", "per": 0, "fix": 1, "night": 0}], "stock": true},
+
+ {"id": "campbox-noel", "name": "CampBox 3: Noel", "cat": "su-kien", "img": 2, "people": [4, 10], "chips": ["Giáng Sinh", "Đèn trang trí"], "lead": "Mang Không Khí Giáng Sinh Vào Thiên Nhiên", "desc": ["Lều glamping kết hợp cây thông mini, đèn dây LED, phù hợp cho Secret Santa và Christmas party."], "items": [{"n": "Lều glamping/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Cây thông mini + Đèn LED", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Phụ kiện decor Noel", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Loa Bluetooth", "u": "chiếc", "per": 0, "fix": 1, "night": 0}], "stock": true},
+
+ {"id": "campbox-yep", "name": "CampBox 4: Year End Party", "cat": "su-kien", "img": 1, "people": [10, 20], "chips": ["Tất Niên", "Giao lưu"], "lead": "Tổng Kết Một Năm Theo Cách Khác", "desc": ["Không gian Year End Party ngoài trời rộng rãi, tích hợp BBQ, âm thanh, ánh sáng chuyên nghiệp."], "items": [{"n": "Lều sự kiện glamping", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Bếp BBQ + Nồi đa năng", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Decor Year End Party", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Bàn ghế + Loa Bluetooth", "u": "bộ", "per": 0, "fix": 1, "night": 0}], "stock": true},
+
+ {"id": "campbox-ngay-le", "name": "CampBox 5: Ngày Lễ", "cat": "su-kien", "img": 0, "people": [4, 10], "chips": ["Linh hoạt", "Dịp lễ"], "lead": "Kỳ Nghỉ Nào Cũng Trở Thành Camping", "desc": ["Combo thiết bị tiêu chuẩn dễ dàng tùy biến decor cho bất kỳ dịp lễ tết hay ngày nghỉ dài nào."], "items": [{"n": "Lều dome/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Đệm/Túi ngủ", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Bếp camping + Dụng cụ ăn", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Phụ kiện trang trí linh hoạt", "u": "bộ", "per": 0, "fix": 1, "night": 0}], "stock": true},
+
+ // ==========================================
+ // 6. HỆ THỐNG TRẠM BOX
+ // ==========================================
+ {"id": "tram-nang", "name": "Trạm Nắng (Sunny Box)", "cat": "tram-box", "img": 0, "people": [2], "chips": ["Trong ngày", "Sống ảo"], "lead": "Dã Ngoại Trong Ngày Sinh Ra Để Sống Ảo", "desc": ["Lược bỏ lều kín, tối ưu gọn nhẹ với tăng che nắng, đồ dùng phong cách vintage, loa bluetooth thư giãn."], "items": [{"n": "Tăng che nắng / Lều chữ A", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Thảm picnic họa tiết", "u": "tấm", "per": 1, "fix": 0, "night": 0}, {"n": "Ghế xếp ngả lưng", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Bàn cuộn vân gỗ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Bếp gas mini + Ấm đun", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Bộ cốc đĩa vintage", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Giỏ mây decor + Loa", "u": "bộ", "per": 1, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "tram-sao", "name": "Trạm Sao (Twilight Box)", "cat": "tram-box", "img": 1, "people": [2, 4], "chips": ["Qua đêm", "Ngắm sao"], "lead": "Cắm Trại Qua Đêm Trọn Vẹn Tiện Nghi", "desc": ["Phòng ngủ di động giữa rừng với lều dome 2 lớp kín đáo, túi ngủ sạch sẽ ép chân không, đầy đủ bếp núc."], "items": [{"n": "Lều dome 2 lớp", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Đệm hơi / Thảm cách nhiệt", "u": "tấm", "per": 2, "fix": 0, "night": 0}, {"n": "Túi ngủ cá nhân", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Đèn bão + Dây đèn LED", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Bếp gas mini + Nồi chảo", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Bàn cuộn + Ghế xếp", "u": "bộ", "per": 2, "fix": 0, "night": 0}, {"n": "Thùng đá giữ nhiệt", "u": "chiếc", "per": 1, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "tram-tru-an", "name": "Trạm Trú Ẩn (Nomad Box)", "cat": "tram-box", "img": 3, "people": [4, 6], "chips": ["Sinh tồn", "Lưu trú 3N2Đ"], "lead": "Sinh Tồn & Lưu Trú Dài Ngày Bỏ Phố Về Rừng", "desc": ["Trang bị kiên cố với lều cabin rộng, thùng đá 72h, trạm sạc dự phòng, bếp củi, xẻng đa năng."], "items": [{"n": "Lều cabin lớn + Bạt lót", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Túi ngủ dày + Thảm", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Đèn bão + Trạm sạc", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Bếp gas lớn + Bếp củi", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Thùng giữ lạnh 72h", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Bàn ghế lớn + Nồi chảo", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Xẻng sinh tồn + Sơ cứu y tế", "u": "bộ", "per": 1, "fix": 0, "night": 0}], "stock": true},
+
+ // ==========================================
+ // 7. DÒNG COMBO GLAM
+ // ==========================================
+ {"id": "glamour", "name": "GLAMOUR", "cat": "glam-line", "img": 2, "people": [2], "chips": ["Cặp đôi", "Thu-Đông"], "lead": "Combo Camping Cho 2 Người", "desc": ["Tập trung vào sự gọn nhẹ và riêng tư, cung cấp lều, bàn ghế nhỏ và túi ngủ giữ nhiệt chống ẩm."], "items": [{"n": "Lều camping 2 người", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Túi ngủ giữ nhiệt", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Tấm/đệm cách nhiệt", "u": "tấm", "per": 1, "fix": 0, "night": 0}, {"n": "Ghế camping", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Bàn gấp nhỏ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Bếp gas mini + nồi chảo", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn đa năng", "u": "chiếc", "per": 1, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "glamigos", "name": "GLAMIGOS", "cat": "glam-line", "img": 4, "people": [3, 4], "chips": ["Nhóm nhỏ", "Tiện nghi chung"], "lead": "Combo Camping Cho Nhóm 3-4 Người", "desc": ["Cung cấp không gian sinh hoạt chung vừa đủ với dây đèn trang trí và đồ nấu bếp linh hoạt."], "items": [{"n": "Lều camping 3-4 người", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Túi ngủ giữ nhiệt", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Bàn ghế camping", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Đèn camping + Dây đèn", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Bếp + nồi chảo + thùng giữ nhiệt", "u": "bộ", "per": 1, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "glamsquad", "name": "GLAMSQUAD", "cat": "glam-line", "img": 3, "people": [5, 8], "chips": ["Nhóm 5-8 ng", "Module dễ quản"], "lead": "Combo Camping Cho Nhóm 5-8 Người", "desc": ["Chia thành Sleeping Box, Furniture Box, Cooking Box giúp dễ vận chuyển, setup và có không gian chung lớn."], "items": [{"n": "Lều camping (1-2 lều)", "u": "chiếc", "per": 8, "fix": 0, "night": 0}, {"n": "Túi ngủ + đệm cách nhiệt", "u": "bộ", "per": 2, "fix": 0, "night": 0}, {"n": "Bàn ghế lớn", "u": "bộ", "per": 8, "fix": 0, "night": 0}, {"n": "Bếp + nồi nhóm + BBQ (tùy chọn)", "u": "bộ", "per": 2, "fix": 0, "night": 0}, {"n": "Hệ thống đèn chiếu sáng", "u": "bộ", "per": 8, "fix": 0, "night": 0}], "stock": true},
+
+ {"id": "glamorama", "name": "GLAMORAMA", "cat": "glam-line", "img": 0, "people": [9, 15], "chips": ["Nhóm đông", "Theo yêu cầu"], "lead": "Combo Camping Cho Nhóm Từ 9 Người Trở Lên", "desc": ["Quy mô thiết bị tùy chỉnh theo thực tế. Thích hợp cho các buổi camping hội nhóm, câu lạc bộ đông người."], "items": [{"n": "Hệ thống lều ngủ", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Túi ngủ + đệm ngủ", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Hệ thống bàn ghế", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Bếp lớn + BBQ + Nấu ăn nhóm", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Hệ thống chiếu sáng", "u": "bộ", "per": 1, "fix": 0, "night": 0}]
+ }
+ ],
+ qty:function(it,p,nights){var q=it.fix||Math.ceil(p/it.per);return it.night?q*Math.max(1,nights):q;},
+ range:function(p){var a=p.people;return a.length>1?a[0]+'–'+a[a.length-1]+' người':a[0]+' người';},
+ card:function(p){
+  return '<article class="card"><div class="hero-img-wrap">'+(p.stock?'':'<span class="tag out">Hết hàng</span>')+
+  '<img src="'+this.IMG[p.img]+'" alt="'+p.name+'" loading="lazy"></div><div class="card-body"><h3>'+p.name+'</h3>'+
+  '<div class="includes">'+p.chips.map(function(c){return '<span class="chip">'+c+'</span>'}).join('')+'</div>'+
+  '<div class="meta"><span><svg><use href="#icon-users"/></svg>'+this.range(p)+'</span><span><svg><use href="#icon-clock"/></svg>Thuê từ 1 ngày</span></div>'+
+  '<a href="chi-tiet-san-pham.html?id='+p.id+'" class="btn btn-outline">Xem chi tiết</a></div></article>';
+ },
+ renderGrids:function(){
+  var self=this;
+  document.querySelectorAll('[data-cat]').forEach(function(g){
+   var c=g.dataset.cat;
+   g.innerHTML=self.PRODUCTS.filter(function(p){return c==='all'||p.cat===c}).map(function(p){return self.card(p)}).join('');
+  });
+ }
+};

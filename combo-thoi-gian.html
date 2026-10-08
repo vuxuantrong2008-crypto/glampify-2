@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Combo Theo Thời Gian - Glampify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F1DF;--bg-white:#FFFFFF;--terracotta:#3F5035;--terracotta-dark:#273321;--accent:#A7B77B;--cream:#FFF9E9;--text:#30382B;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-family:'Inter',sans-serif;color:var(--terracotta);font-weight:700}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:72px 0}
+.bg-white{background:var(--bg-white)}
+.section-kicker{color:var(--accent);font-weight:700;font-size:.95rem;display:block;margin-bottom:6px}
+.section-title{font-size:clamp(2rem,4vw,2.6rem);color:var(--terracotta-dark);line-height:1.15}
+.page-hero{background:linear-gradient(150deg,var(--terracotta) 0%,#c98a5c 60%,#8fae72 100%);padding:70px 24px 60px;text-align:center;color:#fff}
+.page-hero .crumb{font-size:.9rem;color:#EDE6D1;font-weight:700;margin-bottom:14px;display:block}
+.page-hero .crumb a{color:#EDE6D1;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5)}
+.page-hero h1{color:#fff;font-size:clamp(2.1rem,4.5vw,3rem);margin-bottom:12px}
+.page-hero p{color:#F3EFDE;font-size:1.05rem;font-weight:600;max-width:560px;margin:0 auto}
+.filter-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px;margin-bottom:32px}
+.filter-pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{border:1.5px solid #D7D8B8;background:#fff;color:var(--terracotta);font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:.88rem;padding:10px 20px;border-radius:24px;cursor:pointer;transition:.2s ease;text-decoration:none;display:inline-block}
+.pill:hover{border-color:var(--accent);color:var(--accent)}
+.pill.active{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.card{background:var(--cream);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 28px rgba(58,69,48,.13);transition:transform .3s ease,box-shadow .3s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(58,69,48,.2)}
+.card-img{position:relative;aspect-ratio:4/3;background:linear-gradient(150deg,var(--terracotta) 0%,#c98a5c 55%,#8fae72 100%);display:flex;align-items:center;justify-content:center}
+.card-img svg{width:48px;height:48px;opacity:.85;color:#fff}
+.tag{position:absolute;top:14px;left:14px;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;padding:6px 13px;border-radius:20px}
+.tag.out{background:#7A3B2E}
+.card-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card-body h3{font-size:1.1rem;line-height:1.3}
+.includes{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.72rem;background:#E8E7C9;color:var(--terracotta-dark);padding:4px 10px;border-radius:20px;font-weight:700}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:#66705E;font-size:.85rem;font-weight:600;margin-top:2px}
+.meta span{display:inline-flex;align-items:center;gap:6px}
+.meta svg{width:16px;height:16px;color:var(--accent)}
+.btn-outline{margin-top:auto;display:block;text-align:center;text-decoration:none;background:transparent;border:1.5px solid var(--terracotta);color:var(--terracotta);padding:10px 0;border-radius:12px;font-weight:700;transition:transform .15s ease,background .2s,color .2s}
+.btn-outline:hover{background:var(--terracotta);color:#fff;transform:translateY(-2px)}
+.commit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.commit{background:var(--cream);border-radius:20px;padding:34px 28px;text-align:center;box-shadow:0 10px 26px rgba(58,69,48,.1)}
+.commit-icon{width:60px;height:60px;border-radius:50%;background:var(--terracotta);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.commit-icon svg{width:28px;height:28px}
+.commit h3{font-size:1.15rem;margin-bottom:8px}
+.commit p{color:#66705E;font-size:.92rem;line-height:1.6}
+footer{background:var(--terracotta-dark);color:#F7F1DF;padding:60px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand svg{width:26px;height:26px;color:var(--accent)}
+.foot-logo{font-family:'Inter',sans-serif;font-weight:700;font-size:1.7rem;color:#fff}
+.foot-grid p,.foot-grid a{color:#EDE9D7;text-decoration:none;font-size:.94rem}
+.foot-grid h4{color:#fff;font-family:'Inter',sans-serif;margin-bottom:16px;font-size:1.15rem}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-links a:hover{color:#fff}
+.foot-bottom{text-align:center;font-size:.82rem;color:#C9CFB0;border-top:1px solid rgba(255,255,255,.15);padding-top:22px}
+.hero-img-wrap{aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:0 16px 40px rgba(58,69,48,.18);position:relative}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.site-header{position:sticky;top:0;z-index:200;background:var(--terracotta-dark);border-bottom:1px solid rgba(255,255,255,.08)}
+.header-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:relative}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-logo{width:74px;height:56px;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.14))}
+.main-nav{display:flex;align-items:center;gap:28px}
+.main-nav > a,.nav-item > a{font-weight:600;font-size:.94rem;color:rgba(255,255,255,.88);text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;transition:color .2s ease,border-color .2s ease}
+.main-nav > a:hover,.nav-item > a:hover{color:#fff}
+.main-nav > a.active,.nav-item > a.active{color:var(--accent);border-color:var(--accent)}
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-item > a::after{content:'';display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+.sub-menu{position:absolute;top:100%;left:-14px;min-width:210px;background:#FFFFFF;border-radius:14px;padding:8px;box-shadow:0 18px 36px rgba(38,46,28,.18);border:1px solid rgba(58,69,48,.1);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:50}
+.nav-item:hover .sub-menu{opacity:1;visibility:visible;transform:none}
+.main-nav .sub-menu a{display:block;padding:10px 14px;border:0;border-radius:9px;font-size:.92rem;white-space:nowrap;color:var(--text)}
+.main-nav .sub-menu a:hover{background:var(--bg);color:var(--terracotta)}
+.nav-toggle{display:none;width:40px;height:40px;border:none;background:none;cursor:pointer;color:#fff;font-size:1.5rem}
+.chat-widget{position:fixed;right:20px;bottom:20px;z-index:999;display:flex;flex-direction:column;gap:14px}
+.chat-bubble{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 12px 26px rgba(0,0,0,.25);transition:transform .2s ease}
+.chat-bubble:hover{transform:scale(1.08)}
+.chat-zalo{background:#0068FF;font-weight:800;font-size:1.3rem}
+.chat-fb{background:#0084FF}
+.chat-fb svg{width:28px;height:28px;fill:#fff}
+.list-head{max-width:640px;margin-bottom:28px}
+.list-head p{color:#66705E;margin-top:10px;line-height:1.6}
+@media (max-width:960px){.product-grid{grid-template-columns:repeat(2,1fr)}.commit-grid,.foot-grid{grid-template-columns:1fr}}
+@media (max-width:860px){.main-nav{position:absolute;top:100%;left:0;right:0;background:var(--terracotta-dark);flex-direction:column;align-items:stretch;gap:0;max-height:0;overflow:hidden}.main-nav.open{max-height:680px}.nav-item{display:block}.nav-item>a{display:block;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.12)}.nav-item>a::after{display:none}.sub-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;padding:0;background:var(--terracotta-dark)}.main-nav .sub-menu a{color:rgba(255,255,255,.8);padding:13px 24px;border-radius:0}.nav-toggle{display:flex}}
+@media (max-width:560px){.product-grid{grid-template-columns:1fr}section{padding:56px 0}}
+.main-nav .sub-menu a {
+    text-decoration: none !important;
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <!-- Đã sửa tên file logo thành logo-header.png -->
+      <img src="images/logo-header.png" alt="Glampify Logo" class="brand-logo">
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Trang Chủ</a>
+      
+      <!-- MENU COMBO BOX -->
+      <div class="nav-item">
+        <a href="thue-box.html" class="active">Combo Box</a>
+        <div class="sub-menu">
+          <a href="combo-kinh-nghiem.html">Theo Kinh Nghiệm</a>
+          <a href="combo-mua.html">Theo Mùa</a>
+          <a href="combo-su-kien.html">Theo Sự Kiện</a>
+          <a href="combo-thoi-gian.html">Theo Thời Gian</a>
+          <a href="combo-quy-mo.html">Theo Quy Mô</a>
+          
+          <!-- Nút Tự Thiết Kế Combo -->
+          <a href="form-dang-ky.html" style="border-top: 1.5px dashed #D7D8B8; margin-top: 6px; padding-top: 12px; color: var(--terracotta); font-weight: 800;">
+            ✨ Tự Thiết Kế Combo
+          </a>
+        </div>
+      </div>
+      
+      <!-- MENU BLOG -->
+      <div class="nav-item">
+        <a href="blog.html">Blog</a>
+        <div class="sub-menu">
+          <a href="blog-dong-van.html">Địa Điểm Nổi Bật</a>
+          <a href="blog-hop-tac-dong-mo.html">Blog Nổi Bật</a>
+        </div>
+      </div>
+      
+      <a href="ve-chung-toi.html">Về Chúng Tôi</a>
+      <a href="lien-he.html">Liên Hệ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Mở menu">&#9776;</button>
+  </div>
+</header>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M17 14c2.5 0 4.5 2 4.5 4.5"/></symbol>
+  <symbol id="icon-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 19h18L12 3Z"/><path d="M8.5 19 12 11l3.5 8"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+</svg>
+
+<div class="page-hero">
+  <span class="crumb"><a href="index.html">Trang chủ</a> / <a href="thue-box.html">Combo Box</a> / Theo Thời Gian</span>
+  <h1>Combo Theo Thời Gian</h1>
+  <p>Linh hoạt trải nghiệm từ dã ngoại sống ảo trong ngày, qua đêm thư giãn đến sinh tồn dài ngày sâu trong rừng.</p>
+</div>
+
+<section class="bg-white">
+  <div class="wrap">
+    <div class="list-head">
+      <span class="section-kicker">Phân loại theo lịch trình</span>
+      <h2 class="section-title">Theo Thời Gian</h2>
+      <p>Chọn hệ thống Trạm Box phù hợp với độ dài chuyến đi của bạn.</p>
+    </div>
+    
+    <div class="filter-head">
+      <div class="filter-pills" style="align-items: center;">
+        <span style="font-weight: 700; color: #66705E; margin-right: 8px; font-size: 0.95rem;">Danh mục</span>
+        <a href="thue-box.html" class="pill" data-filter="all">Tất cả</a>
+        <a href="combo-kinh-nghiem.html" class="pill" data-filter="kinh-nghiem">Theo Kinh Nghiệm</a>
+        <a href="combo-mua.html" class="pill" data-filter="mua">Theo Mùa</a>
+        <a href="combo-su-kien.html" class="pill" data-filter="su-kien">Theo Sự Kiện</a>
+        <a href="combo-thoi-gian.html" class="pill active" data-filter="thoi-gian">Theo Thời Gian</a>
+        <a href="combo-quy-mo.html" class="pill" data-filter="quy-mo">Theo Quy Mô</a>
+        <a href="form-dang-ky.html" class="pill" style="text-decoration: none; border-color: var(--terracotta); color: var(--terracotta); display: inline-flex; align-items: center; gap: 4px;">✨ Tự thiết kế</a>
+      </div>
+    </div>
+    
+    <div class="product-grid" data-cat="tram-box"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:44px"><span class="section-kicker">Vì sao chọn Glampify</span><h2 class="section-title">Cam kết của chúng tôi</h2></div>
+    <div class="commit-grid">
+      <div class="commit"><div class="commit-icon"><svg><use href="#icon-clock"/></svg></div><h3>Nhanh chóng, tiện lợi</h3><p>Đặt combo trong vài phút, giao nhận tận nơi tại Hà Nội, sẵn sàng lên đường trong ngày.</p></div>
+      <div class="commit"><div class="commit-icon"><svg><use href="#icon-sparkle"/></svg></div><h3>Đầy đủ tiện nghi</h3><p>Từ lều, túi ngủ đến bếp và bàn ghế - mọi thứ được chuẩn bị sẵn, không cần mua sắm lích kích.</p></div>
+      <div class="commit"><div class="commit-icon"><svg><use href="#icon-shield"/></svg></div><h3>Uy tín, chất lượng</h3><p>Đồ dùng được vệ sinh, kiểm tra kỹ trước mỗi lượt thuê, hỗ trợ đổi lịch miễn phí khi trời mưa.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand"><svg><use href="#icon-tent"/></svg><span class="foot-logo">Glampify</span></div><p>Mang đến trải nghiệm dã ngoại trọn vẹn và tinh tế nhất.</p><p style="margin-top:10px">79 Hồ Tùng Mậu, Hà Nội</p><p>www.glampify.com</p><p>support@glampify.com</p></div>
+      <div><h4>Chính Sách</h4><ul class="foot-links"><li><a href="#">Chính sách đổi trả</a></li><li><a href="#">Chính sách bảo mật</a></li><li><a href="#">Chính sách vận chuyển</a></li></ul></div>
+      <div><h4>Hỗ Trợ</h4><ul class="foot-links"><li><a href="#">Thuê đồ có cần cọc không?</a></li><li><a href="#">Trời mưa có được dời lịch?</a></li><li><a href="#">Hỗ trợ setup tại bãi</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">© 2026 Glampify. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="chat-widget">
+  <a href="https://zalo.me/" target="_blank" rel="noopener" class="chat-bubble chat-zalo" aria-label="Chat qua Zalo">Z</a>
+  <a href="https://www.facebook.com/glampify" target="_blank" rel="noopener" class="chat-bubble chat-fb" aria-label="Nhắn tin qua Fanpage"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.45 5.49 3.72 7.19V22l3.4-1.87c.91.25 1.87.38 2.88.38 5.52 0 10-4.14 10-9.26C22 6.14 17.52 2 12 2zm1.02 12.47-2.56-2.73-4.99 2.73 5.49-5.84 2.62 2.73 4.93-2.73-5.49 5.84z"/></svg></a>
+</div>
+
+<script>
+  (function(){
+    var navToggle = document.getElementById('navToggle');
+    var mainNav = document.getElementById('mainNav');
+    if(navToggle && mainNav){ navToggle.addEventListener('click', function(){ mainNav.classList.toggle('open'); }); }
+  })();
+</script>
+<script src="products.js"></script>
+<script>GLAMPIFY.renderGrids();</script>
+</body>
+</html>

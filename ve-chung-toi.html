@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Về Chúng Tôi - Glampify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F1DF;
+  --bg-white:#FFFFFF;
+  --terracotta:#3F5035;
+  --terracotta-dark:#273321;
+  --accent:#A7B77B;
+  --cream:#FFF9E9;
+  --text:#30382B;
+  padding-top: env(safe-area-inset-top,0px);
+  padding-bottom: env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-family:'Inter',sans-serif;color:var(--terracotta);font-weight:700}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+.bg-white{background:var(--bg-white)}
+.section-kicker{color:var(--accent);font-weight:700;font-size:.95rem;display:block;margin-bottom:6px}
+.section-title{font-size:clamp(2rem,4vw,2.6rem);color:var(--terracotta-dark);line-height:1.15}
+.section-center{text-align:center;max-width:640px;margin:0 auto 48px}
+.ph{
+  background:linear-gradient(150deg,var(--terracotta) 0%,#c98a5c 55%,#8fae72 100%);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+}
+.btn{border:none;border-radius:12px;font-family:'Inter',system-ui,sans-serif;font-weight:700;cursor:pointer;transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-solid{background:var(--accent);color:#fff;padding:16px 44px;font-size:1.05rem;box-shadow:0 8px 20px rgba(201,138,61,.35)}
+
+/* ---------- 1. HERO ---------- */
+/* ---------- 1. HERO (Chữ Trái - Ảnh Phải) ---------- */
+.hero-about {
+  padding: 60px 0;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero-copy .section-kicker {
+  margin-bottom: 8px;
+}
+.hero-copy h1 {
+  font-size: clamp(2.1rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 18px;
+  color: var(--terracotta-dark);
+}
+.hero-copy p {
+  color: #66705E;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 520px;
+}
+.hero-img {
+  aspect-ratio: 4/3;
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(58, 69, 48, 0.18);
+}
+
+/* ---------- 2. BRAND STORY ---------- */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.story-img{aspect-ratio:4/3;border-radius:22px;box-shadow:0 16px 40px rgba(58,69,48,.18)}
+.story-copy .section-kicker{margin-bottom:10px}
+.story-copy h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:20px}
+.story-copy p{color:#66705E;line-height:1.75;margin-bottom:16px}
+
+/* ---------- 3. GIÁ TRỊ CỐT LÕI ---------- */
+/* ---------- 3. GIÁ TRỊ CỐT LÕI (GIỮ NỀN XEN KẼ & NỔI BẬT CARD) ---------- */
+.values-section {
+  background-color: var(--cream); /* Khôi phục nền Cream để đảm bảo nhịp xen kẽ Cream - White */
+  padding: 80px 0;
+}
+
+.values-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+.values-header .section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 16px;
+}
+
+/* Đường gạch chân điểm nhấn */
+.values-header .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.value-card {
+  background: #ffffff; /* Card TRẮNG nổi bật rõ rệt trên nền Cream */
+  border-radius: 20px;
+  padding: 36px 24px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(58, 69, 48, 0.08); /* Bóng đổ êm giúp card nổi lên */
+  border: 1px solid rgba(58, 69, 48, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(58, 69, 48, 0.16);
+  border-color: rgba(58, 69, 48, 0.2);
+}
+
+.value-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background: rgba(58, 69, 48, 0.08); /* Nền icon màu cam đất nhạt dịu mắt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--terracotta);
+}
+
+.value-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  color: var(--terracotta-dark);
+  font-weight: 700;
+}
+
+.value-card p {
+  color: #7d5e4e;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* ---------- 4. QUY TRÌNH 4 BƯỚC ---------- */
+.step-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.step{position:relative;padding:8px 6px 0}
+.step-num{font-family:'Inter',sans-serif;font-size:2.6rem;font-weight:800;color:var(--accent);opacity:.4;line-height:1;margin-bottom:14px}
+.step h3{font-size:1.08rem;margin-bottom:8px}
+.step p{color:#66705E;font-size:.92rem;line-height:1.6}
+
+/* ---------- 5. CTA BOX ---------- */
+.cta-box{
+  max-width:760px;margin:0 auto;text-align:center;background:var(--cream);border-radius:24px;
+  padding:64px 40px;box-shadow:0 16px 40px rgba(58,69,48,.14);
+}
+.cta-box h2{font-size:clamp(1.8rem,3.4vw,2.3rem);margin-bottom:16px}
+.cta-box p{color:#66705E;line-height:1.7;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* ---------- FOOTER (giống hệt các trang khác) ---------- */
+footer{background:var(--terracotta-dark);color:#F7F1DF;padding:60px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand svg{width:26px;height:26px;color:var(--accent)}
+.foot-logo{font-family:'Inter',sans-serif;font-weight:700;font-size:1.7rem;color:#fff}
+.foot-grid p,.foot-grid a{color:#EDE9D7;text-decoration:none;font-size:.94rem}
+.foot-grid h4{color:#fff;font-family:'Inter',sans-serif;margin-bottom:16px;font-size:1.15rem}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-links a{transition:color .2s ease}
+.foot-links a:hover{color:#fff}
+.foot-bottom{text-align:center;font-size:.82rem;color:#C9CFB0;border-top:1px solid rgba(255,255,255,.15);padding-top:22px}
+
+.hero-img-wrap {
+  aspect-ratio: 4/3;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(58, 69, 48, 0.18);
+}
+.hero-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Giúp ảnh không bị méo hay bóp hình */
+  display: block;
+}
+.value-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  background: var(--bg); /* Lấy màu nền nhẹ làm điểm nhấn */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-icon {
+  width: 42px;
+  height: 42px;
+  color: var(--terracotta); /* Tự động đồng bộ sang màu nâu chủ đạo */
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .hero-grid, .story-grid { grid-template-columns: 1fr; }
+  .story-img { order: -1; }
+  .value-grid { grid-template-columns: repeat(2, 1fr); }
+  .step-grid { grid-template-columns: repeat(2, 1fr); }
+  .foot-grid { grid-template-columns: 1fr; }
+}
+@media (max-width:600px){
+  section{padding:56px 0}
+  .value-grid{grid-template-columns:1fr}
+  .step-grid{grid-template-columns:1fr}
+  .cta-box{padding:48px 24px}
+}
+
+/* =========================================================
+   HEADER DÙNG CHUNG CHO TẤT CẢ CÁC TRANG
+========================================================= */
+/* =========================================================
+   HEADER & DROPDOWN MENU CHUẨN
+========================================================= */
+.site-header{
+  position:sticky;top:0;z-index:200;
+  background:var(--terracotta-dark);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;
+}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-logo{width:74px;height:56px;object-fit:contain;border-radius:12px;display:block;flex:0 0 auto;filter:drop-shadow(0 3px 8px rgba(0,0,0,.14))}
+.brand-name{font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:.3px}
+.main-nav{display:flex;align-items:center;gap:28px}
+.main-nav > a{font-weight:600;font-size:.94rem;color:rgba(255,255,255,.88);text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;transition:color .2s ease,border-color .2s ease}
+.main-nav > a:hover{color:#fff}
+.main-nav > a.active{color:var(--accent);border-color:var(--accent)}
+.nav-toggle{display:none;width:40px;height:40px;border:none;background:none;cursor:pointer;color:#fff;font-size:1.5rem;align-items:center;justify-content:center}
+
+/* ---- MENU CON (DROPDOWN) ĐÃ SỬA MÀU SẮC & CẤU TRÚC ---- */
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-item > a{font-weight:600;font-size:.94rem;color:rgba(255,255,255,.88);text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;display:flex;align-items:center}
+.nav-item > a:hover{color:#fff}
+.nav-item > a::after{content:'';display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+
+.sub-menu{
+  position:absolute;top:100%;left:-14px;min-width:210px;
+  background:#FFFFFF; /* Đã sửa thành màu trắng tinh, bỏ màu đen cũ */
+  border-radius:14px;padding:8px;
+  box-shadow:0 18px 36px rgba(38,46,28,.18);
+  border:1px solid rgba(58,69,48,.1);
+  opacity:0;visibility:hidden;transform:translateY(6px);
+  transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:50;
+}
+.nav-item:hover .sub-menu,.nav-item:focus-within .sub-menu{opacity:1;visibility:visible;transform:none}
+.main-nav .sub-menu a{display:block;padding:10px 14px;border:0;border-radius:9px;font-size:.92rem;white-space:nowrap;color:var(--text);text-decoration:none}
+.main-nav .sub-menu a:hover,.main-nav .sub-menu a.current{background:var(--bg);color:var(--terracotta)}
+.main-nav .sub-menu a.sub-child{padding-left:30px;font-weight:500;color:#66705E}
+
+@media (max-width:860px){
+  .main-nav{
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--terracotta-dark);flex-direction:column;align-items:stretch;gap:0;
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+    box-shadow:0 16px 28px rgba(0,0,0,.25);
+  }
+  .main-nav.open{max-height:680px;overflow-y:auto}
+  .nav-item{display:block}
+  .nav-item > a{display:block;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.88)}
+  .nav-item > a::after{display:none}
+  .sub-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;padding:0;background:var(--terracotta-dark)}
+  .main-nav .sub-menu a{padding:13px 24px 13px 40px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.8)}
+  .main-nav .sub-menu a.sub-child{padding-left:56px}
+  .main-nav > a{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav-toggle{display:flex}
+}
+
+/* =========================================================
+   CHAT WIDGET NỔI (ZALO + FANPAGE) - DÙNG CHUNG
+========================================================= */
+.chat-widget{position:fixed;right:20px;bottom:20px;z-index:999;display:flex;flex-direction:column;gap:14px}
+.chat-bubble{
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;text-decoration:none;
+  box-shadow:0 12px 26px rgba(0,0,0,.25);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.chat-bubble:hover{transform:scale(1.08);box-shadow:0 16px 32px rgba(0,0,0,.32)}
+.chat-zalo{background:#0068FF;font-family:'Inter',system-ui,sans-serif;font-weight:800;font-size:1.3rem}
+.chat-fb{background:#0084FF}
+.chat-fb svg{width:28px;height:28px;fill:#fff}
+
+@media (max-width:600px){
+  .chat-widget{right:14px;bottom:14px;gap:12px}
+  .chat-bubble{width:50px;height:50px}
+}
+
+
+/* ---- FONT: Inter cho toàn bộ tiêu đề và nội dung ---- */
+button,input,select,textarea{font-family:inherit}
+
+/* ---- MENU CON "COMBO BOX" ---- */
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-item>a::after{content:'';display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+.sub-menu{position:absolute;top:100%;left:-14px;min-width:210px;background:#fff;border-radius:14px;padding:8px;box-shadow:0 18px 36px rgba(38,46,28,.18);border:1px solid rgba(58,69,48,.1);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:50}
+.nav-item:hover .sub-menu,.nav-item:focus-within .sub-menu{opacity:1;visibility:visible;transform:none}
+.main-nav .sub-menu a{display:block;padding:10px 14px;border:0;border-radius:9px;font-size:.92rem;white-space:nowrap}
+.main-nav .sub-menu a:hover,.main-nav .sub-menu a.current{background:var(--bg);color:var(--terracotta)}
+.main-nav .sub-menu a.sub-child{padding-left:30px;font-weight:500;color:#66705E}
+@media (max-width:860px){
+  .main-nav.open{max-height:680px;overflow-y:auto}
+  .nav-item{display:block}
+  .nav-item>a{display:block}
+  .nav-item>a::after{display:none}
+  .sub-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;padding:0;background:var(--bg)}
+  .main-nav .sub-menu a{padding:13px 24px 13px 40px;border-radius:0;border-bottom:1px solid rgba(0,0,0,.05)}
+  .main-nav .sub-menu a.sub-child{padding-left:56px}
+}
+.hero-copy p+p{margin-top:14px}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <!-- Đã sửa tên file logo thành logo-header.png -->
+      <img src="images/logo-header.png" alt="Glampify Logo" class="brand-logo">
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Trang Chủ</a>
+      
+      <!-- MENU COMBO BOX -->
+      <div class="nav-item">
+        <a href="thue-box.html" class="active">Combo Box</a>
+        <div class="sub-menu">
+          <a href="combo-kinh-nghiem.html">Theo Kinh Nghiệm</a>
+          <a href="combo-mua.html">Theo Mùa</a>
+          <a href="combo-su-kien.html">Theo Sự Kiện</a>
+          <a href="combo-thoi-gian.html">Theo Thời Gian</a>
+          <a href="combo-quy-mo.html">Theo Quy Mô</a>
+          
+          <!-- Nút Tự Thiết Kế Combo -->
+          <a href="form-dang-ky.html" style="border-top: 1.5px dashed #D7D8B8; margin-top: 6px; padding-top: 12px; color: var(--terracotta); font-weight: 800;">
+            ✨ Tự Thiết Kế Combo
+          </a>
+        </div>
+      </div>
+      
+      <!-- MENU BLOG -->
+      <div class="nav-item">
+        <a href="blog.html">Blog</a>
+        <div class="sub-menu">
+          <a href="blog-dong-van.html">Địa Điểm Nổi Bật</a>
+          <a href="blog-hop-tac-dong-mo.html">Blog Nổi Bật</a>
+        </div>
+      </div>
+      
+      <a href="ve-chung-toi.html">Về Chúng Tôi</a>
+      <a href="lien-he.html">Liên Hệ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Mở menu">&#9776;</button>
+  </div>
+</header>
+
+
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="icon-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 19h18L12 3Z"/><path d="M8.5 19 12 11l3.5 8"/></symbol>
+</svg>
+
+<!-- 1. GIỚI THIỆU HÀ GIANG -->
+<section class="hero-about">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="section-kicker">Điểm đến của chúng tôi</span>
+      <h1>Hà Giang, miền đá nơi trời đất gần nhau</h1>
+      <p>Nằm ở cực Bắc Việt Nam, Hà Giang nổi tiếng với cao nguyên đá Đồng Văn, Công viên địa chất toàn cầu UNESCO, cùng đèo Mã Pì Lèng và dòng sông Nho Quế xanh ngọc giữa hẻm vực sâu.</p>
+      <p>Mỗi mùa ở đây một sắc màu: hoa tam giác mạch cuối thu, hoa đào hoa mận đầu xuân, ruộng bậc thang vàng rực mùa lúa chín. Đó cũng là lý do Hà Giang trở thành nơi cắm trại được nhiều người yêu thích.</p>
+    </div>
+    <div class="hero-img-wrap">
+      <img src="https://i.ibb.co/KpZmXVGx/chinh-phuc-deo-ma-pi-leng-tu-dai-dinh-deo-cua-vung-nui-dat-bac-1642065331-1.jpg" alt="Đèo Mã Pì Lèng, Hà Giang">
+    </div>
+  </div>
+</section>
+
+<!-- 2. GIỚI THIỆU GLAMPIFY -->
+<section class="bg-white">
+  <div class="wrap story-grid">
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1625834509314-3b12c6153624?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cắm trại cùng Glampify">
+    </div>
+    <div class="story-copy">
+      <span class="section-kicker">Về Glampify</span>
+      <h2>Glampify là gì?</h2>
+      <p>Glampify là dịch vụ cho thuê trọn bộ combo dã ngoại. Lều, túi ngủ, bàn ghế, bếp và đèn được đóng gói sẵn theo số người, bạn chỉ cần chọn combo, chọn ngày và xách balo lên đường.</p>
+      <p>Mỗi bộ đồ đều được vệ sinh và kiểm tra trước mỗi lượt thuê. Nếu trời mưa, bạn được đổi lịch miễn phí, và đội ngũ Glampify luôn sẵn sàng hỗ trợ setup tại bãi.</p>
+      <p>Chúng tôi chọn Hà Giang làm nơi bắt đầu, để ai cũng có thể ngủ giữa núi đá mà không phải đầu tư một bộ đồ riêng.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. GIÁ TRỊ CỐT LÕI -->
+<section class="values-section">
+  <div class="wrap">
+    <div class="values-header">
+      <span class="section-kicker">Điều chúng tôi theo đuổi</span>
+      <h2 class="section-title">Giá Trị Cốt Lõi</h2>
+    </div>
+    <div class="value-grid">
+      
+      <!-- Card 1: Tận Tâm -->
+      <div class="value-card">
+        <div class="value-icon">
+          <svg class="custom-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <h3>Tận Tâm</h3>
+        <p>Luôn lắng nghe và đồng hành cùng khách hàng trong mỗi hành trình.</p>
+      </div>
+
+      <!-- Card 2: Chất Lượng -->
+      <div class="value-card">
+        <div class="value-icon">
+          <svg class="custom-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+          </svg>
+        </div>
+        <h3>Chất Lượng</h3>
+        <p>Đồ dùng được kiểm tra kỹ lưỡng, đảm bảo an toàn và sạch sẽ.</p>
+      </div>
+
+      <!-- Card 3: Linh Hoạt -->
+      <div class="value-card">
+        <div class="value-icon">
+          <svg class="custom-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+          </svg>
+        </div>
+        <h3>Linh Hoạt</h3>
+        <p>Dễ dàng đổi lịch, tùy chỉnh combo theo nhu cầu thực tế.</p>
+      </div>
+
+      <!-- Card 4: Bền Vững -->
+      <div class="value-card">
+        <div class="value-icon">
+          <svg class="custom-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.5 0 4-2 7.74-6.4 10.84-13.66L17 8zM5.5 19.5C7.2 15.5 10.5 11 18 9c-2 6-5.5 10-10.5 11.5-.66.2-1.33 0-2-.1z"/>
+          </svg>
+        </div>
+        <h3>Bền Vững</h3>
+        <p>Ưu tiên tái sử dụng thiết bị, giảm thiểu rác thải khi dã ngoại.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4. QUY TRÌNH 4 BƯỚC -->
+<section class="bg-white">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-kicker">Đơn giản, nhanh gọn</span>
+      <h2 class="section-title">Quy Trình 4 Bước</h2>
+    </div>
+    <div class="step-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Chọn Combo</h3>
+        <p>Lựa chọn combo phù hợp với số người và nhu cầu chuyến đi.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Đặt Lịch</h3>
+        <p>Điền thông tin đăng ký, chọn ngày đi và địa điểm nhận đồ.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Nhận Đồ</h3>
+        <p>Nhận đồ tận nơi hoặc tại điểm giao nhận gần bạn nhất.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Tận Hưởng</h3>
+        <p>Xách balo lên và đi, tận hưởng trọn vẹn chuyến dã ngoại.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CTA BOX -->
+<section>
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Sẵn sàng cho chuyến đi tiếp theo?</h2>
+      <p>Để Glampify lo phần chuẩn bị, bạn chỉ cần xách balo lên và tận hưởng thiên nhiên.</p>
+      <a href="thue-box.html" class="btn btn-solid" style="display:inline-block;text-decoration:none;">Xem Combo Ngay</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg><use href="#icon-tent"/></svg><span class="foot-logo">Glampify</span></div>
+        <p>Mang đến trải nghiệm dã ngoại trọn vẹn và tinh tế nhất.</p>
+        <p style="margin-top:10px">79 Hồ Tùng Mậu, Hà Nội</p>
+        <p>www.glampify.com</p>
+        <p>support@glampify.com</p>
+      </div>
+      <div>
+        <h4>Chính Sách</h4>
+        <ul class="foot-links">
+          <li><a href="#">Chính sách đổi trả</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Chính sách vận chuyển</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hỗ Trợ</h4>
+        <ul class="foot-links">
+          <li><a href="#">Thuê đồ có cần cọc không?</a></li>
+          <li><a href="#">Trời mưa có được dời lịch?</a></li>
+          <li><a href="#">Hỗ trợ setup tại bãi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Glampify. All rights reserved.</div>
+  </div>
+</footer>
+
+
+<!-- CHAT WIDGET: ZALO + FANPAGE (thay link thật của bạn vào 2 href bên dưới) -->
+<div class="chat-widget">
+  <a href="https://zalo.me/" target="_blank" rel="noopener" class="chat-bubble chat-zalo" aria-label="Chat qua Zalo">Z</a>
+  <a href="https://www.facebook.com/glampify" target="_blank" rel="noopener" class="chat-bubble chat-fb" aria-label="Nhắn tin qua Fanpage">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.45 5.49 3.72 7.19V22l3.4-1.87c.91.25 1.87.38 2.88.38 5.52 0 10-4.14 10-9.26C22 6.14 17.52 2 12 2zm1.02 12.47-2.56-2.73-4.99 2.73 5.49-5.84 2.62 2.73 4.93-2.73-5.49 5.84z"/></svg>
+  </a>
+</div>
+
+<script>
+  (function(){
+    var navToggle = document.getElementById('navToggle');
+    var mainNav = document.getElementById('mainNav');
+    if(navToggle && mainNav){
+      navToggle.addEventListener('click', function(){ mainNav.classList.toggle('open'); });
+    }
+  })();
+</script>
+
+</body>
+</html>
