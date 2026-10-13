@@ -6,6 +6,7 @@
 <title>Hướng Dẫn Đặt Combo Online Chỉ Trong 3 Bước Đơn Giản Cho Người Mới - Glampify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -149,63 +150,67 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
 }
 
 /* =========================================================
-   HEADER & DROPDOWN MENU CHUẨN
+   HEADER - ĐỒNG BỘ VỚI TRANG CHỦ / LIÊN HỆ
+   (copy nguyên từ index.html - sửa menu thì sửa ở cả các trang)
 ========================================================= */
-.site-header{
-  position:sticky;top:0;z-index:200;
-  background:var(--terracotta-dark);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.header-inner{
-  max-width:1200px;margin:0 auto;padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-  position:relative;
-}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand-logo{width:74px;height:56px;object-fit:contain;border-radius:12px;display:block;flex:0 0 auto;filter:drop-shadow(0 3px 8px rgba(0,0,0,.14))}
-.brand-name{font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:.3px}
-.main-nav{display:flex;align-items:center;gap:28px}
-.main-nav > a{font-weight:600;font-size:.94rem;color:rgba(255,255,255,.88);text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;transition:color .2s ease,border-color .2s ease}
-.main-nav > a:hover{color:#fff}
-.main-nav > a.active{color:var(--accent);border-color:var(--accent)}
-.nav-toggle{display:none;width:40px;height:40px;border:none;background:none;cursor:pointer;color:#fff;font-size:1.5rem;align-items:center;justify-content:center}
+.site-header { --forest:#22351f; --forest-light:#395334; --cream:#f6f0df; --text:#263423; font-family:"Be Vietnam Pro", system-ui, sans-serif; }
+/* --- 03.1 Thanh header: dính trên cùng khi cuộn --- */
+.site-header { position: sticky; top: 0; z-index: 1000; background: rgba(34, 53, 31, .98); border-bottom: 1px solid rgba(255, 255, 255, .07); backdrop-filter: blur(12px); }
+.header-inner { width: min(1180px, calc(100% - 48px)); margin: 0 auto; min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 
-/* ---- MENU CON (DROPDOWN) ĐÃ SỬA MÀU SẮC & CẤU TRÚC ---- */
-.nav-item{position:relative;display:flex;align-items:center}
-.nav-item > a{font-weight:600;font-size:.94rem;color:rgba(255,255,255,.88);text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;display:flex;align-items:center}
-.nav-item > a:hover{color:#fff}
-.nav-item > a::after{content:'';display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+/* --- 03.2 Logo tròn --- */
+.brand { display: flex; align-items: center; justify-content: center; flex-shrink: 0; text-decoration: none; }
+.brand-badge { width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 50%; background: var(--cream); border: 1px solid rgba(255, 255, 255, .18); box-shadow: 0 4px 18px rgba(0, 0, 0, .16); transition: transform .25s ease, box-shadow .25s ease; }
+.header-logo { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.brand:hover .brand-badge { transform: translateY(-2px) scale(1.04); box-shadow: 0 8px 24px rgba(0, 0, 0, .20); }
 
-.sub-menu{
-  position:absolute;top:100%;left:-14px;min-width:210px;
-  background:#FFFFFF; /* Đã sửa thành màu trắng tinh, bỏ màu đen cũ */
-  border-radius:14px;padding:8px;
-  box-shadow:0 18px 36px rgba(38,46,28,.18);
-  border:1px solid rgba(58,69,48,.1);
-  opacity:0;visibility:hidden;transform:translateY(6px);
-  transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:50;
-}
-.nav-item:hover .sub-menu,.nav-item:focus-within .sub-menu{opacity:1;visibility:visible;transform:none}
-.main-nav .sub-menu a{display:block;padding:10px 14px;border:0;border-radius:9px;font-size:.92rem;white-space:nowrap;color:var(--text);text-decoration:none}
-.main-nav .sub-menu a:hover,.main-nav .sub-menu a.current{background:var(--bg);color:var(--terracotta)}
-.main-nav .sub-menu a.sub-child{padding-left:30px;font-weight:500;color:#66705E}
+/* --- 03.3 Menu chính (Trang chủ, Combo Box, Blog...) --- */
+.main-nav { display: flex; align-items: center; gap: 42px; }
+.main-nav > a,
+.nav-item > a { position: relative; display: flex; align-items: center; gap: 9px; padding: 39px 0; color: rgba(255, 255, 255, .90); text-decoration: none; font-size: 15px; font-weight: 600; transition: color .2s ease; }
+.main-nav > a:hover,
+.nav-item > a:hover { color: #d6df9d; }
 
-@media (max-width:860px){
-  .main-nav{
-    position:absolute;top:100%;left:0;right:0;
-    background:var(--terracotta-dark);flex-direction:column;align-items:stretch;gap:0;
-    max-height:0;overflow:hidden;transition:max-height .3s ease;
-    box-shadow:0 16px 28px rgba(0,0,0,.25);
-  }
-  .main-nav.open{max-height:680px;overflow-y:auto}
-  .nav-item{display:block}
-  .nav-item > a{display:block;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.88)}
-  .nav-item > a::after{display:none}
-  .sub-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;padding:0;background:var(--terracotta-dark)}
-  .main-nav .sub-menu a{padding:13px 24px 13px 40px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.8)}
-  .main-nav .sub-menu a.sub-child{padding-left:56px}
-  .main-nav > a{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.12)}
-  .nav-toggle{display:flex}
+/* Mục đang đứng: chữ xanh nhạt + gạch chân */
+.main-nav > a.active { color: #cdd98f; }
+.main-nav > a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 27px; height: 2px; border-radius: 20px; background: #cdd98f; }
+
+/* --- 03.4 Menu con xổ xuống (dropdown) --- */
+.nav-item { position: relative; }
+
+/* Mũi tên nhỏ bên cạnh chữ có menu con */
+.nav-item > a::after { content: ""; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+
+/* Hộp menu con: ẩn mặc định, hiện khi rê chuột */
+.sub-menu { position: absolute; top: 81px; left: -22px; width: 220px; padding: 10px; background: #ffffff; border: 1px solid rgba(31, 52, 28, .08); border-radius: 14px; box-shadow: 0 18px 45px rgba(22, 39, 20, .20); opacity: 0; visibility: hidden; transform: translateY(8px); transition: .22s ease; }
+.nav-item:hover .sub-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.sub-menu a { display: block; padding: 11px 13px; border-radius: 8px; color: var(--text); text-decoration: none; font-size: 13px; font-weight: 500; transition: .2s; }
+.sub-menu a:hover { background: #f0f3e3; color: var(--forest); }
+.sub-menu .sub-child { padding-left: 27px; color: #757c70; }
+
+/* --- 03.5 Nút ☰ mở menu (chỉ hiện trên mobile) --- */
+.nav-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: none; background: transparent; color: white; font-size: 28px; cursor: pointer; }
+
+@media (max-width: 860px) {
+    .header-inner { min-height: 78px; }
+    .brand-badge { width: 56px; height: 56px; }
+    .nav-toggle { display: flex; }
+    .header-inner { min-height: 78px; }
+    .brand-badge { width: 56px; height: 56px; }
+    .nav-toggle { display: flex; }
+
+    /* --- Menu xổ dọc, ẩn mặc định, hiện khi có class .open --- */
+    .main-nav { position: absolute; top: 78px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 24px 22px; background: var(--forest); border-top: 1px solid rgba(255, 255, 255, .07); }
+    .main-nav.open { display: flex; }
+    .main-nav > a,
+    .nav-item > a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, .08); }
+    .main-nav > a.active::after,
+    .nav-item > a::after { display: none; }
+
+    /* --- Menu con luôn hiện, thụt vào --- */
+    .sub-menu { position: static; display: block; width: 100%; padding: 0 0 8px 15px; opacity: 1; visibility: visible; transform: none; background: transparent; border: none; box-shadow: none; }
+    .sub-menu a { color: rgba(255, 255, 255, .66); padding: 8px 0; }
+    .sub-menu a:hover { background: transparent; color: #ffffff; }
 }
 
 /* =========================================================
@@ -233,24 +238,6 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
 /* ---- FONT: Inter cho toàn bộ tiêu đề và nội dung ---- */
 button,input,select,textarea{font-family:inherit}
 
-/* ---- MENU CON "COMBO BOX" ---- */
-.nav-item{position:relative;display:flex;align-items:center}
-.nav-item>a::after{content:'';display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg)}
-.sub-menu{position:absolute;top:100%;left:-14px;min-width:210px;background:#fff;border-radius:14px;padding:8px;box-shadow:0 18px 36px rgba(38,46,28,.18);border:1px solid rgba(58,69,48,.1);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:50}
-.nav-item:hover .sub-menu,.nav-item:focus-within .sub-menu{opacity:1;visibility:visible;transform:none}
-.main-nav .sub-menu a{display:block;padding:10px 14px;border:0;border-radius:9px;font-size:.92rem;white-space:nowrap}
-.main-nav .sub-menu a:hover,.main-nav .sub-menu a.current{background:var(--bg);color:var(--terracotta)}
-.main-nav .sub-menu a.sub-child{padding-left:30px;font-weight:500;color:#66705E}
-@media (max-width:860px){
-  .main-nav.open{max-height:680px;overflow-y:auto}
-  .nav-item{display:block}
-  .nav-item>a{display:block}
-  .nav-item>a::after{display:none}
-  .sub-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;padding:0;background:var(--bg)}
-  .main-nav .sub-menu a{padding:13px 24px 13px 40px;border-radius:0;border-bottom:1px solid rgba(0,0,0,.05)}
-  .main-nav .sub-menu a.sub-child{padding-left:56px}
-}
-
 /* ---------- TRANG BÀI VIẾT CHI TIẾT ---------- */
 .static-crumb{display:block;padding:18px 0 0;font-size:.88rem;color:#66705E}
 .static-crumb a{color:var(--terracotta);text-decoration:none;font-weight:600}
@@ -271,44 +258,52 @@ button,input,select,textarea{font-family:inherit}
 </style>
 <body>
 <header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="brand">
-      <!-- Đã sửa tên file logo thành logo-header.png -->
-      <img src="images/logo-header.png" alt="Glampify Logo" class="brand-logo">
-    </a>
-    <nav class="main-nav" id="mainNav">
-      <a href="index.html">Trang Chủ</a>
-      
-      <!-- MENU COMBO BOX -->
-      <div class="nav-item">
-        <a href="thue-box.html" class="active">Combo Box</a>
-        <div class="sub-menu">
-          <a href="combo-kinh-nghiem.html">Theo Kinh Nghiệm</a>
-          <a href="combo-mua.html">Theo Mùa</a>
-          <a href="combo-su-kien.html">Theo Sự Kiện</a>
-          
-          
-          <!-- Nút Tự Thiết Kế Combo -->
-          <a href="form-dang-ky.html" style="border-top: 1.5px dashed #D7D8B8; margin-top: 6px; padding-top: 12px; color: var(--terracotta); font-weight: 800;">
-            ✨ Tự Thiết Kế Combo
-          </a>
-        </div>
-      </div>
-      
-      <!-- MENU BLOG -->
-      <div class="nav-item">
-        <a href="blog.html">Blog</a>
-        <div class="sub-menu">
-          <a href="blog-dong-van.html">Địa Điểm Nổi Bật</a>
-          <a href="blog-hop-tac-dong-mo.html">Blog Nổi Bật</a>
-        </div>
-      </div>
-      
-      <a href="ve-chung-toi.html">Về Chúng Tôi</a>
-      <a href="lien-he.html">Liên Hệ</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Mở menu">&#9776;</button>
-  </div>
+    <div class="header-inner">
+
+        <!-- Logo (bấm về trang chủ) -->
+        <a href="index.html" class="brand">
+            <div class="brand-badge">
+                <img src="images/logo-header.png" alt="Glampify Logo" class="header-logo">
+            </div>
+        </a>
+
+        <!-- Menu chính -->
+        <nav class="main-nav" id="mainNav">
+
+            <!-- Trang Chủ (class="active" = mục đang đứng) -->
+            <a href="index.html">Trang Chủ</a>
+
+            <!-- Menu: Combo Box + menu con -->
+            <div class="nav-item">
+                <a href="thue-box.html">Combo Box</a>
+                <div class="sub-menu">
+                    <a href="combo-kinh-nghiem.html">Theo Kinh Nghiệm</a>
+                    <a href="combo-mua.html">Theo Mùa</a>
+                    <a href="combo-su-kien.html">Theo Sự Kiện</a>
+
+                    <!-- Nút Tự Thiết Kế Combo (có gạch đứt phía trên) -->
+                    <a href="form-dang-ky.html" style="border-top: 1.5px dashed #D7D8B8; margin-top: 6px; padding-top: 12px; color: var(--forest); font-weight: 800;">
+                        ✨ Tự Thiết Kế Combo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Menu: Blog + menu con -->
+            <div class="nav-item">
+                <a href="blog.html" class="active">Blog</a>
+                <div class="sub-menu">
+                    <a href="blog-dong-van.html">Địa Điểm Nổi Bật</a>
+                    <a href="blog-hop-tac-dong-mo.html">Blog Nổi Bật</a>
+                </div>
+            </div>
+
+            <a href="ve-chung-toi.html">Về Chúng Tôi</a>
+            <a href="lien-he.html">Liên Hệ</a>
+        </nav>
+
+        <!-- Nút ☰ mở menu (chỉ hiện trên mobile) -->
+        <button class="nav-toggle" id="navToggle" aria-label="Mở menu">☰</button>
+    </div>
 </header>
 
 <svg width="0" height="0" style="position:absolute">
@@ -436,7 +431,10 @@ button,input,select,textarea{font-family:inherit}
     var navToggle = document.getElementById('navToggle');
     var mainNav = document.getElementById('mainNav');
     if(navToggle && mainNav){
-      navToggle.addEventListener('click', function(){ mainNav.classList.toggle('open'); });
+      navToggle.addEventListener('click', function(){
+        mainNav.classList.toggle('open');
+        navToggle.innerHTML = mainNav.classList.contains('open') ? '\u2715' : '\u2630';
+      });
     }
   })();
 </script>

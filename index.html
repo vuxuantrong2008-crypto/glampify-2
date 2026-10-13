@@ -2,2459 +2,713 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glampify - Camping Made Simple</title>
+
+<!-- Font chữ: Be Vietnam Pro -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  MỤC LỤC CSS (tìm nhanh bằng Ctrl+F theo số thứ tự)          ║
+   ║  01. Màu thương hiệu & biến        09. Form tư vấn            ║
+   ║  02. Reset & nền tảng              10. Điểm đến (Destination) ║
+   ║  03. Header (logo + menu)          11. Đánh giá khách hàng    ║
+   ║  04. Hero (banner đầu trang)       12. Footer                 ║
+   ║  05. Benefits (4 lợi ích)          13. Nút chat Zalo/FB       ║
+   ║  06. Section chung (tiêu đề...)    14. Responsive Tablet      ║
+   ║  07. Danh mục Combo                15. Responsive Mobile      ║
+   ║  08. Sản phẩm (carousel)           16. Responsive Mobile nhỏ  ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+
+/* ==============================================================
+   01. MÀU THƯƠNG HIỆU & BIẾN
+   Đổi màu ở đây là đổi toàn trang
+============================================================== */
+:root {
+    --forest: #22351f;         /* Xanh rừng - màu chính (header, nút) */
+    --forest-dark: #172716;    /* Xanh rừng đậm - footer */
+    --forest-light: #395334;   /* Xanh rừng nhạt - hover nút */
+    --sage: #aab879;           /* Xanh xô thơm */
+    --sage-light: #e3e8ca;
+    --cream: #f6f0df;          /* Kem - nền section */
+    --cream-light: #fbf8ef;    /* Kem nhạt - nền trang */
+    --white: #ffffff;
+    --text: #263423;           /* Màu chữ chính */
+    --text-soft: #6c7468;      /* Màu chữ phụ */
+    --border: #dedfd4;
+    --shadow: 0 18px 50px rgba(30, 52, 27, .10);
+}
+
+
+/* ==============================================================
+   02. RESET & NỀN TẢNG
+============================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: "Be Vietnam Pro", sans-serif; background: var(--cream-light); color: var(--text); overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+button, input { font-family: inherit; }
+
+/* Khung nội dung căn giữa, rộng tối đa 1180px */
+.container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+
+
+/* ==============================================================
+   03. HEADER (thanh menu trên cùng)
+   (Phần này đã dùng chung với trang Liên hệ - sửa ở 2 nơi cho đồng bộ)
+============================================================== */
+
+/* --- 03.1 Thanh header: dính trên cùng khi cuộn --- */
+.site-header { position: sticky; top: 0; z-index: 1000; background: rgba(34, 53, 31, .98); border-bottom: 1px solid rgba(255, 255, 255, .07); backdrop-filter: blur(12px); }
+.header-inner { width: min(1180px, calc(100% - 48px)); margin: 0 auto; min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+
+/* --- 03.2 Logo tròn --- */
+.brand { display: flex; align-items: center; justify-content: flex-start; gap: 14px; flex-shrink: 0; text-decoration: none; }
+.brand-badge { width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 50%; background: var(--cream); border: 1px solid rgba(255, 255, 255, .18); box-shadow: 0 4px 18px rgba(0, 0, 0, .16); transition: transform .25s ease, box-shadow .25s ease; }
+.header-logo { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.brand:hover .brand-badge { transform: translateY(-2px) scale(1.04); box-shadow: 0 8px 24px rgba(0, 0, 0, .20); }
+.brand-text { color: #ffffff; font-size: 20px; font-weight: 800; letter-spacing: -.3px; white-space: nowrap; transition: color .2s ease; }
+.brand:hover .brand-text { color: #d6df9d; }
+
+/* --- 03.3 Menu chính (Trang chủ, Combo Box, Blog...) --- */
+.main-nav { display: flex; align-items: center; gap: 42px; }
+.main-nav > a,
+.nav-item > a { position: relative; display: flex; align-items: center; gap: 9px; padding: 39px 0; color: rgba(255, 255, 255, .90); text-decoration: none; font-size: 15px; font-weight: 600; transition: color .2s ease; }
+.main-nav > a:hover,
+.nav-item > a:hover { color: #d6df9d; }
+
+/* Mục đang đứng: chữ xanh nhạt + gạch chân */
+.main-nav > a.active { color: #cdd98f; }
+.main-nav > a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 27px; height: 2px; border-radius: 20px; background: #cdd98f; }
+
+/* --- 03.4 Menu con xổ xuống (dropdown) --- */
+.nav-item { position: relative; }
+
+/* Mũi tên nhỏ bên cạnh chữ có menu con */
+.nav-item > a::after { content: ""; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+
+/* Hộp menu con: ẩn mặc định, hiện khi rê chuột */
+.sub-menu { position: absolute; top: 81px; left: -22px; width: 220px; padding: 10px; background: #ffffff; border: 1px solid rgba(31, 52, 28, .08); border-radius: 14px; box-shadow: 0 18px 45px rgba(22, 39, 20, .20); opacity: 0; visibility: hidden; transform: translateY(8px); transition: .22s ease; }
+.nav-item:hover .sub-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.sub-menu a { display: block; padding: 11px 13px; border-radius: 8px; color: var(--text); text-decoration: none; font-size: 13px; font-weight: 500; transition: .2s; }
+.sub-menu a:hover { background: #f0f3e3; color: var(--forest); }
+.sub-menu .sub-child { padding-left: 27px; color: #757c70; }
+
+/* --- 03.5 Nút ☰ mở menu (chỉ hiện trên mobile) --- */
+.nav-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: none; background: transparent; color: white; font-size: 28px; cursor: pointer; }
+
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Glampify - Camping Made Simple</title>
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-
-        /* =====================================================
-           BRAND COLORS
-        ===================================================== */
-
-        :root {
-            --forest: #22351f;
-            --forest-dark: #172716;
-            --forest-light: #395334;
-
-            --sage: #aab879;
-            --sage-light: #e3e8ca;
-
-            --cream: #f6f0df;
-            --cream-light: #fbf8ef;
-
-            --white: #ffffff;
-
-            --text: #263423;
-            --text-soft: #6c7468;
-
-            --border: #dedfd4;
-
-            --shadow:
-                0 18px 50px rgba(30, 52, 27, .10);
-        }
-
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Be Vietnam Pro", sans-serif;
-            background: var(--cream-light);
-            color: var(--text);
-            overflow-x: hidden;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        button,
-        input {
-            font-family: inherit;
-        }
-
-        .container {
-            width: min(1180px, calc(100% - 48px));
-            margin: 0 auto;
-        }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: rgba(34, 53, 31, .98);
-
-            border-bottom:
-                1px solid rgba(255, 255, 255, .07);
-
-            backdrop-filter: blur(12px);
-        }
-
-        .header-inner {
-            width: min(1180px, calc(100% - 48px)); 
-            margin: 0 auto;
-            min-height: 104px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 40px;
-        }
-
-
-        /* =====================================================
-           LOGO
-        ===================================================== */
-
-        .brand {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            flex-shrink: 0;
-
-            text-decoration: none;
-        }
-
-        .brand-badge {
-            width: 72px;
-            height: 72px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            overflow: hidden;
-
-            border-radius: 50%;
-
-            background: var(--cream);
-
-            border:
-                1px solid rgba(255, 255, 255, .18);
-
-            box-shadow:
-                0 4px 18px rgba(0, 0, 0, .16);
-
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease;
-        }
-
-        .header-logo {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            border-radius: 50%;
-        }
-
-        .brand:hover .brand-badge {
-            transform:
-                translateY(-2px)
-                scale(1.04);
-
-            box-shadow:
-                0 8px 24px rgba(0, 0, 0, .20);
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-
-            gap: 42px;
-        }
-
-        .main-nav > a,
-        .nav-item > a {
-            position: relative;
-
-            display: flex;
-            align-items: center;
-
-            gap: 9px;
-
-            padding: 39px 0;
-
-            color: rgba(255, 255, 255, .90);
-
-            text-decoration: none;
-
-            font-size: 15px;
-            font-weight: 600;
-
-            transition: color .2s ease;
-        }
-
-        .main-nav > a:hover,
-        .nav-item > a:hover {
-            color: #d6df9d;
-        }
-
-        .main-nav > a.active {
-            color: #cdd98f;
-        }
-
-        .main-nav > a.active::after {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            right: 0;
-            bottom: 27px;
-
-            height: 2px;
-
-            border-radius: 20px;
-
-            background: #cdd98f;
-        }
-
-
-        /* =====================================================
-           DROPDOWN
-        ===================================================== */
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-item > a::after {
-            content: "";
-
-            width: 7px;
-            height: 7px;
-
-            border-right: 1.5px solid currentColor;
-            border-bottom: 1.5px solid currentColor;
-
-            transform:
-                translateY(-2px)
-                rotate(45deg);
-        }
-
-        .sub-menu {
-            position: absolute;
-
-            top: 81px;
-            left: -22px;
-
-            width: 220px;
-
-            padding: 10px;
-
-            background: #ffffff;
-
-            border:
-                1px solid rgba(31, 52, 28, .08);
-
-            border-radius: 14px;
-
-            box-shadow:
-                0 18px 45px rgba(22, 39, 20, .20);
-
-            opacity: 0;
-            visibility: hidden;
-
-            transform: translateY(8px);
-
-            transition: .22s ease;
-        }
-
-        .nav-item:hover .sub-menu {
-            opacity: 1;
-            visibility: visible;
-
-            transform: translateY(0);
-        }
-
-        .sub-menu a {
-            display: block;
-
-            padding: 11px 13px;
-
-            border-radius: 8px;
-
-            color: var(--text);
-
-            text-decoration: none;
-
-            font-size: 13px;
-            font-weight: 500;
-
-            transition: .2s;
-        }
-
-        .sub-menu a:hover {
-            background: #f0f3e3;
-            color: var(--forest);
-        }
-
-        .sub-menu .sub-child {
-            padding-left: 27px;
-            color: #757c70;
-        }
-
-
-        /* =====================================================
-           MOBILE NAV BUTTON
-        ===================================================== */
-
-        .nav-toggle {
-            display: none;
-
-            width: 44px;
-            height: 44px;
-
-            align-items: center;
-            justify-content: center;
-
-            border: none;
-
-            background: transparent;
-
-            color: white;
-
-            font-size: 28px;
-
-            cursor: pointer;
-        }
-
-
-        /* =====================================================
-           HERO
-        ===================================================== */
-
-        .hero {
-            position: relative;
-
-            min-height: 620px;
-
-            display: flex;
-            align-items: center;
-
-            overflow: hidden;
-
-            background:
-
-                linear-gradient(
-                    90deg,
-                    rgba(12, 32, 14, .91) 0%,
-                    rgba(17, 38, 17, .78) 36%,
-                    rgba(20, 40, 18, .40) 61%,
-                    rgba(13, 30, 14, .06) 100%
-                ),
-
-                url("./images/banner-glampify.png");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            pointer-events: none;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(0, 0, 0, .02),
-                    rgba(12, 25, 12, .15)
-                );
-        }
-
-        .hero-inner {
-            position: relative;
-
-            z-index: 2;
-
-            width: min(1180px, calc(100% - 48px));
-
-            margin: 0 auto;
-
-            padding: 90px 0 100px;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .hero-kicker {
-            display: flex;
-            align-items: center;
-
-            gap: 16px;
-
-            margin-bottom: 24px;
-
-            color: #dce6a7;
-
-            font-size: 13px;
-            font-weight: 700;
-
-            letter-spacing: 2.3px;
-        }
-
-        .hero-kicker::after {
-            content: "";
-
-            width: 65px;
-            height: 1px;
-
-            background: #dce6a7;
-        }
-
-
-        /* =====================================================
-           HERO HEADLINE - ĐÃ CÂN LẠI
-        ===================================================== */
-
-        .hero h1 {
-            max-width: 900px;
-
-            margin: 0 0 26px;
-
-            color: #ffffff;
-
-            font-size:
-                clamp(48px, 4.5vw, 68px);
-
-            font-weight: 800;
-
-            line-height: 1.12;
-
-            letter-spacing: -2.5px;
-        }
-
-        .hero h1 span {
-            display: block;
-        }
-
-        @media(min-width: 1000px) {
-
-            .hero h1 span {
-                white-space: nowrap;
-            }
-
-        }
-
-        .hero p {
-            max-width: 640px;
-
-            margin-bottom: 36px;
-
-            color: rgba(255, 255, 255, .88);
-
-            font-size: 17px;
-
-            line-height: 1.75;
-        }
-
-        .hero-buttons {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-
-            gap: 17px;
-        }
-
-
-        /* =====================================================
-           HERO BUTTONS
-        ===================================================== */
-
-        .hero-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 15px;
-
-            padding: 17px 26px;
-
-            background: var(--cream);
-
-            color: var(--forest);
-
-            text-decoration: none;
-
-            border-radius: 9px;
-
-            font-size: 15px;
-            font-weight: 700;
-
-            box-shadow:
-                0 12px 32px rgba(0, 0, 0, .15);
-
-            transition: .25s;
-        }
-
-        .hero-primary:hover {
-            background: #ffffff;
-
-            transform: translateY(-2px);
-        }
-
-        .hero-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 14px;
-
-            padding: 16px 26px;
-
-            border:
-                1px solid rgba(255, 255, 255, .64);
-
-            border-radius: 9px;
-
-            color: #ffffff;
-
-            text-decoration: none;
-
-            font-size: 15px;
-            font-weight: 600;
-
-            transition: .25s;
-        }
-
-        .hero-secondary:hover {
-            background: rgba(255, 255, 255, .10);
-
-            border-color: #ffffff;
-
-            transform: translateY(-2px);
-        }
-
-
-        /* =====================================================
-           BENEFITS
-        ===================================================== */
-
-        .benefit-section {
-            background: var(--cream);
-
-            border-bottom:
-                1px solid rgba(35, 53, 31, .07);
-        }
-
-        .benefit-grid {
-            min-height: 120px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            align-items: center;
-        }
-
-        .benefit-item {
-            position: relative;
-
-            display: flex;
-            align-items: center;
-
-            gap: 16px;
-
-            padding: 20px 25px;
-        }
-
-        .benefit-item:not(:last-child)::after {
-            content: "";
-
-            position: absolute;
-
-            right: 0;
-
-            width: 1px;
-            height: 45px;
-
-            background: #cbccbe;
-        }
-
-        .benefit-icon {
-            width: 52px;
-            height: 52px;
-
-            flex-shrink: 0;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #e4e9c8;
-
-            color: var(--forest);
-        }
-
-        .benefit-icon svg {
-            width: 25px;
-            height: 25px;
-        }
-
-        .benefit-item h3 {
-            margin-bottom: 5px;
-
-            color: var(--forest);
-
-            font-size: 14px;
-        }
-
-        .benefit-item p {
-            color: #6e766a;
-
-            font-size: 12px;
-
-            line-height: 1.5;
-        }
-
-
-        /* =====================================================
-           GENERAL SECTION
-        ===================================================== */
-
-        .section {
-            padding: 90px 0;
-        }
-
-        .section.white {
-            background: #ffffff;
-        }
-
-        .section-header {
-            display: flex;
-
-            justify-content: space-between;
-            align-items: flex-end;
-
-            gap: 30px;
-
-            margin-bottom: 38px;
-        }
-
-        .section-kicker {
-            display: block;
-
-            margin-bottom: 8px;
-
-            color: #86975c;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            letter-spacing: 1.6px;
-
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            color: var(--forest);
-
-            font-size:
-                clamp(30px, 4vw, 43px);
-
-            line-height: 1.2;
-
-            letter-spacing: -1.5px;
-        }
-
-        .section-subtitle {
-            margin-top: 9px;
-
-            color: var(--text-soft);
-
-            font-size: 15px;
-
-            line-height: 1.7;
-        }
-
-        .view-all {
-            display: inline-flex;
-            align-items: center;
-
-            gap: 10px;
-
-            padding: 11px 18px;
-
-            border:
-                1px solid #9ca697;
-
-            border-radius: 100px;
-
-            color: var(--forest);
-
-            text-decoration: none;
-
-            font-size: 13px;
-            font-weight: 600;
-
-            transition: .2s;
-        }
-
-        .view-all:hover {
-            background: var(--forest);
-
-            color: #ffffff;
-
-            border-color: var(--forest);
-        }
-
-
-        /* =====================================================
-           COMBO CARDS
-        ===================================================== */
-
-        .combo-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-        .combo-card {
-            position: relative;
-
-            min-height: 320px;
-
-            overflow: hidden;
-
-            isolation: isolate;
-
-            border-radius: 18px;
-
-            background: #455c3f;
-
-            text-decoration: none;
-
-            box-shadow:
-                0 15px 35px rgba(32, 53, 30, .10);
-        }
-
-        .combo-card::before {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            z-index: -2;
-
-            background-size: cover;
-            background-position: center;
-
-            transition: transform .5s ease;
-        }
-
-        .combo-card::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            z-index: -1;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(20, 39, 19, .03) 20%,
-                    rgba(17, 35, 16, .90) 100%
-                );
-        }
-
-        .combo-card:hover::before {
-            transform: scale(1.06);
-        }
-
-        .combo-card:nth-child(1)::before {
-            background-image:
-                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=82");
-        }
-
-        .combo-card:nth-child(2)::before {
-            background-image:
-                url("https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1000&q=82");
-        }
-
-        .combo-card:nth-child(3)::before {
-            background-image:
-                url("https://images.unsplash.com/photo-1504851149312-7a075b496cc7?auto=format&fit=crop&w=1000&q=82");
-        }
-
-        .combo-card:nth-child(4)::before {
-            background-image:
-                url("https://images.unsplash.com/photo-1532339142463-fd0a8979791a?auto=format&fit=crop&w=1000&q=82");
-        }
-
-        .combo-content {
-            position: absolute;
-
-            left: 22px;
-            right: 22px;
-            bottom: 22px;
-
-            color: #ffffff;
-        }
-
-        .combo-icon {
-            width: 48px;
-            height: 48px;
-
-            margin-bottom: 16px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--cream);
-
-            color: var(--forest);
-        }
-
-        .combo-icon svg {
-            width: 23px;
-            height: 23px;
-        }
-
-        .combo-category {
-            margin-bottom: 6px;
-
-            color: #dce5ad;
-
-            font-size: 11px;
-            font-weight: 700;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-        }
-
-        .combo-card h3 {
-            display: flex;
-
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 10px;
-
-            color: #ffffff;
-
-            font-size: 17px;
-
-            line-height: 1.4;
-        }
-
-        .combo-card h3 span {
-            font-size: 24px;
-            font-weight: 400;
-
-            transition: transform .25s;
-        }
-
-        .combo-card:hover h3 span {
-            transform: translateX(5px);
-        }
-
-
-        /* =====================================================
-           PRODUCTS
-        ===================================================== */
-
-        .product-carousel {
-            display: flex;
-
-            gap: 20px;
-
-            overflow-x: auto;
-
-            scroll-behavior: smooth;
-
-            padding: 5px 4px 25px;
-
-            scrollbar-width: none;
-        }
-
-        .product-carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        .product-card {
-            flex: 0 0 275px;
-
-            overflow: hidden;
-
-            background: #ffffff;
-
-            border:
-                1px solid #e3e5da;
-
-            border-radius: 18px;
-
-            box-shadow:
-                0 12px 32px rgba(36, 54, 32, .06);
-
-            transition: .25s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 20px 45px rgba(36, 54, 32, .12);
-        }
-
-        .product-image {
-            position: relative;
-
-            height: 190px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #dce2be,
-                    #80936c
-                );
-        }
-
-        .product-image svg {
-            width: 65px;
-            height: 65px;
-
-            color: var(--forest);
-        }
-
-        .tag {
-            position: absolute;
-
-            top: 14px;
-            left: 14px;
-
-            padding: 6px 11px;
-
-            border-radius: 100px;
-
-            background: var(--forest);
-
-            color: #ffffff;
-
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        .tag.new {
-            background: #987042;
-        }
-
-        .product-body {
-            padding: 20px;
-        }
-
-        .product-body h3 {
-            min-height: 45px;
-
-            margin-bottom: 13px;
-
-            color: var(--forest);
-
-            font-size: 16px;
-
-            line-height: 1.45;
-        }
-
-        .chips {
-            display: flex;
-            flex-wrap: wrap;
-
-            gap: 6px;
-
-            margin-bottom: 14px;
-        }
-
-        .chip {
-            padding: 5px 9px;
-
-            border-radius: 50px;
-
-            background: #eff1e3;
-
-            color: #5e6b57;
-
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .product-meta {
-            display: flex;
-
-            gap: 15px;
-
-            margin-bottom: 17px;
-
-            color: #747b70;
-
-            font-size: 11px;
-        }
-
-        .detail-btn {
-            display: block;
-
-            padding: 11px;
-
-            border:
-                1px solid var(--forest);
-
-            border-radius: 8px;
-
-            color: var(--forest);
-
-            text-align: center;
-            text-decoration: none;
-
-            font-size: 13px;
-            font-weight: 700;
-
-            transition: .2s;
-        }
-
-        .detail-btn:hover {
-            background: var(--forest);
-            color: #ffffff;
-        }
-
-        .slider-nav {
-            display: flex;
-            gap: 9px;
-        }
-
-        .slider-btn {
-            width: 42px;
-            height: 42px;
-
-            border:
-                1px solid #c8cbbc;
-
-            border-radius: 50%;
-
-            background: #ffffff;
-
-            color: var(--forest);
-
-            font-size: 18px;
-
-            cursor: pointer;
-
-            transition: .2s;
-        }
-
-        .slider-btn:hover {
-            background: var(--forest);
-            color: #ffffff;
-        }
-
-
-        /* =====================================================
-           CONSULT
-        ===================================================== */
-
-        .consult-section {
-            background: var(--cream);
-        }
-
-        .consult-grid {
-            display: grid;
-
-            grid-template-columns:
-                .9fr 1.1fr;
-
-            gap: 70px;
-
-            align-items: center;
-        }
-
-        .consult-copy h2 {
-            margin-bottom: 17px;
-
-            color: var(--forest);
-
-            font-size:
-                clamp(31px, 4vw, 46px);
-
-            line-height: 1.2;
-
-            letter-spacing: -1.5px;
-        }
-
-        .consult-copy > p {
-            max-width: 520px;
-
-            margin-bottom: 28px;
-
-            color: var(--text-soft);
-
-            line-height: 1.8;
-        }
-
-        .check-list {
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 16px;
-
-            list-style: none;
-        }
-
-        .check-list li {
-            display: flex;
-
-            gap: 13px;
-
-            color: #566151;
-
-            font-size: 14px;
-
-            line-height: 1.6;
-        }
-
-        .check-icon {
-            width: 25px;
-            height: 25px;
-
-            flex-shrink: 0;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #dce4b8;
-
-            color: var(--forest);
-
-            font-weight: 700;
-        }
-
-        .form-card {
-            padding: 38px;
-
-            background: #ffffff;
-
-            border-radius: 20px;
-
-            box-shadow: var(--shadow);
-        }
-
-        .form-grid {
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 18px;
-        }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-
-            gap: 7px;
-        }
-
-        .field.full {
-            grid-column: 1 / -1;
-        }
-
-        .field label {
-            color: var(--forest);
-
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .field input {
-            width: 100%;
-
-            padding: 13px 14px;
-
-            border:
-                1px solid #dcded2;
-
-            border-radius: 8px;
-
-            outline: none;
-
-            background: #fafaf6;
-
-            color: var(--text);
-
-            font-size: 13px;
-        }
-
-        .field input:focus {
-            border-color: #879b74;
-
-            background: #ffffff;
-
-            box-shadow:
-                0 0 0 3px rgba(135, 155, 116, .12);
-        }
-
-        .form-submit {
-            grid-column: 1 / -1;
-
-            margin-top: 3px;
-
-            padding: 14px 20px;
-
-            border: none;
-
-            border-radius: 8px;
-
-            background: var(--forest);
-
-            color: #ffffff;
-
-            font-size: 14px;
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: .2s;
-        }
-
-        .form-submit:hover {
-            background: var(--forest-light);
-
-            transform: translateY(-1px);
-        }
-
-
-        /* =====================================================
-           DESTINATIONS
-        ===================================================== */
-
-        .destination-grid {
-            display: grid;
-
-            grid-template-columns:
-                1.4fr 1fr 1fr;
-
-            grid-template-rows:
-                230px 230px;
-
-            gap: 18px;
-        }
-
-        .destination {
-            position: relative;
-
-            overflow: hidden;
-
-            isolation: isolate;
-
-            border-radius: 18px;
-
-            text-decoration: none;
-        }
-
-        .destination:first-child {
-            grid-row: 1 / 3;
-        }
-
-        .destination::before {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            z-index: -2;
-
-            background-size: cover;
-            background-position: center;
-
-            transition: .45s;
-        }
-
-        .destination:hover::before {
-            transform: scale(1.06);
-        }
-
-        .destination::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            z-index: -1;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    transparent 38%,
-                    rgba(16, 31, 15, .84)
-                );
-        }
-
-        .destination:nth-child(1)::before {
-            background-image:
-                url("https://i.ibb.co/WhV1cw3/DV2-9165-1692085761-1.jpg");
-        }
-
-        .destination:nth-child(2)::before {
-            background-image:
-                url("https://i.ibb.co/5fsBSGT/rung-thong-yen-minh-1.jpg");
-        }
-
-        .destination:nth-child(3)::before {
-            background-image:
-                url("https://i.ibb.co/KpZmXVGx/chinh-phuc-deo-ma-pi-leng-tu-dai-dinh-deo-cua-vung-nui-dat-bac-1642065331-1.jpg");
-        }
-
-        .destination:nth-child(4)::before {
-            background-image:
-                url("https://i.ibb.co/p6kz7qt8/mua-xuan-o-thung-lung-sung-la.jpg");
-        }
-
-        .destination-copy {
-            position: absolute;
-
-            left: 22px;
-            bottom: 20px;
-
-            color: #ffffff;
-        }
-
-        .destination-copy h3 {
-            margin-bottom: 4px;
-
-            color: #ffffff;
-
-            font-size: 21px;
-        }
-
-        .destination-copy p {
-            color:
-                rgba(255, 255, 255, .80);
-
-            font-size: 12px;
-        }
-
-
-        /* =====================================================
-           REVIEWS
-        ===================================================== */
-
-        .review-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 20px;
-        }
-
-        .review-card {
-            padding: 28px;
-
-            border:
-                1px solid #e0e2d6;
-
-            border-radius: 18px;
-
-            background: #ffffff;
-
-            transition: .25s;
-        }
-
-        .review-card:hover {
-            transform: translateY(-4px);
-
-            box-shadow: var(--shadow);
-        }
-
-        .stars {
-            margin-bottom: 15px;
-
-            color: #a8863f;
-
-            letter-spacing: 3px;
-
-            font-size: 14px;
-        }
-
-        .review-card > p {
-            min-height: 115px;
-
-            color: #626b5e;
-
-            font-size: 14px;
-
-            line-height: 1.8;
-        }
-
-        .review-user {
-            display: flex;
-            align-items: center;
-
-            gap: 12px;
-
-            margin-top: 18px;
-        }
-
-        .avatar {
-            width: 42px;
-            height: 42px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--forest);
-
-            color: #ffffff;
-
-            font-weight: 700;
-        }
-
-        .review-user strong {
-            color: var(--forest);
-
-            font-size: 13px;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-            padding: 65px 0 26px;
-
-            background: var(--forest-dark);
-
-            color:
-                rgba(255, 255, 255, .70);
-        }
-
-        .footer-grid {
-            display: grid;
-
-            grid-template-columns:
-                1.5fr 1fr 1fr;
-
-            gap: 60px;
-
-            padding-bottom: 45px;
-        }
-
-        .footer-brand {
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-
-            margin-bottom: 17px;
-        }
-
-        .footer-logo-wrap {
-            width: 58px;
-            height: 58px;
-
-            overflow: hidden;
-
-            flex-shrink: 0;
-
-            border-radius: 50%;
-
-            background: var(--cream);
-        }
-
-        .footer-logo-wrap img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            border-radius: 50%;
-        }
-
-        .footer-brand strong {
-            color: #ffffff;
-
-            font-size: 20px;
-        }
-
-        footer p,
-        footer a {
-            color:
-                rgba(255, 255, 255, .64);
-
-            font-size: 13px;
-
-            line-height: 1.8;
-
-            text-decoration: none;
-        }
-
-        footer h4 {
-            margin-bottom: 16px;
-
-            color: #ffffff;
-
-            font-size: 14px;
-        }
-
-        .footer-links {
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 9px;
-
-            list-style: none;
-        }
-
-        .footer-links a:hover {
-            color: #d5df9c;
-        }
-
-        .footer-bottom {
-            padding-top: 23px;
-
-            border-top:
-                1px solid rgba(255, 255, 255, .10);
-
-            color:
-                rgba(255, 255, 255, .44);
-
-            text-align: center;
-
-            font-size: 11px;
-        }
-
-
-        /* =====================================================
-           CHAT
-        ===================================================== */
-
-        .chat-widget {
-            position: fixed;
-
-            right: 20px;
-            bottom: 20px;
-
-            z-index: 1000;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 10px;
-        }
-
-        .chat-bubble {
-            width: 50px;
-            height: 50px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            color: #ffffff;
-
-            text-decoration: none;
-
-            font-weight: 800;
-
-            box-shadow:
-                0 10px 25px rgba(0, 0, 0, .20);
-        }
-
-        .zalo {
-            background: #0068ff;
-        }
-
-        .facebook {
-            background: #1877f2;
-        }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media(max-width: 1000px) {
-
-            .combo-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .benefit-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .benefit-item:nth-child(2)::after {
-                display: none;
-            }
-
-            .consult-grid {
-                grid-template-columns: 1fr;
-
-                gap: 40px;
-            }
-
-            .destination-grid {
-                grid-template-columns:
-                    1fr 1fr;
-
-                grid-template-rows: auto;
-            }
-
-            .destination {
-                min-height: 300px;
-            }
-
-            .destination:first-child {
-                grid-row: auto;
-            }
-
-            .review-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        /* =====================================================
-           MOBILE NAV
-        ===================================================== */
-
-        @media(max-width: 860px) {
-
-            .header-inner {
-                min-height: 78px;
-            }
-
-            .brand-badge {
-                width: 56px;
-                height: 56px;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-
-            .main-nav {
-                position: absolute;
-
-                top: 78px;
-
-                left: 0;
-                right: 0;
-
-                display: none;
-
-                flex-direction: column;
-
-                align-items: stretch;
-
-                gap: 0;
-
-                padding:
-                    10px 24px
-                    22px;
-
-                background: var(--forest);
-
-                border-top:
-                    1px solid rgba(255, 255, 255, .07);
-            }
-
-            .main-nav.open {
-                display: flex;
-            }
-
-            .main-nav > a,
-            .nav-item > a {
-                display: block;
-
-                padding: 14px 0;
-
-                border-bottom:
-                    1px solid rgba(255, 255, 255, .08);
-            }
-
-            .main-nav > a.active::after {
-                display: none;
-            }
-
-            .nav-item > a::after {
-                display: none;
-            }
-
-            .sub-menu {
-                position: static;
-
-                display: block;
-
-                width: 100%;
-
-                padding:
-                    0 0 8px 15px;
-
-                opacity: 1;
-                visibility: visible;
-
-                transform: none;
-
-                background: transparent;
-
-                border: none;
-
-                box-shadow: none;
-            }
-
-            .sub-menu a {
-                color:
-                    rgba(255, 255, 255, .66);
-
-                padding: 8px 0;
-            }
-
-            .sub-menu a:hover {
-                background: transparent;
-
-                color: #ffffff;
-            }
-
-            .hero {
-                min-height: 600px;
-
-                background-position:
-                    66% center;
-            }
-
-            .hero-content {
-                max-width: 700px;
-            }
-
-            .hero h1 {
-                font-size:
-                    clamp(44px, 7vw, 58px);
-
-                letter-spacing: -2px;
-            }
-
-            .hero h1 span {
-                white-space: normal;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-
-                gap: 35px;
-            }
-
-        }
-
-
-        /* =====================================================
-           SMALL MOBILE
-        ===================================================== */
-
-        @media(max-width: 650px) {
-
-            .container,
-            .hero-inner {
-                width:
-                    min(
-                        calc(100% - 32px),
-                        1180px
-                    );
-            }
-
-            .hero {
-                min-height: 590px;
-
-                background:
-
-                    linear-gradient(
-                        rgba(17, 36, 17, .84),
-                        rgba(17, 36, 17, .74)
-                    ),
-
-                    url("./images/banner-glampify.png");
-
-                background-size: cover;
-
-                background-position:
-                    68% center;
-            }
-
-            .hero-inner {
-                padding: 70px 0 80px;
-            }
-
-            .hero-kicker {
-                font-size: 11px;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-
-                line-height: 1.12;
-
-                letter-spacing: -1.5px;
-            }
-
-            .hero h1 span {
-                white-space: normal;
-            }
-
-            .hero p {
-                max-width: 100%;
-
-                font-size: 15px;
-            }
-
-            .hero-primary,
-            .hero-secondary {
-                width: 100%;
-
-                justify-content: center;
-            }
-
-            .benefit-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefit-item {
-                padding: 17px 0;
-            }
-
-            .benefit-item::after {
-                display: none;
-            }
-
-            .section {
-                padding: 65px 0;
-            }
-
-            .section-header {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .combo-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .combo-card {
-                min-height: 350px;
-            }
-
-            .form-card {
-                padding: 26px 20px;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .field.full,
-            .form-submit {
-                grid-column: auto;
-            }
-
-            .destination-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .destination {
-                min-height: 290px;
-            }
-
-        }
-
-    </style>
-
+/* ==============================================================
+   04. HERO (banner đầu trang)
+   Ảnh nền: ./images/banner-glampify.png (đổi ảnh ở dòng url bên dưới)
+============================================================== */
+
+/* --- 04.1 Khung hero + ảnh nền phủ lớp gradient xanh tối bên trái --- */
+.hero {
+    position: relative; min-height: 620px; display: flex; align-items: center; overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(12, 32, 14, .91) 0%, rgba(17, 38, 17, .78) 36%, rgba(20, 40, 18, .40) 61%, rgba(13, 30, 14, .06) 100%),
+        url("./images/banner-glampify.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Lớp phủ mờ thêm phía trên ảnh */
+.hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0, 0, 0, .02), rgba(12, 25, 12, .15)); }
+
+.hero-inner { position: relative; z-index: 2; width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 90px 0 100px; }
+.hero-content { max-width: 900px; }
+
+/* --- 04.2 Dòng nhỏ "CAMPING MADE SIMPLE" + gạch ngang --- */
+.hero-kicker { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; color: #dce6a7; font-size: 13px; font-weight: 700; letter-spacing: 2.3px; }
+.hero-kicker::after { content: ""; width: 65px; height: 1px; background: #dce6a7; }
+
+/* --- 04.3 Tiêu đề lớn (mỗi <span> là 1 dòng) --- */
+.hero h1 { max-width: 900px; margin: 0 0 26px; color: #ffffff; font-size: clamp(48px, 4.5vw, 68px); font-weight: 800; line-height: 1.12; letter-spacing: -2.5px; }
+.hero h1 span { display: block; }
+@media (min-width: 1000px) { .hero h1 span { white-space: nowrap; } }  /* Màn rộng: không cho tự xuống dòng */
+
+/* --- 04.4 Đoạn mô tả --- */
+.hero p { max-width: 640px; margin-bottom: 36px; color: rgba(255, 255, 255, .88); font-size: 17px; line-height: 1.75; }
+
+/* --- 04.5 Hai nút: "Khám phá Combo Box" + "Về Glampify" --- */
+.hero-buttons { display: flex; align-items: center; flex-wrap: wrap; gap: 17px; }
+.hero-primary { display: inline-flex; align-items: center; justify-content: center; gap: 15px; padding: 17px 26px; background: var(--cream); color: var(--forest); text-decoration: none; border-radius: 9px; font-size: 15px; font-weight: 700; box-shadow: 0 12px 32px rgba(0, 0, 0, .15); transition: .25s; }
+.hero-primary:hover { background: #ffffff; transform: translateY(-2px); }
+.hero-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 16px 26px; border: 1px solid rgba(255, 255, 255, .64); border-radius: 9px; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; transition: .25s; }
+.hero-secondary:hover { background: rgba(255, 255, 255, .10); border-color: #ffffff; transform: translateY(-2px); }
+
+
+/* ==============================================================
+   05. BENEFITS (dải 4 lợi ích dưới hero)
+============================================================== */
+.benefit-section { background: var(--cream); border-bottom: 1px solid rgba(35, 53, 31, .07); }
+.benefit-grid { min-height: 120px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; }
+.benefit-item { position: relative; display: flex; align-items: center; gap: 16px; padding: 20px 25px; }
+
+/* Đường kẻ dọc ngăn cách giữa các ô (trừ ô cuối) */
+.benefit-item:not(:last-child)::after { content: ""; position: absolute; right: 0; width: 1px; height: 45px; background: #cbccbe; }
+
+.benefit-icon { width: 52px; height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #e4e9c8; color: var(--forest); }
+.benefit-icon svg { width: 25px; height: 25px; }
+.benefit-item h3 { margin-bottom: 5px; color: var(--forest); font-size: 14px; }
+.benefit-item p { color: #6e766a; font-size: 12px; line-height: 1.5; }
+
+
+/* ==============================================================
+   06. SECTION CHUNG (khung + tiêu đề dùng cho mọi khu vực)
+============================================================== */
+.section { padding: 90px 0; }
+.section.white { background: #ffffff; }
+
+/* Hàng tiêu đề: bên trái là chữ, bên phải là nút "Xem tất cả" */
+.section-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 38px; }
+.section-kicker { display: block; margin-bottom: 8px; color: #86975c; font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+.section-title { color: var(--forest); font-size: clamp(30px, 4vw, 43px); line-height: 1.2; letter-spacing: -1.5px; }
+.section-subtitle { margin-top: 9px; color: var(--text-soft); font-size: 15px; line-height: 1.7; }
+
+/* Nút viền bo tròn "Xem tất cả →" */
+.view-all { display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px solid #9ca697; border-radius: 100px; color: var(--forest); text-decoration: none; font-size: 13px; font-weight: 600; transition: .2s; }
+.view-all:hover { background: var(--forest); color: #ffffff; border-color: var(--forest); }
+
+
+/* ==============================================================
+   07. DANH MỤC COMBO (4 thẻ ảnh)
+   Đổi ảnh từng thẻ ở mục 07.2 (nth-child 1→4)
+============================================================== */
+
+/* --- 07.1 Khung thẻ + lớp phủ gradient tối phía dưới --- */
+.combo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.combo-card { position: relative; min-height: 320px; overflow: hidden; isolation: isolate; border-radius: 18px; background: #455c3f; text-decoration: none; box-shadow: 0 15px 35px rgba(32, 53, 30, .10); }
+.combo-card::before { content: ""; position: absolute; inset: 0; z-index: -2; background-size: cover; background-position: center; transition: transform .5s ease; }  /* Lớp ảnh nền */
+.combo-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(20, 39, 19, .03) 20%, rgba(17, 35, 16, .90) 100%); }  /* Lớp phủ tối */
+.combo-card:hover::before { transform: scale(1.06); }
+
+/* --- 07.2 Ảnh nền riêng cho từng thẻ --- */
+.combo-card:nth-child(1)::before { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=82"); }  /* Combo Người Mới */
+.combo-card:nth-child(2)::before { background-image: url("https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1000&q=82"); }  /* Combo Lão Làng */
+.combo-card:nth-child(3)::before { background-image: url("https://images.unsplash.com/photo-1504851149312-7a075b496cc7?auto=format&fit=crop&w=1000&q=82"); }  /* Combo Sự Kiện */
+.combo-card:nth-child(4)::before { background-image: url("https://images.unsplash.com/photo-1532339142463-fd0a8979791a?auto=format&fit=crop&w=1000&q=82"); }  /* Xem Tất Cả Combo */
+
+/* --- 07.3 Chữ + icon nằm góc dưới thẻ --- */
+.combo-content { position: absolute; left: 22px; right: 22px; bottom: 22px; color: #ffffff; }
+.combo-icon { width: 48px; height: 48px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--cream); color: var(--forest); }
+.combo-icon svg { width: 23px; height: 23px; }
+.combo-category { margin-bottom: 6px; color: #dce5ad; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.combo-card h3 { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #ffffff; font-size: 17px; line-height: 1.4; }
+.combo-card h3 span { font-size: 24px; font-weight: 400; transition: transform .25s; }  /* Mũi tên → */
+.combo-card:hover h3 span { transform: translateX(5px); }
+
+
+/* ==============================================================
+   08. SẢN PHẨM (carousel cuộn ngang)
+   ⚠ Hiện trang chưa có HTML cho phần này (CSS + JS vẫn giữ sẵn để dùng sau)
+============================================================== */
+.product-carousel { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding: 5px 4px 25px; scrollbar-width: none; }
+.product-carousel::-webkit-scrollbar { display: none; }
+
+/* Thẻ sản phẩm */
+.product-card { flex: 0 0 275px; overflow: hidden; background: #ffffff; border: 1px solid #e3e5da; border-radius: 18px; box-shadow: 0 12px 32px rgba(36, 54, 32, .06); transition: .25s; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(36, 54, 32, .12); }
+.product-image { position: relative; height: 190px; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #dce2be, #80936c); }
+.product-image svg { width: 65px; height: 65px; color: var(--forest); }
+
+/* Nhãn góc ảnh (VD: "Hot", "Mới") */
+.tag { position: absolute; top: 14px; left: 14px; padding: 6px 11px; border-radius: 100px; background: var(--forest); color: #ffffff; font-size: 11px; font-weight: 700; }
+.tag.new { background: #987042; }
+
+/* Nội dung thẻ */
+.product-body { padding: 20px; }
+.product-body h3 { min-height: 45px; margin-bottom: 13px; color: var(--forest); font-size: 16px; line-height: 1.45; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.chip { padding: 5px 9px; border-radius: 50px; background: #eff1e3; color: #5e6b57; font-size: 11px; font-weight: 600; }
+.product-meta { display: flex; gap: 15px; margin-bottom: 17px; color: #747b70; font-size: 11px; }
+.detail-btn { display: block; padding: 11px; border: 1px solid var(--forest); border-radius: 8px; color: var(--forest); text-align: center; text-decoration: none; font-size: 13px; font-weight: 700; transition: .2s; }
+.detail-btn:hover { background: var(--forest); color: #ffffff; }
+
+/* Hai nút ‹ › chuyển trang */
+.slider-nav { display: flex; gap: 9px; }
+.slider-btn { width: 42px; height: 42px; border: 1px solid #c8cbbc; border-radius: 50%; background: #ffffff; color: var(--forest); font-size: 18px; cursor: pointer; transition: .2s; }
+.slider-btn:hover { background: var(--forest); color: #ffffff; }
+
+
+/* ==============================================================
+   09. FORM TƯ VẤN (cột trái: giới thiệu / cột phải: form)
+============================================================== */
+
+/* --- 09.1 Bố cục 2 cột --- */
+.consult-section { background: var(--cream); }
+.consult-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+
+/* --- 09.2 Cột trái: tiêu đề + mô tả + danh sách ✓ --- */
+.consult-copy h2 { margin-bottom: 17px; color: var(--forest); font-size: clamp(31px, 4vw, 46px); line-height: 1.2; letter-spacing: -1.5px; }
+.consult-copy > p { max-width: 520px; margin-bottom: 28px; color: var(--text-soft); line-height: 1.8; }
+.check-list { display: flex; flex-direction: column; gap: 16px; list-style: none; }
+.check-list li { display: flex; gap: 13px; color: #566151; font-size: 14px; line-height: 1.6; }
+.check-icon { width: 25px; height: 25px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #dce4b8; color: var(--forest); font-weight: 700; }
+
+/* --- 09.3 Cột phải: thẻ form trắng --- */
+.form-card { padding: 38px; background: #ffffff; border-radius: 20px; box-shadow: var(--shadow); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field.full { grid-column: 1 / -1; }  /* Ô chiếm cả 2 cột */
+.field label { color: var(--forest); font-size: 12px; font-weight: 700; }
+.field input { width: 100%; padding: 13px 14px; border: 1px solid #dcded2; border-radius: 8px; outline: none; background: #fafaf6; color: var(--text); font-size: 13px; }
+.field input:focus { border-color: #879b74; background: #ffffff; box-shadow: 0 0 0 3px rgba(135, 155, 116, .12); }
+
+/* Nút gửi */
+.form-submit { grid-column: 1 / -1; margin-top: 3px; padding: 14px 20px; border: none; border-radius: 8px; background: var(--forest); color: #ffffff; font-size: 14px; font-weight: 700; cursor: pointer; transition: .2s; }
+.form-submit:hover { background: var(--forest-light); transform: translateY(-1px); }
+
+
+/* ==============================================================
+   10. ĐIỂM ĐẾN / DESTINATION (lưới ảnh Hà Giang)
+   Thẻ 1 cao gấp đôi, 3 thẻ còn lại nhỏ. Đổi ảnh ở mục 10.2
+============================================================== */
+
+/* --- 10.1 Lưới + thẻ ảnh --- */
+.destination-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 230px 230px; gap: 18px; }
+.destination { position: relative; overflow: hidden; isolation: isolate; border-radius: 18px; text-decoration: none; }
+.destination:first-child { grid-row: 1 / 3; }  /* Thẻ đầu chiếm 2 hàng */
+.destination::before { content: ""; position: absolute; inset: 0; z-index: -2; background-size: cover; background-position: center; transition: .45s; }  /* Lớp ảnh */
+.destination:hover::before { transform: scale(1.06); }
+.destination::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 38%, rgba(16, 31, 15, .84)); }  /* Lớp phủ tối */
+
+/* --- 10.2 Ảnh riêng từng điểm đến --- */
+.destination:nth-child(1)::before { background-image: url("https://i.ibb.co/WhV1cw3/DV2-9165-1692085761-1.jpg"); }  /* Đồng Văn */
+.destination:nth-child(2)::before { background-image: url("https://i.ibb.co/5fsBSGT/rung-thong-yen-minh-1.jpg"); }  /* Yên Minh */
+.destination:nth-child(3)::before { background-image: url("https://i.ibb.co/KpZmXVGx/chinh-phuc-deo-ma-pi-leng-tu-dai-dinh-deo-cua-vung-nui-dat-bac-1642065331-1.jpg"); }  /* Mèo Vạc */
+.destination:nth-child(4)::before { background-image: url("https://i.ibb.co/p6kz7qt8/mua-xuan-o-thung-lung-sung-la.jpg"); }  /* Sủng Là */
+
+/* --- 10.3 Tên + mô tả góc dưới --- */
+.destination-copy { position: absolute; left: 22px; bottom: 20px; color: #ffffff; }
+.destination-copy h3 { margin-bottom: 4px; color: #ffffff; font-size: 21px; }
+.destination-copy p { color: rgba(255, 255, 255, .80); font-size: 12px; }
+
+
+/* ==============================================================
+   11. ĐÁNH GIÁ KHÁCH HÀNG (3 thẻ)
+============================================================== */
+.review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.review-card { padding: 28px; border: 1px solid #e0e2d6; border-radius: 18px; background: #ffffff; transition: .25s; }
+.review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.stars { margin-bottom: 15px; color: #a8863f; letter-spacing: 3px; font-size: 14px; }
+.review-card > p { min-height: 115px; color: #626b5e; font-size: 14px; line-height: 1.8; }
+.review-user { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+.avatar { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--forest); color: #ffffff; font-weight: 700; }  /* Chữ cái đầu tên */
+.review-user strong { color: var(--forest); font-size: 13px; }
+
+
+/* ==============================================================
+   12. FOOTER (chân trang)
+============================================================== */
+footer { padding: 65px 0 26px; background: var(--forest-dark); color: rgba(255, 255, 255, .70); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; padding-bottom: 45px; }  /* 3 cột: thương hiệu / khám phá / hỗ trợ */
+
+/* Cột 1: logo + tên */
+.footer-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 17px; }
+.footer-logo-wrap { width: 58px; height: 58px; overflow: hidden; flex-shrink: 0; border-radius: 50%; background: var(--cream); }
+.footer-logo-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.footer-brand strong { color: #ffffff; font-size: 20px; }
+
+/* Chữ + link trong footer */
+footer p,
+footer a { color: rgba(255, 255, 255, .64); font-size: 13px; line-height: 1.8; text-decoration: none; }
+footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
+.footer-links { display: flex; flex-direction: column; gap: 9px; list-style: none; }
+.footer-links a:hover { color: #d5df9c; }
+
+/* Dòng bản quyền dưới cùng */
+.footer-bottom { padding-top: 23px; border-top: 1px solid rgba(255, 255, 255, .10); color: rgba(255, 255, 255, .44); text-align: center; font-size: 11px; }
+
+
+/* ==============================================================
+   13. NÚT CHAT NỔI (Zalo + Facebook, góc phải dưới)
+============================================================== */
+.chat-widget { position: fixed; right: 20px; bottom: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
+.chat-bubble { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #ffffff; text-decoration: none; font-weight: 800; box-shadow: 0 10px 25px rgba(0, 0, 0, .20); }
+.zalo { background: #0068ff; }
+.facebook { background: #1877f2; }
+
+
+/* ==============================================================
+   14. RESPONSIVE - TABLET (màn ≤ 1000px)
+============================================================== */
+@media (max-width: 1000px) {
+    .combo-grid { grid-template-columns: repeat(2, 1fr); }      /* Combo: 4 → 2 cột */
+    .benefit-grid { grid-template-columns: repeat(2, 1fr); }    /* Benefits: 4 → 2 cột */
+    .benefit-item:nth-child(2)::after { display: none; }
+    .consult-grid { grid-template-columns: 1fr; gap: 40px; }    /* Tư vấn: 2 cột → 1 cột */
+    .destination-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .destination { min-height: 300px; }
+    .destination:first-child { grid-row: auto; }
+    .review-grid { grid-template-columns: 1fr; }                /* Đánh giá: 3 → 1 cột */
+}
+
+
+/* ==============================================================
+   15. RESPONSIVE - MOBILE (màn ≤ 860px)
+   Gồm: menu ☰, hero, footer
+============================================================== */
+@media (max-width: 860px) {
+
+    /* --- Header thu nhỏ + hiện nút ☰ --- */
+    .header-inner { min-height: 78px; }
+    .brand-badge { width: 56px; height: 56px; }
+    .brand-text { font-size: 17px; }
+    .nav-toggle { display: flex; }
+
+    /* --- Menu xổ dọc, ẩn mặc định, hiện khi có class .open --- */
+    .main-nav { position: absolute; top: 78px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 24px 22px; background: var(--forest); border-top: 1px solid rgba(255, 255, 255, .07); }
+    .main-nav.open { display: flex; }
+    .main-nav > a,
+    .nav-item > a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, .08); }
+    .main-nav > a.active::after,
+    .nav-item > a::after { display: none; }
+
+    /* --- Menu con luôn hiện, thụt vào --- */
+    .sub-menu { position: static; display: block; width: 100%; padding: 0 0 8px 15px; opacity: 1; visibility: visible; transform: none; background: transparent; border: none; box-shadow: none; }
+    .sub-menu a { color: rgba(255, 255, 255, .66); padding: 8px 0; }
+    .sub-menu a:hover { background: transparent; color: #ffffff; }
+
+    /* --- Hero --- */
+    .hero { min-height: 600px; background-position: 66% center; }
+    .hero-content { max-width: 700px; }
+    .hero h1 { font-size: clamp(44px, 7vw, 58px); letter-spacing: -2px; }
+    .hero h1 span { white-space: normal; }
+
+    /* --- Footer: 3 cột → 1 cột --- */
+    .footer-grid { grid-template-columns: 1fr; gap: 35px; }
+}
+
+
+/* ==============================================================
+   16. RESPONSIVE - MOBILE NHỎ (màn ≤ 650px)
+============================================================== */
+@media (max-width: 650px) {
+
+    /* --- Khung nội dung hẹp lại (lề 16px) --- */
+    .container,
+    .hero-inner { width: min(calc(100% - 32px), 1180px); }
+
+    /* --- Hero: nền tối đều hơn cho dễ đọc chữ --- */
+    .hero { min-height: 590px; background: linear-gradient(rgba(17, 36, 17, .84), rgba(17, 36, 17, .74)), url("./images/banner-glampify.png"); background-size: cover; background-position: 68% center; }
+    .hero-inner { padding: 70px 0 80px; }
+    .hero-kicker { font-size: 11px; }
+    .hero h1 { font-size: 42px; line-height: 1.12; letter-spacing: -1.5px; }
+    .hero h1 span { white-space: normal; }
+    .hero p { max-width: 100%; font-size: 15px; }
+    .hero-primary,
+    .hero-secondary { width: 100%; justify-content: center; }  /* Nút full chiều ngang */
+
+    /* --- Benefits: 1 cột --- */
+    .benefit-grid { grid-template-columns: 1fr; }
+    .benefit-item { padding: 17px 0; }
+    .benefit-item::after { display: none; }
+
+    /* --- Section chung --- */
+    .section { padding: 65px 0; }
+    .section-header { flex-direction: column; align-items: flex-start; }
+
+    /* --- Combo: 1 cột --- */
+    .combo-grid { grid-template-columns: 1fr; }
+    .combo-card { min-height: 350px; }
+
+    /* --- Form: 1 cột --- */
+    .form-card { padding: 26px 20px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .field.full,
+    .form-submit { grid-column: auto; }
+
+    /* --- Destination: 1 cột --- */
+    .destination-grid { grid-template-columns: 1fr; }
+    .destination { min-height: 290px; }
+}
+</style>
 </head>
 
 
 <body>
 
-
-<!-- =====================================================
-     SVG ICONS
-===================================================== -->
-
-<svg
-    width="0"
-    height="0"
-    style="position:absolute"
-    aria-hidden="true"
->
-
-    <symbol
-        id="icon-tent"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"
-    >
+<!-- ==============================================================
+     BỘ ICON SVG DÙNG CHUNG
+     Gọi icon bằng: <svg><use href="#icon-tent"></use></svg>
+     Có sẵn: icon-tent (lều), icon-users (nhóm người),
+             icon-truck (xe tải), icon-leaf (chiếc lá), icon-location (ghim bản đồ)
+=============================================================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="icon-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
         <path d="M12 3 3 20h18L12 3Z"/>
         <path d="M8.2 20 12 11l3.8 9"/>
     </symbol>
 
-
-    <symbol
-        id="icon-users"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"
-    >
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
         <circle cx="9" cy="8" r="3"/>
-
-        <path
-            d="M3 20c0-3.4 2.7-6 6-6s6 2.6 6 6"
-        />
-
+        <path d="M3 20c0-3.4 2.7-6 6-6s6 2.6 6 6"/>
         <circle cx="17" cy="9" r="2.2"/>
-
-        <path
-            d="M17 14c2.4 0 4.5 2 4.5 4.5"
-        />
+        <path d="M17 14c2.4 0 4.5 2 4.5 4.5"/>
     </symbol>
 
-
-    <symbol
-        id="icon-truck"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.7"
-    >
+    <symbol id="icon-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
         <path d="M3 6h11v11H3z"/>
-
         <path d="M14 10h4l3 3v4h-7z"/>
-
         <circle cx="7" cy="18" r="2"/>
         <circle cx="18" cy="18" r="2"/>
     </symbol>
 
-
-    <symbol
-        id="icon-leaf"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.7"
-    >
-        <path
-            d="M20 4C11 4 5 8 5 14c0 3 2 5 5 5 6 0 10-6 10-15Z"
-        />
-
-        <path
-            d="M4 21c3-6 7-10 13-13"
-        />
+    <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+        <path d="M20 4C11 4 5 8 5 14c0 3 2 5 5 5 6 0 10-6 10-15Z"/>
+        <path d="M4 21c3-6 7-10 13-13"/>
     </symbol>
 
-
-    <symbol
-        id="icon-location"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.7"
-    >
-        <path
-            d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
-        />
-
+    <symbol id="icon-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+        <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
         <circle cx="12" cy="10" r="2.5"/>
     </symbol>
-
 </svg>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- ==============================================================
+     01. HEADER - Logo + menu điều hướng
+     (Khối này giống hệt ở trang Liên hệ. Sửa menu thì sửa ở cả 2 file)
+=============================================================== -->
 <header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="brand">
-      <div class="brand-badge">
-        <img src="images/logo-header.png" alt="Glampify Logo" class="header-logo">
-      </div>
-    </a>
-    
-    <nav class="main-nav" id="mainNav">
-      <a href="index.html" class="active">Trang Chủ</a>
-      
-      <!-- MENU COMBO BOX -->
-      <div class="nav-item">
-        <a href="thue-box.html">Combo Box</a>
-        <div class="sub-menu">
-          <a href="combo-kinh-nghiem.html">Theo Kinh Nghiệm</a>
-          <a href="combo-mua.html">Theo Mùa</a>
-          <a href="combo-su-kien.html">Theo Sự Kiện</a>
-          
-          
-          <!-- Nút Tự Thiết Kế Combo -->
-          <a href="form-dang-ky.html" style="border-top: 1.5px dashed #D7D8B8; margin-top: 6px; padding-top: 12px; color: var(--forest); font-weight: 800;">
-            ✨ Tự Thiết Kế Combo
-          </a>
-        </div>
-      </div>
-      
-      <!-- MENU BLOG -->
-      <div class="nav-item">
-        <a href="blog.html">Blog</a>
-        <div class="sub-menu">
-          <a href="blog-dong-van.html">Địa Điểm Nổi Bật</a>
-          <a href="blog-hop-tac-dong-mo.html">Blog Nổi Bật</a>
-        </div>
-      </div>
-      
-      <a href="ve-chung-toi.html">Về Chúng Tôi</a>
-      <a href="lien-he.html">Liên Hệ</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Mở menu">☰</button>
-  </div>
-</header>
-<!-- =====================================================
-     HERO
-===================================================== -->
+    <div class="header-inner">
 
-<section class="hero">
+        <!-- Logo (bấm về trang chủ) -->
+        <a href="index.html" class="brand">
+            <div class="brand-badge">
+                <img src="images/logo-header.png" alt="Glampify Logo" class="header-logo">
+            </div>
+            <span class="brand-text">Glampify Vietnam</span>
+        </a>
+        <!-- Menu chính -->
+        <nav class="main-nav" id="mainNav">
 
-    <div class="hero-inner">
+            <!-- Trang Chủ (class="active" = mục đang đứng) -->
+            <a href="index.html" class="active">Trang Chủ</a>
 
-        <div class="hero-content">
+            <!-- Menu: Combo Box + menu con -->
+            <div class="nav-item">
+                <a href="thue-box.html">Combo Box</a>
+                <div class="sub-menu">
+                    <a href="combo-kinh-nghiem.html">Theo Kinh Nghiệm</a>
+                    <a href="combo-mua.html">Theo Mùa</a>
+                    <a href="combo-su-kien.html">Theo Sự Kiện</a>
 
-
-            <div class="hero-kicker">
-                CAMPING MADE SIMPLE
+                    <!-- Nút Tự Thiết Kế Combo (có gạch đứt phía trên) -->
+                    <a href="form-dang-ky.html" style="border-top: 1.5px dashed #D7D8B8; margin-top: 6px; padding-top: 12px; color: var(--forest); font-weight: 800;">
+                        ✨ Tự Thiết Kế Combo
+                    </a>
+                </div>
             </div>
 
+            <!-- Menu: Blog + menu con -->
+            <div class="nav-item">
+                <a href="blog.html">Blog</a>
+                <div class="sub-menu">
+                    <a href="blog-dong-van.html">Địa Điểm Nổi Bật</a>
+                    <a href="blog-hop-tac-dong-mo.html">Blog Nổi Bật</a>
+                </div>
+            </div>
 
+            <a href="ve-chung-toi.html">Về Chúng Tôi</a>
+            <a href="lien-he.html">Liên Hệ</a>
+        </nav>
+
+        <!-- Nút ☰ mở menu (chỉ hiện trên mobile) -->
+        <button class="nav-toggle" id="navToggle" aria-label="Mở menu">☰</button>
+    </div>
+</header>
+
+
+<!-- ==============================================================
+     02. HERO - Banner đầu trang
+     Ảnh nền đổi trong CSS mục 04.1 và 16
+=============================================================== -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-content">
+
+            <!-- Dòng nhỏ phía trên tiêu đề -->
+            <div class="hero-kicker">CAMPING MADE SIMPLE</div>
+
+            <!-- Tiêu đề (mỗi <span> là 1 dòng) -->
             <h1>
-
-                <span>
-                    Đi camping nhẹ hơn.
-                </span>
-
-                <span>
-                    Trải nghiệm nhiều hơn.
-                </span>
-
+                <span>Đi camping nhẹ hơn.</span>
+                <span>Trải nghiệm nhiều hơn.</span>
             </h1>
 
-
+            <!-- Mô tả -->
             <p>
                 Glampify chuẩn bị sẵn những combo camping thiết yếu
                 để bạn chỉ việc xách balo lên, hòa mình vào thiên nhiên
                 và tận hưởng chuyến đi.
             </p>
 
-
+            <!-- 2 nút hành động -->
             <div class="hero-buttons">
-
-                <a
-                    href="thue-box.html"
-                    class="hero-primary"
-                >
+                <a href="thue-box.html" class="hero-primary">
                     Khám phá Combo Box
                     <span>→</span>
                 </a>
 
-
-                <a
-                    href="ve-chung-toi.html"
-                    class="hero-secondary"
-                >
+                <a href="ve-chung-toi.html" class="hero-secondary">
                     Về Glampify
                     <span>→</span>
                 </a>
-
             </div>
 
-
         </div>
-
     </div>
-
 </section>
 
 
-<!-- =====================================================
-     BENEFITS
-===================================================== -->
-
+<!-- ==============================================================
+     03. BENEFITS - Dải 4 lợi ích (icon + tiêu đề + mô tả ngắn)
+=============================================================== -->
 <section class="benefit-section">
-
     <div class="container benefit-grid">
 
-
+        <!-- Lợi ích 1: Combo tiện lợi -->
         <div class="benefit-item">
-
             <div class="benefit-icon">
-                <svg>
-                    <use href="#icon-truck"></use>
-                </svg>
+                <svg><use href="#icon-truck"></use></svg>
             </div>
-
-
             <div>
-
-                <h3>
-                    Combo tiện lợi
-                </h3>
-
-                <p>
-                    Chuẩn bị sẵn, dễ thuê, dễ đi
-                </p>
-
+                <h3>Combo tiện lợi</h3>
+                <p>Chuẩn bị sẵn, dễ thuê, dễ đi</p>
             </div>
-
         </div>
 
-
+        <!-- Lợi ích 2: Thiết bị chất lượng -->
         <div class="benefit-item">
-
             <div class="benefit-icon">
-                <svg>
-                    <use href="#icon-leaf"></use>
-                </svg>
+                <svg><use href="#icon-leaf"></use></svg>
             </div>
-
-
             <div>
-
-                <h3>
-                    Thiết bị chất lượng
-                </h3>
-
-                <p>
-                    Kiểm tra kỹ trước mỗi chuyến
-                </p>
-
+                <h3>Thiết bị chất lượng</h3>
+                <p>Kiểm tra kỹ trước mỗi chuyến</p>
             </div>
-
         </div>
 
-
+        <!-- Lợi ích 3: Phù hợp nhiều nhu cầu -->
         <div class="benefit-item">
-
             <div class="benefit-icon">
-                <svg>
-                    <use href="#icon-tent"></use>
-                </svg>
+                <svg><use href="#icon-tent"></use></svg>
             </div>
-
-
             <div>
-
-                <h3>
-                    Phù hợp nhiều nhu cầu
-                </h3>
-
-                <p>
-                    Từ đi trong ngày đến qua đêm
-                </p>
-
+                <h3>Phù hợp nhiều nhu cầu</h3>
+                <p>Từ đi trong ngày đến qua đêm</p>
             </div>
-
         </div>
 
-
+        <!-- Lợi ích 4: Đồng hành cùng bạn -->
         <div class="benefit-item">
-
             <div class="benefit-icon">
-                <svg>
-                    <use href="#icon-users"></use>
-                </svg>
+                <svg><use href="#icon-users"></use></svg>
             </div>
-
-
             <div>
-
-                <h3>
-                    Đồng hành cùng bạn
-                </h3>
-
-                <p>
-                    Tư vấn tận tình, hỗ trợ nhanh chóng
-                </p>
-
+                <h3>Đồng hành cùng bạn</h3>
+                <p>Tư vấn tận tình, hỗ trợ nhanh chóng</p>
             </div>
-
         </div>
-
 
     </div>
-
 </section>
 
 
-<!-- =====================================================
-     COMBO CATEGORY
-===================================================== -->
-
+<!-- ==============================================================
+     04. DANH MỤC COMBO - 4 thẻ ảnh dẫn tới các trang combo
+     Ảnh nền từng thẻ: sửa trong CSS mục 07.2
+=============================================================== -->
 <section class="section">
-
     <div class="container">
 
-
+        <!-- Tiêu đề section + nút "Xem tất cả" -->
         <div class="section-header">
-
-
             <div>
-
-                <span class="section-kicker">
-                    Camping theo cách của bạn
-                </span>
-
-
-                <h2 class="section-title">
-                    Danh mục Combo Box
-                </h2>
-
-
-                <p class="section-subtitle">
-                    Chọn combo phù hợp với hành trình của bạn.
-                </p>
-
+                <span class="section-kicker">Camping theo cách của bạn</span>
+                <h2 class="section-title">Danh mục Combo Box</h2>
+                <p class="section-subtitle">Chọn combo phù hợp với hành trình của bạn.</p>
             </div>
 
-
-            <a
-                href="thue-box.html"
-                class="view-all"
-            >
+            <a href="thue-box.html" class="view-all">
                 Xem tất cả
                 <span>→</span>
             </a>
-
-
         </div>
 
-
+        <!-- 4 thẻ combo -->
         <div class="combo-grid">
 
-
-            <a
-                href="combo-kinh-nghiem.html"
-                class="combo-card"
-            >
-
+            <!-- Thẻ 1: Combo Người Mới -->
+            <a href="combo-kinh-nghiem.html" class="combo-card">
                 <div class="combo-content">
-
                     <div class="combo-icon">
-
-                        <svg>
-                            <use href="#icon-tent"></use>
-                        </svg>
-
+                        <svg><use href="#icon-tent"></use></svg>
                     </div>
-
-
-                    <div class="combo-category">
-                        Bắt đầu dễ dàng
-                    </div>
-
-
-                    <h3>
-                        Combo Người Mới
-                        <span>→</span>
-                    </h3>
-
+                    <div class="combo-category">Bắt đầu dễ dàng</div>
+                    <h3>Combo Người Mới <span>→</span></h3>
                 </div>
-
             </a>
 
-
-            <a
-                href="combo-kinh-nghiem.html"
-                class="combo-card"
-            >
-
+            <!-- Thẻ 2: Combo Lão Làng -->
+            <a href="combo-kinh-nghiem.html" class="combo-card">
                 <div class="combo-content">
-
                     <div class="combo-icon">
-
-                        <svg>
-                            <use href="#icon-users"></use>
-                        </svg>
-
+                        <svg><use href="#icon-users"></use></svg>
                     </div>
-
-
-                    <div class="combo-category">
-                        Đi cùng hội bạn
-                    </div>
-
-
-                    <h3>
-                        Combo Lão Làng
-                        <span>→</span>
-                    </h3>
-
+                    <div class="combo-category">Đi cùng hội bạn</div>
+                    <h3>Combo Lão Làng <span>→</span></h3>
                 </div>
-
             </a>
 
-
-            <a
-                href="combo-su-kien.html"
-                class="combo-card"
-            >
-
+            <!-- Thẻ 3: Combo Sự Kiện -->
+            <a href="combo-su-kien.html" class="combo-card">
                 <div class="combo-content">
-
                     <div class="combo-icon">
-
-                        <svg>
-                            <use href="#icon-users"></use>
-                        </svg>
-
+                        <svg><use href="#icon-users"></use></svg>
                     </div>
-
-
-                    <div class="combo-category">
-                        Cho nhóm đông
-                    </div>
-
-
-                    <h3>
-                        Combo Sự Kiện
-                        <span>→</span>
-                    </h3>
-
+                    <div class="combo-category">Cho nhóm đông</div>
+                    <h3>Combo Sự Kiện <span>→</span></h3>
                 </div>
-
             </a>
 
-
-            <a
-                href="thue-box.html"
-                class="combo-card"
-            >
-
+            <!-- Thẻ 4: Xem Tất Cả Combo -->
+            <a href="thue-box.html" class="combo-card">
                 <div class="combo-content">
-
                     <div class="combo-icon">
-
-                        <svg>
-                            <use href="#icon-location"></use>
-                        </svg>
-
+                        <svg><use href="#icon-location"></use></svg>
                     </div>
-
-
-                    <div class="combo-category">
-                        Linh hoạt hành trình
-                    </div>
-
-
-                    <h3>
-                        Xem Tất Cả Combo
-                        <span>→</span>
-                    </h3>
-
+                    <div class="combo-category">Linh hoạt hành trình</div>
+                    <h3>Xem Tất Cả Combo <span>→</span></h3>
                 </div>
-
             </a>
-
 
         </div>
-
-
     </div>
-
 </section>
 
 
-
-
-
-<!-- =====================================================
-     CONSULT
-===================================================== -->
-
+<!-- ==============================================================
+     05. TƯ VẤN - Cột trái: giới thiệu / Cột phải: form gửi qua Web3Forms
+=============================================================== -->
 <section class="section consult-section">
-
     <div class="container consult-grid">
 
-
+        <!-- ---------- Cột trái: tiêu đề + mô tả + 3 dấu ✓ ---------- -->
         <div class="consult-copy">
 
+            <span class="section-kicker">Chỉ mất 30 giây</span>
 
-            <span class="section-kicker">
-                Chỉ mất 30 giây
-            </span>
-
-
-            <h2>
-                Chưa biết nên chọn combo nào?
-            </h2>
-
+            <h2>Chưa biết nên chọn combo nào?</h2>
 
             <p>
                 Hãy để Glampify gợi ý bộ đồ phù hợp
@@ -2462,725 +716,314 @@
                 của chuyến đi.
             </p>
 
-
             <ul class="check-list">
-
-
                 <li>
-
-                    <span class="check-icon">
-                        ✓
-                    </span>
-
-                    <span>
-                        Tư vấn theo số người và ngân sách của bạn.
-                    </span>
-
+                    <span class="check-icon">✓</span>
+                    <span>Tư vấn theo số người và ngân sách của bạn.</span>
                 </li>
-
-
                 <li>
-
-                    <span class="check-icon">
-                        ✓
-                    </span>
-
-                    <span>
-                        Miễn phí đổi lịch khi điều kiện
-                        thời tiết không phù hợp.
-                    </span>
-
+                    <span class="check-icon">✓</span>
+                    <span>Miễn phí đổi lịch khi điều kiện thời tiết không phù hợp.</span>
                 </li>
-
-
                 <li>
-
-                    <span class="check-icon">
-                        ✓
-                    </span>
-
-                    <span>
-                        Hỗ trợ giao nhận và hướng dẫn
-                        sử dụng thiết bị.
-                    </span>
-
+                    <span class="check-icon">✓</span>
+                    <span>Hỗ trợ giao nhận và hướng dẫn sử dụng thiết bị.</span>
                 </li>
-
-
             </ul>
 
-
         </div>
 
-
+        <!-- ---------- Cột phải: form tư vấn ---------- -->
         <div class="form-card">
+            <form action="https://api.web3forms.com/submit" method="POST" class="form-grid">
 
+                <!-- Thông tin ẩn cho Web3Forms (KHÔNG xóa) -->
+                <input type="hidden" name="access_key" value="d607fe50-277b-4146-82b0-316aa5503687">
+                <input type="hidden" name="subject" value="[Glampify] Khách hàng đăng ký tư vấn">
 
-            <form
-                action="https://api.web3forms.com/submit"
-                method="POST"
-                class="form-grid"
-            >
-
-
-                <input
-                    type="hidden"
-                    name="access_key"
-                    value="d607fe50-277b-4146-82b0-316aa5503687"
-                >
-
-
-                <input
-                    type="hidden"
-                    name="subject"
-                    value="[Glampify] Khách hàng đăng ký tư vấn"
-                >
-
-
+                <!-- Họ tên -->
                 <div class="field">
-
-                    <label>
-                        Tên của bạn *
-                    </label>
-
-
-                    <input
-                        type="text"
-                        name="Ho_Ten"
-                        placeholder="Nguyễn Văn A"
-                        required
-                    >
-
+                    <label>Tên của bạn *</label>
+                    <input type="text" name="Ho_Ten" placeholder="Nguyễn Văn A" required>
                 </div>
 
-
+                <!-- Số điện thoại -->
                 <div class="field">
-
-                    <label>
-                        Số điện thoại *
-                    </label>
-
-
-                    <input
-                        type="tel"
-                        name="So_Dien_Thoai"
-                        placeholder="09xx xxx xxx"
-                        required
-                    >
-
+                    <label>Số điện thoại *</label>
+                    <input type="tel" name="So_Dien_Thoai" placeholder="09xx xxx xxx" required>
                 </div>
 
-
+                <!-- Số người đi -->
                 <div class="field">
-
-                    <label>
-                        Số người đi
-                    </label>
-
-
-                    <input
-                        type="number"
-                        name="So_Nguoi_Di"
-                        min="1"
-                        placeholder="4"
-                    >
-
+                    <label>Số người đi</label>
+                    <input type="number" name="So_Nguoi_Di" min="1" placeholder="4">
                 </div>
 
-
+                <!-- Ngày đi -->
                 <div class="field">
-
-                    <label>
-                        Ngày đi
-                    </label>
-
-
-                    <input
-                        type="date"
-                        name="Ngay_Di"
-                    >
-
+                    <label>Ngày đi</label>
+                    <input type="date" name="Ngay_Di">
                 </div>
 
-
+                <!-- Yêu cầu thêm (chiếm cả 2 cột) -->
                 <div class="field full">
-
-                    <label>
-                        Yêu cầu thêm
-                    </label>
-
-
-                    <input
-                        type="text"
-                        name="Yeu_Cau"
-                        placeholder="Ví dụ: cần thêm bếp ga mini..."
-                    >
-
+                    <label>Yêu cầu thêm</label>
+                    <input type="text" name="Yeu_Cau" placeholder="Ví dụ: cần thêm bếp ga mini...">
                 </div>
 
-
-                <button
-                    type="submit"
-                    class="form-submit"
-                >
-                    Nhận tư vấn miễn phí
-                </button>
-
+                <!-- Nút gửi -->
+                <button type="submit" class="form-submit">Nhận tư vấn miễn phí</button>
 
             </form>
-
-
         </div>
 
-
     </div>
-
 </section>
 
 
-<!-- =====================================================
-     DESTINATIONS
-===================================================== -->
-
+<!-- ==============================================================
+     06. ĐIỂM ĐẾN - Lưới 4 ảnh Hà Giang (thẻ đầu cao gấp đôi)
+     Ảnh từng điểm: sửa trong CSS mục 10.2
+=============================================================== -->
 <section class="section white">
-
     <div class="container">
 
-
+        <!-- Tiêu đề section + nút "Khám phá thêm" -->
         <div class="section-header">
-
-
             <div>
-
-                <span class="section-kicker">
-                    Khám phá Hà Giang
-                </span>
-
-
-                <h2 class="section-title">
-                    Điểm cắm trại lý tưởng
-                </h2>
-
-
+                <span class="section-kicker">Khám phá Hà Giang</span>
+                <h2 class="section-title">Điểm cắm trại lý tưởng</h2>
                 <p class="section-subtitle">
                     Những điểm đến đáng trải nghiệm cho
                     chuyến camping tiếp theo.
                 </p>
-
             </div>
 
-
-            <a
-                href="blog.html"
-                class="view-all"
-            >
+            <a href="blog.html" class="view-all">
                 Khám phá thêm
                 <span>→</span>
             </a>
-
-
         </div>
 
-
+        <!-- 4 điểm đến -->
         <div class="destination-grid">
 
-
-            <a
-                href="blog-dong-van.html"
-                class="destination"
-            >
-
+            <!-- Điểm 1: Đồng Văn (thẻ lớn) -->
+            <a href="blog-dong-van.html" class="destination">
                 <div class="destination-copy">
-
-                    <h3>
-                        Đồng Văn
-                    </h3>
-
-                    <p>
-                        Cao nguyên đá hùng vĩ
-                    </p>
-
+                    <h3>Đồng Văn</h3>
+                    <p>Cao nguyên đá hùng vĩ</p>
                 </div>
-
             </a>
 
-
-            <a
-                href="blog-yen-minh.html"
-                class="destination"
-            >
-
+            <!-- Điểm 2: Yên Minh -->
+            <a href="blog-yen-minh.html" class="destination">
                 <div class="destination-copy">
-
-                    <h3>
-                        Yên Minh
-                    </h3>
-
-                    <p>
-                        Rừng thông giữa núi cao
-                    </p>
-
+                    <h3>Yên Minh</h3>
+                    <p>Rừng thông giữa núi cao</p>
                 </div>
-
             </a>
 
-
-            <a
-                href="blog-meo-vac.html"
-                class="destination"
-            >
-
+            <!-- Điểm 3: Mèo Vạc -->
+            <a href="blog-meo-vac.html" class="destination">
                 <div class="destination-copy">
-
-                    <h3>
-                        Mèo Vạc
-                    </h3>
-
-                    <p>
-                        Chinh phục Mã Pì Lèng
-                    </p>
-
+                    <h3>Mèo Vạc</h3>
+                    <p>Chinh phục Mã Pì Lèng</p>
                 </div>
-
             </a>
 
-
-            <a
-                href="blog-sung-la.html"
-                class="destination"
-            >
-
+            <!-- Điểm 4: Sủng Là -->
+            <a href="blog-sung-la.html" class="destination">
                 <div class="destination-copy">
-
-                    <h3>
-                        Sủng Là
-                    </h3>
-
-                    <p>
-                        Thung lũng giữa cao nguyên đá
-                    </p>
-
+                    <h3>Sủng Là</h3>
+                    <p>Thung lũng giữa cao nguyên đá</p>
                 </div>
-
             </a>
-
 
         </div>
-
-
     </div>
-
 </section>
 
 
-<!-- =====================================================
-     REVIEWS
-===================================================== -->
-
+<!-- ==============================================================
+     07. ĐÁNH GIÁ KHÁCH HÀNG - 3 thẻ review
+     Muốn thêm review: copy nguyên 1 khối <article> rồi sửa nội dung
+=============================================================== -->
 <section class="section">
-
     <div class="container">
 
-
+        <!-- Tiêu đề section -->
         <div class="section-header">
-
             <div>
-
-                <span class="section-kicker">
-                    Cảm nhận thực tế
-                </span>
-
-
-                <h2 class="section-title">
-                    Khách hàng nói gì?
-                </h2>
-
+                <span class="section-kicker">Cảm nhận thực tế</span>
+                <h2 class="section-title">Khách hàng nói gì?</h2>
             </div>
-
         </div>
 
-
+        <!-- 3 thẻ review -->
         <div class="review-grid">
 
-
+            <!-- Review 1: Minh Tuấn -->
             <article class="review-card">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-
+                <div class="stars">★★★★★</div>
                 <p>
                     Lều rất mới và sạch. Nhóm mình đi
                     4 người nhưng chỉ cần nhận một combo
                     là gần như có đủ mọi thứ cần thiết.
                 </p>
-
-
                 <div class="review-user">
-
-                    <div class="avatar">
-                        M
-                    </div>
-
-                    <strong>
-                        Minh Tuấn
-                    </strong>
-
+                    <div class="avatar">M</div>
+                    <strong>Minh Tuấn</strong>
                 </div>
-
             </article>
 
-
+            <!-- Review 2: Phương Ly -->
             <article class="review-card">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-
+                <div class="stars">★★★★★</div>
                 <p>
                     Đồ được pack rất gọn, nhân viên tư vấn
                     nhiệt tình. Đi xe máy nhưng vẫn mang
                     theo khá dễ dàng.
                 </p>
-
-
                 <div class="review-user">
-
-                    <div class="avatar">
-                        P
-                    </div>
-
-                    <strong>
-                        Phương Ly
-                    </strong>
-
+                    <div class="avatar">P</div>
+                    <strong>Phương Ly</strong>
                 </div>
-
             </article>
 
-
+            <!-- Review 3: Hoàng Bách -->
             <article class="review-card">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-
+                <div class="stars">★★★★★</div>
                 <p>
                     Mình thích nhất chính sách hỗ trợ
                     đổi lịch khi thời tiết xấu. Nhóm mình
                     được chuyển lịch rất nhanh.
                 </p>
-
-
                 <div class="review-user">
-
-                    <div class="avatar">
-                        H
-                    </div>
-
-                    <strong>
-                        Hoàng Bách
-                    </strong>
-
+                    <div class="avatar">H</div>
+                    <strong>Hoàng Bách</strong>
                 </div>
-
             </article>
 
-
         </div>
-
-
     </div>
-
 </section>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
+<!-- ==============================================================
+     08. FOOTER - Chân trang (3 cột)
+=============================================================== -->
 <footer>
-
     <div class="container">
-
 
         <div class="footer-grid">
 
-
+            <!-- Cột 1: Thương hiệu + địa chỉ + email -->
             <div>
-
-
                 <div class="footer-brand">
-
-
                     <span class="footer-logo-wrap">
-
-                        <img
-                            src="./images/logo-header.png"
-                            alt="Glampify"
-                        >
-
+                        <img src="./images/logo-header.png" alt="Glampify">
                     </span>
-
-
-                    <strong>
-                        Glampify
-                    </strong>
-
-
+                    <strong>Glampify</strong>
                 </div>
 
-
-                <p>
-                    Camping Made Simple.
-                </p>
-
+                <p>Camping Made Simple.</p>
 
                 <p>
                     Chuẩn bị nhẹ hơn để bạn tận hưởng
                     thiên nhiên nhiều hơn.
                 </p>
 
+                <p style="margin-top:12px">79 Hồ Tùng Mậu, Hà Nội</p>
 
-                <p style="margin-top:12px">
-                    79 Hồ Tùng Mậu, Hà Nội
-                </p>
-
-
-                <p>
-                    support@glampify.com
-                </p>
-
-
+                <p>support@glampify.com</p>
             </div>
 
-
+            <!-- Cột 2: Khám phá -->
             <div>
-
-
-                <h4>
-                    Khám phá
-                </h4>
-
-
+                <h4>Khám phá</h4>
                 <ul class="footer-links">
-
-
-                    <li>
-                        <a href="thue-box.html">
-                            Combo Box
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="blog.html">
-                            Blog
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="ve-chung-toi.html">
-                            Về Glampify
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="lien-he.html">
-                            Liên hệ
-                        </a>
-                    </li>
-
-
+                    <li><a href="thue-box.html">Combo Box</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="ve-chung-toi.html">Về Glampify</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
                 </ul>
-
-
             </div>
 
-
+            <!-- Cột 3: Hỗ trợ (các link "#" chưa có trang, thay link thật sau) -->
             <div>
-
-
-                <h4>
-                    Hỗ trợ
-                </h4>
-
-
+                <h4>Hỗ trợ</h4>
                 <ul class="footer-links">
-
-
-                    <li>
-                        <a href="#">
-                            Chính sách đổi lịch
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#">
-                            Chính sách vận chuyển
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#">
-                            Hướng dẫn thuê Combo
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#">
-                            Câu hỏi thường gặp
-                        </a>
-                    </li>
-
-
+                    <li><a href="#">Chính sách đổi lịch</a></li>
+                    <li><a href="#">Chính sách vận chuyển</a></li>
+                    <li><a href="#">Hướng dẫn thuê Combo</a></li>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
                 </ul>
-
-
             </div>
-
 
         </div>
 
-
-        <div class="footer-bottom">
-            © 2026 Glampify. All rights reserved.
-        </div>
-
+        <!-- Dòng bản quyền -->
+        <div class="footer-bottom">© 2026 Glampify. All rights reserved.</div>
 
     </div>
-
 </footer>
 
 
-<!-- =====================================================
-     CHAT
-===================================================== -->
-
+<!-- ==============================================================
+     09. NÚT CHAT NỔI - Zalo + Facebook (góc phải dưới màn hình)
+     Muốn đổi link: sửa href của 2 thẻ <a> bên dưới
+=============================================================== -->
 <div class="chat-widget">
 
+    <!-- Zalo -->
+    <a href="https://zalo.me/" target="_blank" class="chat-bubble zalo" aria-label="Zalo">Z</a>
 
-    <a
-        href="https://zalo.me/"
-        target="_blank"
-        class="chat-bubble zalo"
-        aria-label="Zalo"
-    >
-        Z
-    </a>
-
-
-    <a
-        href="https://www.facebook.com/share/19tv8fyB2P/?mibextid=wwXIfr"
-        target="_blank"
-        class="chat-bubble facebook"
-        aria-label="Facebook"
-    >
-        f
-    </a>
-
+    <!-- Facebook Fanpage -->
+    <a href="https://www.facebook.com/share/19tv8fyB2P/?mibextid=wwXIfr" target="_blank" class="chat-bubble facebook" aria-label="Facebook">f</a>
 
 </div>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
+<!-- ==============================================================
+     10. JAVASCRIPT
+=============================================================== -->
 <script>
 
-    /* MOBILE MENU */
-
-    const navToggle =
-        document.getElementById("navToggle");
-
-    const mainNav =
-        document.getElementById("mainNav");
-
+    /* ------------------------------------------------------------
+       10.1 MENU MOBILE: bấm ☰ để mở/đóng, đổi icon ☰ ↔ ✕
+    ------------------------------------------------------------ */
+    const navToggle = document.getElementById("navToggle");
+    const mainNav = document.getElementById("mainNav");
 
     if (navToggle && mainNav) {
-
-        navToggle.addEventListener(
-            "click",
-            function () {
-
-                mainNav.classList.toggle("open");
-
-
-                if (
-                    mainNav.classList.contains("open")
-                ) {
-
-                    navToggle.innerHTML = "✕";
-
-                } else {
-
-                    navToggle.innerHTML = "☰";
-
-                }
-
-            }
-        );
-
+        navToggle.addEventListener("click", function () {
+            mainNav.classList.toggle("open");
+            navToggle.innerHTML = mainNav.classList.contains("open") ? "✕" : "☰";
+        });
     }
 
 
-    /* PRODUCT CAROUSEL */
+    /* ------------------------------------------------------------
+       10.2 CAROUSEL SẢN PHẨM: nút ‹ › cuộn ngang 300px
+       ⚠ Hiện trang chưa có HTML carousel nên đoạn này chưa chạy
+         (có kiểm tra "if" nên không gây lỗi). Giữ lại để dùng sau.
+    ------------------------------------------------------------ */
+    const carousel = document.getElementById("productCarousel");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
 
-    const carousel =
-        document.getElementById("productCarousel");
+    if (carousel && prevBtn && nextBtn) {
+        prevBtn.addEventListener("click", function () {
+            carousel.scrollBy({ left: -300, behavior: "smooth" });
+        });
 
-    const prevBtn =
-        document.getElementById("prevBtn");
-
-    const nextBtn =
-        document.getElementById("nextBtn");
-
-
-    if (
-        carousel &&
-        prevBtn &&
-        nextBtn
-    ) {
-
-        prevBtn.addEventListener(
-            "click",
-            function () {
-
-                carousel.scrollBy({
-                    left: -300,
-                    behavior: "smooth"
-                });
-
-            }
-        );
-
-
-        nextBtn.addEventListener(
-            "click",
-            function () {
-
-                carousel.scrollBy({
-                    left: 300,
-                    behavior: "smooth"
-                });
-
-            }
-        );
-
+        nextBtn.addEventListener("click", function () {
+            carousel.scrollBy({ left: 300, behavior: "smooth" });
+        });
     }
 
 </script>
 
-
 </body>
-
 </html>
