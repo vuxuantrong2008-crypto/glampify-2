@@ -7,14 +7,13 @@ window.GLAMPIFY={
   "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=500&auto=format&fit=crop&q=60"
  ],
  CATS:{
-   "nguoi-moi": {"label": "Combo Người Mới", "href": "combo-nguoi-moi.html", "note": "Combo dành riêng cho người chưa có kinh nghiệm: mọi thứ đều bật là lên, dễ tháo lắp."},
-   "lao-lang": {"label": "Combo Lão Làng", "href": "combo-lao-lang.html", "note": "Combo đầy thách thức: lều dựng thủ công, bếp củi, dành cho dân camp thứ thiệt."},
-   "mua-thu": {"label": "Combo Mùa Thu", "href": "#", "note": "Gọn nhẹ, tiện nghi, lãng mạn, phù hợp với thời tiết mát mẻ mùa thu."},
-   "mua-dong": {"label": "Combo Mùa Đông", "href": "#", "note": "Trang bị đầy đủ túi ngủ lông vũ, đèn sưởi và đệm cách nhiệt chống rét."},
-   "dac-biet": {"label": "Combo Đặc Biệt", "href": "#", "note": "Tập trung vào trải nghiệm cảm xúc, decor đẹp, góc chụp ảnh sống ảo."},
+   "nguoi-moi": {"label": "Combo Theo Kinh Nghiệm", "href": "combo-kinh-nghiem.html", "note": "Combo dành riêng cho người chưa có kinh nghiệm: mọi thứ đều bật là lên, dễ tháo lắp."},
+   "lao-lang": {"label": "Combo Theo Kinh Nghiệm", "href": "combo-kinh-nghiem.html", "note": "Combo đầy thách thức: lều dựng thủ công, bếp củi, dành cho dân camp thứ thiệt."},
+   "mua-thu": {"label": "Combo Mùa Thu", "href": "combo-mua.html", "note": "Gọn nhẹ, tiện nghi, lãng mạn, phù hợp với thời tiết mát mẻ mùa thu."},
+   "mua-dong": {"label": "Combo Mùa Đông", "href": "combo-mua.html", "note": "Trang bị đầy đủ túi ngủ lông vũ, đèn sưởi và đệm cách nhiệt chống rét."},
    "su-kien": {"label": "CampBox Sự Kiện", "href": "combo-su-kien.html", "note": "Được thiết kế trọn gói cho tiệc sinh nhật, họp lớp, tất niên hay ngày lễ."},
-   "tram-box": {"label": "Hệ thống Trạm Box", "href": "#", "note": "Gói trang bị tối ưu từ dã ngoại sống ảo trong ngày đến sinh tồn sâu trong rừng."},
-   "glam-line": {"label": "Dòng Glam", "href": "#", "note": "Hệ sinh thái linh hoạt theo số lượng người, phù hợp mọi điều kiện thời tiết."}
+
+  
  },
  GUIDE:[
   "Nhận đồ và đối chiếu với danh sách bên cạnh trước khi rời điểm giao nhận.", 
@@ -44,16 +43,9 @@ window.GLAMPIFY={
 
  {"id": "dong-couple", "name": "Sưởi Ấm Đôi Ta", "cat": "mua-dong", "img": 0, "people": [2], "chips": ["Ấm áp"], "lead": "Winter Warmth for Two – Ăn Lẩu Ngắm Sao Mùa Đông", "desc": ["Cung cấp bếp lẩu mini nóng hổi, đèn sưởi và lều chống gió an toàn.", "Giá: 850.000đ/1 đêm — 1.200.000đ/2N1Đ"], "items": [{"n": "Lều 2 người chống gió", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Túi ngủ lông vũ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Đệm cách nhiệt 2 lớp lớn", "u": "tấm", "per": 2, "fix": 0, "night": 0}, {"n": "Đèn sưởi tích điện", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Bếp gas + Nồi lẩu mini", "u": "bộ", "per": 2, "fix": 0, "night": 0}, {"n": "Chăn dày đôi", "u": "chiếc", "per": 2, "fix": 0, "night": 0}], "stock": true},
  // ==========================================
- // 4. NHÓM COMBO ĐẶC BIỆT
- // ==========================================
- {"id": "dac-biet-bonfire", "name": "Đặc Biệt: Đêm Lửa Tình Thu Đông", "cat": "dac-biet", "img": 2, "people": [2, 4], "chips": ["Cozy Bonfire"], "lead": "Cozy Bonfire Night – Camping Cảm Xúc Sâu Sắc", "desc": ["Bộ nướng mini mô phỏng lửa trại an toàn, kết hợp lẩu tự sôi, trà nóng và sổ tay ghi nhật ký.", "Giá: 1.450.000đ/2N1Đ"], "items": [{"n": "Lều cửa sổ lưới ngắm sao", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Túi ngủ lông vũ + đệm 2 lớp", "u": "bộ", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sưởi tích điện", "u": "chiếc", "per": 4, "fix": 0, "night": 0}, {"n": "Bộ nướng mini + Nồi lẩu tự sôi", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Trà/cacao + Marshmallow", "u": "set", "per": 4, "fix": 0, "night": 0}, {"n": "Đèn LED lửa trại + Sổ tay", "u": "bộ", "per": 4, "fix": 0, "night": 0}], "stock": true},
-
- {"id": "dac-biet-picnic", "name": "Đặc Biệt: Khoảnh Khắc Hoàng Hôn Vàng", "cat": "dac-biet", "img": 0, "people": [2, 4], "chips": ["Picnic"], "lead": "Golden Hour Picnic – Check-in Sống Ảo Hàn Quốc", "desc": ["Không cần qua đêm. Thiết kế giỏ picnic, thảm, bàn thấp, hoa khô, gương cầm tay phục vụ chụp ảnh.", "Giá: 890.000đ/buổi"], "items": [{"n": "Thảm họa tiết + bàn thấp", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Gối tựa lưng", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Giỏ picnic (trái cây, bánh ngọt)", "u": "giỏ", "per": 4, "fix": 0, "night": 0}, {"n": "Khung tranh, hoa khô, gương", "u": "bộ", "per": 4, "fix": 0, "night": 0}, {"n": "Dây đèn LED + Biển gỗ check-in", "u": "bộ", "per": 4, "fix": 0, "night": 0}], "stock": true},
-
- // ==========================================
  // 5. CAMPBOX SỰ KIỆN
  // ==========================================
- {"id": "campbox-noel", "name": "CampBox 3: Noel", "cat": "su-kien", "img": 2, "people": [4, 10], "chips": ["Giáng Sinh", "Đèn trang trí"], "lead": "Mang Không Khí Giáng Sinh Vào Thiên Nhiên", "desc": ["Lều glamping kết hợp cây thông mini, đèn dây LED, phù hợp cho Secret Santa và Christmas party."], "items": [{"n": "Lều glamping/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Cây thông mini + Đèn LED", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Phụ kiện decor Noel", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Loa Bluetooth", "u": "chiếc", "per": 0, "fix": 1, "night": 0}], "stock": true},
+ {"id": "campbox-noel", "name": "CampBox 3: Noel", "cat": "su-kien", "img": 0, "people": [4, 10], "chips": ["Giáng Sinh", "Đèn trang trí"], "lead": "Mang Không Khí Giáng Sinh Vào Thiên Nhiên", "desc": ["Lều glamping kết hợp cây thông mini, đèn dây LED, phù hợp cho Secret Santa và Christmas party."], "items": [{"n": "Lều glamping/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Cây thông mini + Đèn LED", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Phụ kiện decor Noel", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Loa Bluetooth", "u": "chiếc", "per": 0, "fix": 1, "night": 0}], "stock": true},
 
  {"id": "campbox-ngay-le", "name": "CampBox 5: Ngày Lễ", "cat": "su-kien", "img": 0, "people": [4, 10], "chips": ["Linh hoạt", "Dịp lễ"], "lead": "Kỳ Nghỉ Nào Cũng Trở Thành Camping", "desc": ["Combo thiết bị tiêu chuẩn dễ dàng tùy biến decor cho bất kỳ dịp lễ tết hay ngày nghỉ dài nào."], "items": [{"n": "Lều dome/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Đệm/Túi ngủ", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Bếp camping + Dụng cụ ăn", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Phụ kiện trang trí linh hoạt", "u": "bộ", "per": 0, "fix": 1, "night": 0}], "stock": true},
 

@@ -2,220 +2,112 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Glampify Hợp Tác Cùng Khu Du Lịch Đồng Mô Ra Mắt Combo Cắm Trại Ven Hồ - Glampify</title>
+<meta name="description" content="Glampify chính thức hợp tác cùng khu du lịch sinh thái Đồng Mô để ra mắt dòng combo cắm trại ven hồ, mang đến trải nghiệm dã ngoại mới mẻ ngay gần nội...">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#F7F1DF;
-  --bg-white:#FFFFFF;
-  --terracotta:#3F5035;
-  --terracotta-dark:#273321;
-  --accent:#A7B77B;
-  --cream:#FFF9E9;
-  --text:#30382B;
-  padding-top: env(safe-area-inset-top,0px);
-  padding-bottom: env(safe-area-inset-bottom,0px);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
-h1,h2,h3,h4,h5,h6{font-family:'Inter',sans-serif;color:var(--terracotta);font-weight:700}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-section{padding:72px 0}
-.bg-white{background:var(--bg-white)}
-.section-kicker{color:var(--accent);font-weight:700;font-size:.95rem;display:block;margin-bottom:6px}
-.section-title{font-size:clamp(2rem,4vw,2.6rem);color:var(--terracotta-dark);line-height:1.15}
-.section-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:44px}
-.more-link{display:flex;align-items:center;gap:6px;color:var(--terracotta);font-weight:700;text-decoration:none;border-bottom:2px solid transparent;padding-bottom:2px;transition:.2s ease}
-.more-link:hover{color:var(--accent);border-color:var(--accent)}
-.more-link svg{width:16px;height:16px}
-.tag{display:inline-block;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:20px}
-.btn{border:none;border-radius:12px;font-family:'Inter',system-ui,sans-serif;font-weight:700;cursor:pointer;transition:transform .15s ease}
-.btn:hover{transform:translateY(-2px)}
-.btn-solid{background:var(--accent);color:#fff;padding:15px 34px;font-size:1rem;box-shadow:0 8px 20px rgba(201,138,61,.35);display:inline-flex;align-items:center;gap:10px}
-.btn-solid svg{width:18px;height:18px}
-
-/* ---------- HERO BÀI VIẾT TIÊU ĐIỂM ---------- */
-.hero-blog{padding:56px 0}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-.hero-img{
-  aspect-ratio:4/3;border-radius:22px;overflow:hidden;
-  background:linear-gradient(150deg,var(--terracotta) 0%,#c98a5c 55%,#8fae72 100%);
-  display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(58,69,48,.18);
-}
-.hero-img svg{width:70px;height:70px;color:#fff;opacity:.85}
-.hero-copy .tag{margin-bottom:18px}
-.hero-copy h1{font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.25;margin-bottom:18px}
-.hero-copy p{color:#66705E;font-size:1.02rem;line-height:1.7;margin-bottom:26px;max-width:520px}
-
-/* ---------- FEATURED GRID ---------- */
-.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.post-grid-4{grid-template-columns:repeat(4,1fr)}
-.post-card{display:block;text-decoration:none;background:var(--cream);border-radius:20px;overflow:hidden;box-shadow:0 10px 28px rgba(58,69,48,.12);transition:transform .3s ease,box-shadow .3s ease}
-.post-card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(58,69,48,.2)}
-.post-thumb{
-  aspect-ratio:4/3;
-  background:linear-gradient(150deg,var(--terracotta) 0%,#c98a5c 55%,#8fae72 100%);
-  display:flex;align-items:center;justify-content:center;
-}
-.post-thumb svg{width:44px;height:44px;color:#fff;opacity:.85}
-.post-body{padding:20px 20px 24px}
-.post-body span{color:var(--accent);font-weight:700;font-size:.78rem}
-.post-body h3{
-  font-size:1.08rem;line-height:1.4;margin-top:8px;color:var(--text);font-weight:700;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+/* ==============================================================
+   01. MÀU THƯƠNG HIỆU & BIẾN  (đồng bộ 100% với trang chủ)
+============================================================== */
+:root {
+    --forest: #22351f;
+    --forest-dark: #172716;
+    --forest-light: #395334;
+    --sage: #aab879;
+    --sage-light: #e3e8ca;
+    /* CHỈ 2 MÀU NỀN, XEN KẼ NHAU: */
+    --cream: #f6f0df;          /* Nền A: kem */
+    --bg-b: #f3f6e8;           /* Nền B: xanh xô thơm nhạt */
+    --white: #ffffff;
+    --text: #263423;
+    --text-soft: #6c7468;
+    --border: #dedfd4;
+    --shadow: 0 18px 50px rgba(30, 52, 27, .10);
 }
 
-/* ---------- TIN TỨC (SLIDER 3 THẺ) ---------- */
-.slider-wrap{display:flex;align-items:center;gap:14px}
-.nav-btn{
-  flex:0 0 46px;width:46px;height:46px;border-radius:50%;border:1.5px solid #D7D8B8;background:#fff;color:var(--terracotta);
-  font-size:1.1rem;cursor:pointer;transition:.25s ease;display:flex;align-items:center;justify-content:center;
-}
-.nav-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 8px 18px rgba(201,138,61,.3)}
-.news-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;flex:1}
-.news-track::-webkit-scrollbar{display:none}
-.news-card{
-  display:block;text-decoration:none;
-  flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start;background:var(--cream);border-radius:20px;overflow:hidden;
-  box-shadow:0 10px 26px rgba(58,69,48,.12);transition:transform .3s ease;
-}
-.news-card:hover{transform:translateY(-5px)}
-.news-thumb{
-  aspect-ratio:16/10;
-  background:linear-gradient(150deg,#c98a5c 0%,var(--terracotta) 55%,#5c8a9c 100%);
-  display:flex;align-items:center;justify-content:center;
-}
-.news-thumb svg{width:40px;height:40px;color:#fff;opacity:.85}
-.news-body{padding:18px 20px 22px}
-.news-body h3{font-size:1rem;line-height:1.4;color:var(--text);font-weight:700}
+/* ==============================================================
+   02. RESET & NỀN TẢNG
+============================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: "Be Vietnam Pro", sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+button, input, select, textarea { font-family: inherit; }
 
-/* ---------- FOOTER (giống hệt trang chủ / sản phẩm) ---------- */
-footer{background:var(--terracotta-dark);color:#F7F1DF;padding:60px 0 28px}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:36px}
-.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.foot-brand svg{width:26px;height:26px;color:var(--accent)}
-.foot-logo{font-family:'Inter',sans-serif;font-weight:700;font-size:1.7rem;color:#fff}
-.foot-grid p,.foot-grid a{color:#EDE9D7;text-decoration:none;font-size:.94rem}
-.foot-grid h4{color:#fff;font-family:'Inter',sans-serif;margin-bottom:16px;font-size:1.15rem}
-.foot-links{list-style:none;display:flex;flex-direction:column;gap:11px}
-.foot-links a{transition:color .2s ease}
-.foot-links a:hover{color:#fff}
-.foot-bottom{text-align:center;font-size:.82rem;color:#C9CFB0;border-top:1px solid rgba(255,255,255,.15);padding-top:22px}
+.container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
 
-.form-section{background:var(--bg-white)}
-.form-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
-.form-copy .section-title{text-align:left}
-.benefit-list{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:18px}
-.benefit-list li{display:flex;gap:14px;align-items:flex-start}
-.benefit-list svg{flex:0 0 22px;width:22px;height:22px;color:var(--accent);margin-top:2px}
-.benefit-list strong{display:block;color:var(--terracotta-dark);font-size:1rem}
-.benefit-list span{color:#66705E;font-size:.92rem}
-.form-card{background:var(--cream);border-radius:24px;padding:40px;box-shadow:0 20px 48px rgba(58,69,48,.14)}
-form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
-.field{display:flex;flex-direction:column;gap:7px}
-.field.full{grid-column:1/-1}
-.field label{font-size:.85rem;font-weight:700;color:var(--terracotta)}
-.field input{border:1.5px solid #D8D8BC;border-radius:12px;padding:13px 15px;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:var(--text)}
-.field input:focus{outline:2px solid var(--accent);outline-offset:1px;background:#fff}
-.form-cta{grid-column:1/-1;display:flex;justify-content:center;margin-top:6px}
-.hero-img-wrap {
-  aspect-ratio: 4/3;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(58, 69, 48, 0.18);
-}
-.hero-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Giúp ảnh không bị méo hay bóp hình */
-  display: block;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr}
-  .post-grid{grid-template-columns:1fr 1fr}
-  .news-card{flex-basis:calc((100% - 24px)/2)}
-  .foot-grid{grid-template-columns:1fr}
-}
-@media (max-width:600px){
-  section{padding:52px 0}
-  .post-grid{grid-template-columns:1fr}
-  .news-card{flex-basis:80%}
-  .nav-btn{display:none}
-}
-
-/* =========================================================
-   HEADER - ĐỒNG BỘ VỚI TRANG CHỦ / LIÊN HỆ
-   (copy nguyên từ index.html - sửa menu thì sửa ở cả các trang)
-========================================================= */
-.site-header { --forest:#22351f; --forest-light:#395334; --cream:#f6f0df; --text:#263423; font-family:"Be Vietnam Pro", system-ui, sans-serif; }
-/* --- 03.1 Thanh header: dính trên cùng khi cuộn --- */
+/* ==============================================================
+   03. HEADER (giống hệt trang chủ)
+============================================================== */
 .site-header { position: sticky; top: 0; z-index: 1000; background: rgba(34, 53, 31, .98); border-bottom: 1px solid rgba(255, 255, 255, .07); backdrop-filter: blur(12px); }
 .header-inner { width: min(1180px, calc(100% - 48px)); margin: 0 auto; min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 
-/* --- 03.2 Logo tròn --- */
-.brand { display: flex; align-items: center; justify-content: center; flex-shrink: 0; text-decoration: none; }
+.brand { display: flex; align-items: center; justify-content: flex-start; gap: 14px; flex-shrink: 0; text-decoration: none; }
 .brand-badge { width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 50%; background: var(--cream); border: 1px solid rgba(255, 255, 255, .18); box-shadow: 0 4px 18px rgba(0, 0, 0, .16); transition: transform .25s ease, box-shadow .25s ease; }
 .header-logo { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .brand:hover .brand-badge { transform: translateY(-2px) scale(1.04); box-shadow: 0 8px 24px rgba(0, 0, 0, .20); }
+.brand-text { color: #ffffff; font-size: 20px; font-weight: 800; letter-spacing: -.3px; white-space: nowrap; transition: color .2s ease; }
+.brand:hover .brand-text { color: #d6df9d; }
 
-/* --- 03.3 Menu chính (Trang chủ, Combo Box, Blog...) --- */
 .main-nav { display: flex; align-items: center; gap: 42px; }
 .main-nav > a,
 .nav-item > a { position: relative; display: flex; align-items: center; gap: 9px; padding: 39px 0; color: rgba(255, 255, 255, .90); text-decoration: none; font-size: 15px; font-weight: 600; transition: color .2s ease; }
 .main-nav > a:hover,
 .nav-item > a:hover { color: #d6df9d; }
-
-/* Mục đang đứng: chữ xanh nhạt + gạch chân */
 .main-nav > a.active { color: #cdd98f; }
 .main-nav > a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 27px; height: 2px; border-radius: 20px; background: #cdd98f; }
 
-/* --- 03.4 Menu con xổ xuống (dropdown) --- */
 .nav-item { position: relative; }
-
-/* Mũi tên nhỏ bên cạnh chữ có menu con */
 .nav-item > a::after { content: ""; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
-
-/* Hộp menu con: ẩn mặc định, hiện khi rê chuột */
 .sub-menu { position: absolute; top: 81px; left: -22px; width: 220px; padding: 10px; background: #ffffff; border: 1px solid rgba(31, 52, 28, .08); border-radius: 14px; box-shadow: 0 18px 45px rgba(22, 39, 20, .20); opacity: 0; visibility: hidden; transform: translateY(8px); transition: .22s ease; }
 .nav-item:hover .sub-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 .sub-menu a { display: block; padding: 11px 13px; border-radius: 8px; color: var(--text); text-decoration: none; font-size: 13px; font-weight: 500; transition: .2s; }
 .sub-menu a:hover { background: #f0f3e3; color: var(--forest); }
 .sub-menu .sub-child { padding-left: 27px; color: #757c70; }
 
-/* --- 03.5 Nút ☰ mở menu (chỉ hiện trên mobile) --- */
 .nav-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: none; background: transparent; color: white; font-size: 28px; cursor: pointer; }
 
-@media (max-width: 860px) {
-    .header-inner { min-height: 78px; }
-    .brand-badge { width: 56px; height: 56px; }
-    .nav-toggle { display: flex; }
-    .header-inner { min-height: 78px; }
-    .brand-badge { width: 56px; height: 56px; }
-    .nav-toggle { display: flex; }
-
-    /* --- Menu xổ dọc, ẩn mặc định, hiện khi có class .open --- */
-    .main-nav { position: absolute; top: 78px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 24px 22px; background: var(--forest); border-top: 1px solid rgba(255, 255, 255, .07); }
-    .main-nav.open { display: flex; }
-    .main-nav > a,
-    .nav-item > a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, .08); }
-    .main-nav > a.active::after,
-    .nav-item > a::after { display: none; }
-
-    /* --- Menu con luôn hiện, thụt vào --- */
-    .sub-menu { position: static; display: block; width: 100%; padding: 0 0 8px 15px; opacity: 1; visibility: visible; transform: none; background: transparent; border: none; box-shadow: none; }
-    .sub-menu a { color: rgba(255, 255, 255, .66); padding: 8px 0; }
-    .sub-menu a:hover { background: transparent; color: #ffffff; }
+/* ==============================================================
+   04. HERO (cùng phong cách banner trang chủ, thấp hơn)
+============================================================== */
+.hero {
+    position: relative; min-height: 300px; display: flex; align-items: center; overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(12, 32, 14, .91) 0%, rgba(17, 38, 17, .78) 36%, rgba(20, 40, 18, .40) 61%, rgba(13, 30, 14, .06) 100%),
+        url("./images/banner-glampify.png");
+    background-size: cover;
+    background-position: center;
+    background-color: var(--forest);
 }
+.hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0, 0, 0, .02), rgba(12, 25, 12, .15)); }
+.hero-inner { position: relative; z-index: 2; width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 44px 0 48px; }
+.hero-kicker { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; color: #dce6a7; font-size: 13px; font-weight: 700; letter-spacing: 2.3px; }
+.hero-kicker::after { content: ""; width: 65px; height: 1px; background: #dce6a7; }
+.hero h1 { margin: 0 0 16px; color: #ffffff; font-size: clamp(38px, 4.5vw, 58px); font-weight: 800; line-height: 1.12; letter-spacing: -2px; }
+.hero p { max-width: 640px; color: rgba(255, 255, 255, .88); font-size: 17px; line-height: 1.75; }
+/* ==============================================================
+   10. FOOTER (giống hệt trang chủ)
+============================================================== */
+footer { padding: 40px 0 18px; background: var(--forest-dark); color: rgba(255, 255, 255, .70); }
+.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; align-items: start; padding-bottom: 28px; }
+.footer-brand,
+footer h4 { display: flex; align-items: center; height: 48px; margin: 0 0 12px; }
+.footer-brand { gap: 12px; }
+.footer-logo-wrap { width: 48px; height: 48px; overflow: hidden; flex-shrink: 0; border-radius: 50%; background: var(--cream); }
+.footer-logo-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.footer-brand strong { color: #ffffff; font-size: 18px; }
+footer h4 { color: #ffffff; font-size: 15px; font-weight: 700; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+.footer-links li,
+.footer-links a { color: rgba(255, 255, 255, .66); font-size: 13px; line-height: 22px; text-decoration: none; }
+.footer-links a:hover { color: #d5df9c; }
+.footer-bottom { padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, .10); color: rgba(255, 255, 255, .44); text-align: center; font-size: 11px; }
 
-/* =========================================================
-   CHAT WIDGET NỔI (ZALO + FANPAGE) - DÙNG CHUNG
-========================================================= */
+/* ---------- CHAT WIDGET NỔI (ZALO + FANPAGE) ---------- */
 .chat-widget{position:fixed;right:20px;bottom:20px;z-index:999;display:flex;flex-direction:column;gap:14px}
 .chat-bubble{
   width:56px;height:56px;border-radius:50%;
@@ -225,70 +117,128 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
   transition:transform .2s ease, box-shadow .2s ease;
 }
 .chat-bubble:hover{transform:scale(1.08);box-shadow:0 16px 32px rgba(0,0,0,.32)}
-.chat-zalo{background:#0068FF;font-family:'Inter',system-ui,sans-serif;font-weight:800;font-size:1.3rem}
+.chat-zalo{background:#0068FF;font-weight:800;font-size:1.3rem}
 .chat-fb{background:#0084FF}
 .chat-fb svg{width:28px;height:28px;fill:#fff}
 
-@media (max-width:600px){
-  .chat-widget{right:14px;bottom:14px;gap:12px}
-  .chat-bubble{width:50px;height:50px}
+/* ==============================================================
+   05. SECTION CHUNG (giống trang chủ)
+============================================================== */
+.section { padding: 36px 0; }
+.section.alt { background: var(--bg-b); }
+.section-header { margin-bottom: 18px; }
+.section-kicker { display: block; margin-bottom: 8px; color: #86975c; font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+.section-title { color: var(--forest); font-size: clamp(30px, 4vw, 43px); line-height: 1.2; letter-spacing: -1.5px; }
+.nav-item > a.active { color: #cdd98f; }
+
+/* Banner chỉ có ảnh, không chữ */
+.hero.hero-photo { min-height: 340px; background: var(--forest) center / cover no-repeat; }
+.hero.hero-photo::after { background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(12,25,12,.12)); }
+
+/* ==============================================================
+   BÀI VIẾT
+============================================================== */
+.narrow { max-width: 860px; margin: 0 auto; }
+.crumbs { margin-bottom: 14px; color: var(--text-soft); font-size: 13px; }
+.crumbs a { color: var(--forest); font-weight: 600; text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.article-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; color: var(--text-soft); font-size: 13px; font-weight: 600; }
+.tag { display: inline-block; padding: 6px 12px; border-radius: 100px; background: var(--forest); color: #fff; font-size: 11px; font-weight: 700; }
+.article-title { margin-bottom: 12px; color: var(--forest); font-size: clamp(30px, 4vw, 43px); line-height: 1.2; letter-spacing: -1.5px; }
+.article-lead { color: var(--text-soft); font-size: 16px; line-height: 1.8; }
+
+.article-card { padding: 36px; background: #fff; border: 1px solid #e0e2d6; border-radius: 18px; box-shadow: var(--shadow); }
+.info-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 22px; padding: 18px; background: var(--bg-b); border: 1px solid #e0e2d6; border-radius: 14px; }
+.info-box div { font-size: 13px; line-height: 1.6; }
+.info-box b { display: block; margin-bottom: 2px; color: #86975c; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; }
+.toc { margin-bottom: 8px; padding: 18px 22px; border: 1px dashed #c8cbbc; border-radius: 14px; }
+.toc strong { display: block; margin-bottom: 8px; color: var(--forest); font-size: 14px; }
+.toc ol { padding-left: 20px; color: var(--text-soft); font-size: 14px; line-height: 2; }
+.toc a { color: var(--forest); font-weight: 600; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article-body h2 { margin: 32px 0 12px; padding-top: 4px; color: var(--forest); font-size: 24px; line-height: 1.3; letter-spacing: -.5px; scroll-margin-top: 120px; }
+.article-body h3 { margin: 20px 0 8px; color: var(--forest); font-size: 17px; }
+.article-body p { margin-bottom: 12px; color: #4d5749; font-size: 15px; line-height: 1.85; }
+.article-body a { color: var(--forest); font-weight: 600; }
+.article-body ul { margin: 0 0 12px; padding-left: 22px; color: #4d5749; font-size: 15px; line-height: 1.85; }
+.article-body li { margin-bottom: 6px; }
+.note { margin: 14px 0 4px; padding: 14px 16px; border-left: 4px solid var(--sage); border-radius: 8px; background: #f3f6e8; color: #4d5749; font-size: 14px; line-height: 1.7; }
+.article-cta { max-width: 860px; margin: 20px auto 0; padding: 28px; text-align: center; background: #fff; border: 1px solid #e0e2d6; border-radius: 18px; }
+.article-cta h3 { margin-bottom: 8px; color: var(--forest); font-size: 20px; }
+.article-cta p { margin-bottom: 18px; color: var(--text-soft); font-size: 14px; line-height: 1.7; }
+.cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 8px; background: var(--forest); color: #fff; text-decoration: none; font-size: 14px; font-weight: 700; transition: .2s; }
+.cta-btn:hover { background: var(--forest-light); transform: translateY(-1px); }
+
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.post-card { display: block; overflow: hidden; background: #fff; border: 1px solid #e3e5da; border-radius: 18px; text-decoration: none; box-shadow: 0 12px 32px rgba(36,54,32,.06); transition: .25s; }
+.post-card:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(36,54,32,.12); }
+.post-thumb { aspect-ratio: 16 / 10; background: #dce2be; }
+.post-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.post-body { padding: 18px 20px 22px; }
+.post-body span { color: #86975c; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+.post-body h3 { margin-top: 8px; color: var(--forest); font-size: 16px; line-height: 1.45; }
+
+@media (max-width: 860px) {
+    .header-inner { min-height: 78px; }
+    .brand-badge { width: 56px; height: 56px; }
+    .brand-text { font-size: 17px; }
+    .nav-toggle { display: flex; }
+    .main-nav { position: absolute; top: 78px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 24px 22px; background: var(--forest); border-top: 1px solid rgba(255,255,255,.07); }
+    .main-nav.open { display: flex; }
+    .main-nav > a, .nav-item > a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .main-nav > a.active::after, .nav-item > a::after { display: none; }
+    .sub-menu { position: static; display: block; width: 100%; padding: 0 0 8px 15px; opacity: 1; visibility: visible; transform: none; background: transparent; border: none; box-shadow: none; }
+    .sub-menu a { color: rgba(255,255,255,.66); padding: 8px 0; }
+    .sub-menu a:hover { background: transparent; color: #fff; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .related-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 650px) {
+    .container { width: min(calc(100% - 32px), 1180px); }
+    .hero.hero-photo { min-height: 220px; }
+    .section { padding: 30px 0; }
+    .article-card { padding: 24px 18px; }
+    .info-box { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: 1fr; }
+    .chat-widget { right: 14px; bottom: 14px; gap: 12px; }
+    .chat-bubble { width: 50px; height: 50px; }
 }
 
-
-/* ---- FONT: Inter cho toàn bộ tiêu đề và nội dung ---- */
-button,input,select,textarea{font-family:inherit}
-
-/* ---------- TRANG BÀI VIẾT CHI TIẾT ---------- */
-.static-crumb{display:block;padding:18px 0 0;font-size:.88rem;color:#66705E}
-.static-crumb a{color:var(--terracotta);text-decoration:none;font-weight:600}
-.static-crumb a:hover{text-decoration:underline}
-.article-hero{padding:24px 0 0}
-.article-cover{aspect-ratio:21/9;border-radius:22px;overflow:hidden;box-shadow:0 16px 40px rgba(58,69,48,.18);margin-top:18px}
-.article-cover img{width:100%;height:100%;object-fit:cover;display:block}
-.article-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:26px 0 14px}
-.article-meta span{color:#66705E;font-size:.88rem;font-weight:600}
-.article-title{font-size:clamp(1.8rem,3.6vw,2.5rem);line-height:1.28;max-width:860px;margin-bottom:8px}
-.article-body{max-width:760px;margin:36px auto 0}
-.article-body p{color:var(--text);font-size:1.05rem;line-height:1.85;margin-bottom:20px}
-.article-cta{background:var(--cream);border-radius:20px;padding:36px 32px;text-align:center;margin:12px auto 0;max-width:760px;box-shadow:0 10px 26px rgba(58,69,48,.1)}
-.article-cta h3{margin-bottom:10px}
-.article-cta p{color:#66705E;margin-bottom:20px}
-.article-cta .btn-solid{text-decoration:none;display:inline-flex}
-.related-wrap{max-width:1100px;margin:0 auto}
 </style>
+</head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M17 14c2.5 0 4.5 2 4.5 4.5"/></symbol>
+  <symbol id="icon-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 19h18L12 3Z"/><path d="M8.5 19 12 11l3.5 8"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+</svg>
 <header class="site-header">
     <div class="header-inner">
 
-        <!-- Logo (bấm về trang chủ) -->
         <a href="index.html" class="brand">
             <div class="brand-badge">
                 <img src="images/logo-header.png" alt="Glampify Logo" class="header-logo">
             </div>
+            <span class="brand-text">Glampify Vietnam</span>
         </a>
 
-        <!-- Menu chính -->
         <nav class="main-nav" id="mainNav">
-
-            <!-- Trang Chủ (class="active" = mục đang đứng) -->
             <a href="index.html">Trang Chủ</a>
 
-            <!-- Menu: Combo Box + menu con -->
             <div class="nav-item">
                 <a href="thue-box.html">Combo Box</a>
                 <div class="sub-menu">
                     <a href="combo-kinh-nghiem.html">Theo Kinh Nghiệm</a>
                     <a href="combo-mua.html">Theo Mùa</a>
                     <a href="combo-su-kien.html">Theo Sự Kiện</a>
-
-                    <!-- Nút Tự Thiết Kế Combo (có gạch đứt phía trên) -->
                     <a href="form-dang-ky.html" style="border-top: 1.5px dashed #D7D8B8; margin-top: 6px; padding-top: 12px; color: var(--forest); font-weight: 800;">
                         ✨ Tự Thiết Kế Combo
                     </a>
                 </div>
             </div>
 
-            <!-- Menu: Blog + menu con -->
             <div class="nav-item">
                 <a href="blog.html" class="active">Blog</a>
                 <div class="sub-menu">
@@ -301,143 +251,114 @@ button,input,select,textarea{font-family:inherit}
             <a href="lien-he.html">Liên Hệ</a>
         </nav>
 
-        <!-- Nút ☰ mở menu (chỉ hiện trên mobile) -->
         <button class="nav-toggle" id="navToggle" aria-label="Mở menu">☰</button>
     </div>
 </header>
 
-<svg width="0" height="0" style="position:absolute">
-  <symbol id="icon-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 19h18L12 3Z"/><path d="M8.5 19 12 11l3.5 8"/></symbol>
-  <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></symbol>
-</svg>
+<!-- HERO: chỉ có ảnh, không chữ -->
+<section class="hero hero-photo" style="background-image:url('https://images.unsplash.com/photo-1534880606858-29b0e8a24e8d?w=1200&auto=format&fit=crop&q=70')" role="img" aria-label="Glampify Hợp Tác Cùng Khu Du Lịch Đồng Mô Ra Mắt Combo Cắm Trại Ven Hồ"></section>
 
-<div class="wrap"><nav class="static-crumb" aria-label="Breadcrumb"><a href="index.html">Trang chủ</a> / <a href="blog.html">Blog</a> / Glampify Hợp Tác Cùng Khu Du Lịch Đồng Mô Ra Mắt Combo Cắm Trại Ven Hồ</nav></div>
-
-<!-- BÀI VIẾT CHI TIẾT -->
-<section class="article-hero">
-  <div class="wrap">
-    <div class="article-cover"><img src="https://images.unsplash.com/photo-1534880606858-29b0e8a24e8d?w=1200&auto=format&fit=crop&q=70" alt="Glampify Hợp Tác Cùng Khu Du Lịch Đồng Mô Ra Mắt Combo Cắm Trại Ven Hồ"></div>
-    <div class="article-meta">
-      <span class="tag">Hợp tác</span>
-      <span>12/09/2026</span>
-      <span>•</span>
-      <span>3 phút đọc</span>
-    </div>
+<!-- TIÊU ĐỀ BÀI (nền A) -->
+<section class="section">
+  <div class="container"><div class="narrow">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Trang chủ</a> / <a href="blog.html">Blog</a> / Glampify Hợp Tác Cùng Khu Du Lịch Đồng Mô Ra Mắt Combo Cắm Trại Ven Hồ</nav>
+    <div class="article-meta"><span class="tag">Hợp tác</span><span>12/09/2026</span><span>•</span><span>5 phút đọc</span></div>
     <h1 class="article-title">Glampify Hợp Tác Cùng Khu Du Lịch Đồng Mô Ra Mắt Combo Cắm Trại Ven Hồ</h1>
-  </div>
+    <p class="article-lead">Glampify chính thức hợp tác cùng khu du lịch sinh thái Đồng Mô để ra mắt dòng combo cắm trại ven hồ, mang đến trải nghiệm dã ngoại mới mẻ ngay gần nội thành Hà Nội.</p>
+  </div></div>
 </section>
 
-<section class="bg-white">
-  <div class="wrap">
-    <div class="article-body">
-      <p>Glampify chính thức hợp tác cùng khu du lịch sinh thái Đồng Mô để ra mắt dòng combo cắm trại ven hồ, mang đến trải nghiệm dã ngoại mới mẻ ngay gần nội thành Hà Nội.</p>
-      <p>Các combo mới được thiết kế riêng cho không gian ven hồ, với lều chống nước tốt hơn và thêm phụ kiện câu cá, chèo thuyền kayak dành cho khách có nhu cầu.</p>
-      <p>Đây là một phần trong chiến lược mở rộng hợp tác với các khu du lịch sinh thái quanh Hà Nội của Glampify, nhằm đa dạng hoá địa điểm cắm trại cho khách hàng.</p>
-    </div>
-
+<!-- NỘI DUNG (nền B) -->
+<section class="section alt">
+  <div class="container">
+    <article class="article-card narrow">
+      <div class="info-box"><div><b>Đối tác</b>Khu du lịch sinh thái Đồng Mô</div><div><b>Loại hình</b>Combo cắm trại ven hồ</div><div><b>Điểm mới</b>Lều chống nước tốt hơn, phụ kiện câu cá và kayak</div><div><b>Vị trí</b>Gần nội thành Hà Nội</div></div>
+      <nav class="toc" aria-label="Mục lục"><strong>Mục lục</strong><ol><li><a href="#tong-quan">Tổng quan về hợp tác</a></li><li><a href="#diem-moi">Điểm mới của combo ven hồ</a></li><li><a href="#trai-nghiem">Gợi ý trải nghiệm</a></li><li><a href="#chuan-bi">Chuẩn bị gì khi cắm trại ven hồ?</a></li><li><a href="#chien-luoc">Định hướng của Glampify</a></li></ol></nav>
+      <div class="article-body"><h2 id="tong-quan">1. Tổng quan về hợp tác</h2><p>Khu du lịch sinh thái Đồng Mô nằm ở Sơn Tây, Hà Nội, nổi tiếng với không gian hồ nước rộng và cảnh quan thoáng đãng. Hợp tác lần này cho phép khách hàng của Glampify cắm trại ven hồ mà không cần đi xa như các chuyến lên vùng cao.</p><h2 id="diem-moi">2. Điểm mới của combo ven hồ</h2><ul><li><strong>Lều chống nước tốt hơn:</strong> được thiết kế riêng cho không gian ven hồ, nơi độ ẩm và sương đêm thường cao hơn.</li><li><strong>Phụ kiện câu cá:</strong> dành cho khách thích thư giãn bên mặt nước.</li><li><strong>Kayak:</strong> dành cho khách muốn chèo thuyền khám phá hồ.</li></ul><p>Các phụ kiện được cung cấp cho khách có nhu cầu, bạn nên báo trước khi đặt để Glampify chuẩn bị.</p><h2 id="trai-nghiem">3. Gợi ý trải nghiệm</h2><ul><li>Dựng lều gần mặt hồ vào chiều muộn để ngắm hoàng hôn.</li><li>Câu cá hoặc chèo kayak vào buổi sáng khi mặt nước còn phẳng lặng.</li><li>Tổ chức bữa tối ngoài trời cùng nhóm bạn hoặc gia đình với đèn dây LED và bàn ghế gọn nhẹ.</li></ul><h2 id="chuan-bi">4. Chuẩn bị gì khi cắm trại ven hồ?</h2><ul><li>Mang áo khoác nhẹ vì gió hồ về đêm khá mát.</li><li>Dùng bạt lót và để đồ cá nhân trong túi chống nước.</li><li>Mặc áo phao khi chèo kayak, kể cả khi bạn biết bơi.</li><li>Mang kem chống muỗi vì khu vực gần nước thường nhiều côn trùng.</li></ul><h2 id="chien-luoc">5. Định hướng của Glampify</h2><p>Đây là một phần trong chiến lược mở rộng hợp tác với các khu du lịch sinh thái quanh Hà Nội, nhằm đa dạng hóa địa điểm cắm trại cho khách hàng. Bạn có thể xem thêm các combo tại trang <a href="thue-box.html">Combo Box</a>.</p></div>
+    </article>
     <div class="article-cta">
       <h3>Sẵn sàng cho chuyến đi tiếp theo?</h3>
       <p>Khám phá các combo cắm trại trọn gói, phù hợp với mọi nhóm bạn và mọi nhu cầu.</p>
-      <a href="thue-box.html" class="btn btn-solid">Xem Combo Box</a>
+      <a href="thue-box.html" class="cta-btn">Xem Combo Box <span>→</span></a>
     </div>
   </div>
 </section>
 
-<!-- BÀI VIẾT LIÊN QUAN -->
-<section>
-  <div class="wrap related-wrap">
-    <div class="section-header">
-      <div>
-        <span class="section-kicker">Đọc tiếp</span>
-        <h2 class="section-title">Bài Viết Liên Quan</h2>
-      </div>
-    </div>
-    <div class="post-grid">
-<a href="blog-mo-rong-diem-giao-nhan.html" class="post-card">
-          <div class="hero-img-wrap">
-            <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=1200&auto=format&fit=crop&q=70" alt="Glampify Mở Rộng Điểm Giao Nhận Tại 3 Quận Nội Thành Hà Nội">
-          </div>
-          <div class="post-body">
-            <span>Dự án</span>
-            <h3>Glampify Mở Rộng Điểm Giao Nhận Tại 3 Quận Nội Thành Hà Nội</h3>
-          </div>
-        </a>
-<a href="blog-doi-lich-mien-phi.html" class="post-card">
-          <div class="hero-img-wrap">
-            <img src="https://plus.unsplash.com/premium_photo-1681885086214-c8e076b46956?w=1200&auto=format&fit=crop&q=70" alt="Chính Sách Đổi Lịch Miễn Phí Khi Trời Mưa Chính Thức Áp Dụng Toàn Hệ Thống">
-          </div>
-          <div class="post-body">
-            <span>Chính sách</span>
-            <h3>Chính Sách Đổi Lịch Miễn Phí Khi Trời Mưa Chính Thức Áp Dụng Toàn Hệ Thống</h3>
-          </div>
-        </a>
-<a href="blog-top-combo-2026.html" class="post-card">
-          <div class="hero-img-wrap">
-            <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=1200&auto=format&fit=crop&q=70" alt="Glampify Lọt Top Combo Dã Ngoại Được Yêu Thích Nhất Năm 2026">
-          </div>
-          <div class="post-body">
-            <span>Tin tức</span>
-            <h3>Glampify Lọt Top Combo Dã Ngoại Được Yêu Thích Nhất Năm 2026</h3>
-          </div>
-        </a>
-    </div>
+<!-- BÀI LIÊN QUAN (nền A) -->
+<section class="section">
+  <div class="container">
+    <div class="section-header"><span class="section-kicker">Đọc tiếp</span><h2 class="section-title">Bài viết liên quan</h2></div>
+    <div class="related-grid"><a href="blog-doi-lich-mien-phi.html" class="post-card"><div class="post-thumb"><img src="https://plus.unsplash.com/premium_photo-1681885086214-c8e076b46956?w=1200&auto=format&fit=crop&q=70" alt="Chính Sách Đổi Lịch Miễn Phí Khi Trời Mưa Chính Thức Áp Dụng Toàn Hệ Thống"></div><div class="post-body"><span>Chính sách</span><h3>Chính Sách Đổi Lịch Miễn Phí Khi Trời Mưa Chính Thức Áp Dụng Toàn Hệ Thống</h3></div></a><a href="blog-huong-dan-dat-combo.html" class="post-card"><div class="post-thumb"><img src="https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?w=1200&auto=format&fit=crop&q=70" alt="Hướng Dẫn Đặt Combo Online Chỉ Trong 3 Bước Đơn Giản Cho Người Mới"></div><div class="post-body"><span>Hướng dẫn</span><h3>Hướng Dẫn Đặt Combo Online Chỉ Trong 3 Bước Đơn Giản Cho Người Mới</h3></div></a><a href="blog-le-naturehike-gioi-han.html" class="post-card"><div class="post-thumb"><img src="https://images.unsplash.com/photo-1533414417583-f0ab99151186?w=1200&auto=format&fit=crop&q=70" alt="Ra Mắt Bộ Sưu Tập Lều Naturehike Phiên Bản Giới Hạn Màu Đất Nung"></div><div class="post-body"><span>Sản phẩm</span><h3>Ra Mắt Bộ Sưu Tập Lều Naturehike Phiên Bản Giới Hạn Màu Đất Nung</h3></div></a></div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand"><svg><use href="#icon-tent"/></svg><span class="foot-logo">Glampify</span></div>
-        <p>Mang đến trải nghiệm dã ngoại trọn vẹn và tinh tế nhất.</p>
-        <p style="margin-top:10px">79 Hồ Tùng Mậu, Hà Nội</p>
-        <p>www.glampify.com</p>
-        <p>support@glampify.com</p>
-      </div>
-      <div>
-        <h4>Chính Sách</h4>
-        <ul class="foot-links">
-          <li><a href="#">Chính sách đổi trả</a></li>
-          <li><a href="#">Chính sách bảo mật</a></li>
-          <li><a href="#">Chính sách vận chuyển</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Hỗ Trợ</h4>
-        <ul class="foot-links">
-          <li><a href="#">Thuê đồ có cần cọc không?</a></li>
-          <li><a href="#">Trời mưa có được dời lịch?</a></li>
-          <li><a href="#">Hỗ trợ setup tại bãi</a></li>
-        </ul>
-      </div>
+    <div class="container">
+        <div class="footer-grid">
+
+            <div>
+                <div class="footer-brand">
+                    <span class="footer-logo-wrap">
+                        <img src="./images/logo-header.png" alt="Glampify">
+                    </span>
+                    <strong>Glampify</strong>
+                </div>
+                <ul class="footer-links">
+                    <li>Camping Made Simple.</li>
+                    <li>Chuẩn bị nhẹ hơn, tận hưởng nhiều hơn.</li>
+                    <li>79 Hồ Tùng Mậu, Hà Nội</li>
+                    <li>support@glampify.com</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Hỗ trợ</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Chính sách đổi lịch</a></li>
+                    <li><a href="#">Chính sách vận chuyển</a></li>
+                    <li><a href="#">Hướng dẫn thuê Combo</a></li>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Khám phá</h4>
+                <ul class="footer-links">
+                    <li><a href="thue-box.html">Combo Box</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="ve-chung-toi.html">Về Glampify</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer-bottom">© 2026 Glampify. All rights reserved.</div>
     </div>
-    <div class="foot-bottom">© 2026 Glampify. All rights reserved.</div>
-  </div>
 </footer>
 
-<!-- CHAT WIDGET: ZALO + FANPAGE (thay link thật của bạn vào 2 href bên dưới) -->
+
+<!-- CHAT WIDGET: ZALO + FANPAGE -->
 <div class="chat-widget">
   <a href="https://zalo.me/" target="_blank" rel="noopener" class="chat-bubble chat-zalo" aria-label="Chat qua Zalo">Z</a>
-  <a href="https://www.facebook.com/glampify" target="_blank" rel="noopener" class="chat-bubble chat-fb" aria-label="Nhắn tin qua Fanpage">
+  <a href="https://www.facebook.com/share/19tv8fyB2P/?mibextid=wwXIfr" target="_blank" rel="noopener" class="chat-bubble chat-fb" aria-label="Nhắn tin qua Fanpage">
     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.45 5.49 3.72 7.19V22l3.4-1.87c.91.25 1.87.38 2.88.38 5.52 0 10-4.14 10-9.26C22 6.14 17.52 2 12 2zm1.02 12.47-2.56-2.73-4.99 2.73 5.49-5.84 2.62 2.73 4.93-2.73-5.49 5.84z"/></svg>
   </a>
 </div>
 
+
+
 <script>
+  /* Menu mobile: bấm ☰ để mở/đóng */
   (function(){
     var navToggle = document.getElementById('navToggle');
     var mainNav = document.getElementById('mainNav');
     if(navToggle && mainNav){
       navToggle.addEventListener('click', function(){
         mainNav.classList.toggle('open');
-        navToggle.innerHTML = mainNav.classList.contains('open') ? '\u2715' : '\u2630';
+        navToggle.innerHTML = mainNav.classList.contains('open') ? '✕' : '☰';
       });
     }
   })();
 </script>
-
-
 </body>
 </html>

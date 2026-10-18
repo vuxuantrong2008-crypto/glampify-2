@@ -35,8 +35,9 @@
     --forest-light: #395334;   /* Xanh rừng nhạt - hover nút */
     --sage: #aab879;           /* Xanh xô thơm */
     --sage-light: #e3e8ca;
-    --cream: #f6f0df;          /* Kem - nền section */
-    --cream-light: #fbf8ef;    /* Kem nhạt - nền trang */
+    /* CHỈ 2 MÀU NỀN, XEN KẼ NHAU: */
+    --cream: #f6f0df;          /* Nền A: kem */
+    --bg-b: #f3f6e8;           /* Nền B: xanh xô thơm nhạt */
     --white: #ffffff;
     --text: #263423;           /* Màu chữ chính */
     --text-soft: #6c7468;      /* Màu chữ phụ */
@@ -50,7 +51,7 @@
 ============================================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: "Be Vietnam Pro", sans-serif; background: var(--cream-light); color: var(--text); overflow-x: hidden; }
+body { font-family: "Be Vietnam Pro", sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 button, input { font-family: inherit; }
@@ -111,7 +112,7 @@ button, input { font-family: inherit; }
 
 /* --- 04.1 Khung hero + ảnh nền phủ lớp gradient xanh tối bên trái --- */
 .hero {
-    position: relative; min-height: 620px; display: flex; align-items: center; overflow: hidden;
+    position: relative; min-height: 420px; display: flex; align-items: center; overflow: hidden;
     background:
         linear-gradient(90deg, rgba(12, 32, 14, .91) 0%, rgba(17, 38, 17, .78) 36%, rgba(20, 40, 18, .40) 61%, rgba(13, 30, 14, .06) 100%),
         url("./images/banner-glampify.png");
@@ -122,20 +123,20 @@ button, input { font-family: inherit; }
 /* Lớp phủ mờ thêm phía trên ảnh */
 .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0, 0, 0, .02), rgba(12, 25, 12, .15)); }
 
-.hero-inner { position: relative; z-index: 2; width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 90px 0 100px; }
+.hero-inner { position: relative; z-index: 2; width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 44px 0 48px; }
 .hero-content { max-width: 900px; }
 
 /* --- 04.2 Dòng nhỏ "CAMPING MADE SIMPLE" + gạch ngang --- */
-.hero-kicker { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; color: #dce6a7; font-size: 13px; font-weight: 700; letter-spacing: 2.3px; }
+.hero-kicker { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; color: #dce6a7; font-size: 13px; font-weight: 700; letter-spacing: 2.3px; }
 .hero-kicker::after { content: ""; width: 65px; height: 1px; background: #dce6a7; }
 
 /* --- 04.3 Tiêu đề lớn (mỗi <span> là 1 dòng) --- */
-.hero h1 { max-width: 900px; margin: 0 0 26px; color: #ffffff; font-size: clamp(48px, 4.5vw, 68px); font-weight: 800; line-height: 1.12; letter-spacing: -2.5px; }
+.hero h1 { max-width: 900px; margin: 0 0 18px; color: #ffffff; font-size: clamp(48px, 4.5vw, 68px); font-weight: 800; line-height: 1.12; letter-spacing: -2.5px; }
 .hero h1 span { display: block; }
 @media (min-width: 1000px) { .hero h1 span { white-space: nowrap; } }  /* Màn rộng: không cho tự xuống dòng */
 
 /* --- 04.4 Đoạn mô tả --- */
-.hero p { max-width: 640px; margin-bottom: 36px; color: rgba(255, 255, 255, .88); font-size: 17px; line-height: 1.75; }
+.hero p { max-width: 640px; margin-bottom: 26px; color: rgba(255, 255, 255, .88); font-size: 17px; line-height: 1.75; }
 
 /* --- 04.5 Hai nút: "Khám phá Combo Box" + "Về Glampify" --- */
 .hero-buttons { display: flex; align-items: center; flex-wrap: wrap; gap: 17px; }
@@ -149,8 +150,8 @@ button, input { font-family: inherit; }
    05. BENEFITS (dải 4 lợi ích dưới hero)
 ============================================================== */
 .benefit-section { background: var(--cream); border-bottom: 1px solid rgba(35, 53, 31, .07); }
-.benefit-grid { min-height: 120px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; }
-.benefit-item { position: relative; display: flex; align-items: center; gap: 16px; padding: 20px 25px; }
+.benefit-grid { min-height: 72px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; }
+.benefit-item { position: relative; display: flex; align-items: center; gap: 16px; padding: 14px 25px; }
 
 /* Đường kẻ dọc ngăn cách giữa các ô (trừ ô cuối) */
 .benefit-item:not(:last-child)::after { content: ""; position: absolute; right: 0; width: 1px; height: 45px; background: #cbccbe; }
@@ -164,11 +165,12 @@ button, input { font-family: inherit; }
 /* ==============================================================
    06. SECTION CHUNG (khung + tiêu đề dùng cho mọi khu vực)
 ============================================================== */
-.section { padding: 90px 0; }
-.section.white { background: #ffffff; }
+.section { padding: 36px 0; }
+.section.white,
+.section.alt { background: var(--bg-b); }  /* Nền B xen kẽ với nền A (kem) */
 
 /* Hàng tiêu đề: bên trái là chữ, bên phải là nút "Xem tất cả" */
-.section-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 38px; }
+.section-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 18px; }
 .section-kicker { display: block; margin-bottom: 8px; color: #86975c; font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
 .section-title { color: var(--forest); font-size: clamp(30px, 4vw, 43px); line-height: 1.2; letter-spacing: -1.5px; }
 .section-subtitle { margin-top: 9px; color: var(--text-soft); font-size: 15px; line-height: 1.7; }
@@ -185,7 +187,7 @@ button, input { font-family: inherit; }
 
 /* --- 07.1 Khung thẻ + lớp phủ gradient tối phía dưới --- */
 .combo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.combo-card { position: relative; min-height: 320px; overflow: hidden; isolation: isolate; border-radius: 18px; background: #455c3f; text-decoration: none; box-shadow: 0 15px 35px rgba(32, 53, 30, .10); }
+.combo-card { position: relative; min-height: 270px; overflow: hidden; isolation: isolate; border-radius: 18px; background: #455c3f; text-decoration: none; box-shadow: 0 15px 35px rgba(32, 53, 30, .10); }
 .combo-card::before { content: ""; position: absolute; inset: 0; z-index: -2; background-size: cover; background-position: center; transition: transform .5s ease; }  /* Lớp ảnh nền */
 .combo-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(20, 39, 19, .03) 20%, rgba(17, 35, 16, .90) 100%); }  /* Lớp phủ tối */
 .combo-card:hover::before { transform: scale(1.06); }
@@ -244,18 +246,18 @@ button, input { font-family: inherit; }
 
 /* --- 09.1 Bố cục 2 cột --- */
 .consult-section { background: var(--cream); }
-.consult-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+.consult-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
 
 /* --- 09.2 Cột trái: tiêu đề + mô tả + danh sách ✓ --- */
-.consult-copy h2 { margin-bottom: 17px; color: var(--forest); font-size: clamp(31px, 4vw, 46px); line-height: 1.2; letter-spacing: -1.5px; }
-.consult-copy > p { max-width: 520px; margin-bottom: 28px; color: var(--text-soft); line-height: 1.8; }
-.check-list { display: flex; flex-direction: column; gap: 16px; list-style: none; }
+.consult-copy h2 { margin-bottom: 12px; color: var(--forest); font-size: clamp(31px, 4vw, 46px); line-height: 1.2; letter-spacing: -1.5px; }
+.consult-copy > p { max-width: 520px; margin-bottom: 20px; color: var(--text-soft); line-height: 1.8; }
+.check-list { display: flex; flex-direction: column; gap: 12px; list-style: none; }
 .check-list li { display: flex; gap: 13px; color: #566151; font-size: 14px; line-height: 1.6; }
 .check-icon { width: 25px; height: 25px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #dce4b8; color: var(--forest); font-weight: 700; }
 
 /* --- 09.3 Cột phải: thẻ form trắng --- */
-.form-card { padding: 38px; background: #ffffff; border-radius: 20px; box-shadow: var(--shadow); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-card { padding: 28px; background: #ffffff; border-radius: 20px; box-shadow: var(--shadow); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .field { display: flex; flex-direction: column; gap: 7px; }
 .field.full { grid-column: 1 / -1; }  /* Ô chiếm cả 2 cột */
 .field label { color: var(--forest); font-size: 12px; font-weight: 700; }
@@ -273,7 +275,7 @@ button, input { font-family: inherit; }
 ============================================================== */
 
 /* --- 10.1 Lưới + thẻ ảnh --- */
-.destination-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 230px 230px; gap: 18px; }
+.destination-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 190px 190px; gap: 14px; }
 .destination { position: relative; overflow: hidden; isolation: isolate; border-radius: 18px; text-decoration: none; }
 .destination:first-child { grid-row: 1 / 3; }  /* Thẻ đầu chiếm 2 hàng */
 .destination::before { content: ""; position: absolute; inset: 0; z-index: -2; background-size: cover; background-position: center; transition: .45s; }  /* Lớp ảnh */
@@ -296,11 +298,11 @@ button, input { font-family: inherit; }
    11. ĐÁNH GIÁ KHÁCH HÀNG (3 thẻ)
 ============================================================== */
 .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.review-card { padding: 28px; border: 1px solid #e0e2d6; border-radius: 18px; background: #ffffff; transition: .25s; }
+.review-card { padding: 22px 24px; border: 1px solid #e0e2d6; border-radius: 18px; background: #ffffff; transition: .25s; }
 .review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.stars { margin-bottom: 15px; color: #a8863f; letter-spacing: 3px; font-size: 14px; }
-.review-card > p { min-height: 115px; color: #626b5e; font-size: 14px; line-height: 1.8; }
-.review-user { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+.stars { margin-bottom: 10px; color: #a8863f; letter-spacing: 3px; font-size: 14px; }
+.review-card > p { min-height: 0; color: #626b5e; font-size: 14px; line-height: 1.8; }
+.review-user { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
 .avatar { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--forest); color: #ffffff; font-weight: 700; }  /* Chữ cái đầu tên */
 .review-user strong { color: var(--forest); font-size: 13px; }
 
@@ -308,33 +310,44 @@ button, input { font-family: inherit; }
 /* ==============================================================
    12. FOOTER (chân trang)
 ============================================================== */
-footer { padding: 65px 0 26px; background: var(--forest-dark); color: rgba(255, 255, 255, .70); }
-.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; padding-bottom: 45px; }  /* 3 cột: thương hiệu / khám phá / hỗ trợ */
+footer { padding: 40px 0 18px; background: var(--forest-dark); color: rgba(255, 255, 255, .70); }
 
-/* Cột 1: logo + tên */
-.footer-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 17px; }
-.footer-logo-wrap { width: 58px; height: 58px; overflow: hidden; flex-shrink: 0; border-radius: 50%; background: var(--cream); }
+/* 3 cột bằng nhau: Thương hiệu | Hỗ trợ (chính sách, nằm giữa) | Khám phá
+   Mỗi cột = 1 hàng tiêu đề cao 48px + 4 dòng nội dung cao bằng nhau → thẳng hàng tuyệt đối */
+.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; align-items: start; padding-bottom: 28px; }
+
+/* Hàng tiêu đề (logo + tên / "Hỗ trợ" / "Khám phá") cùng chiều cao 48px, canh giữa dọc */
+.footer-brand,
+footer h4 { display: flex; align-items: center; height: 48px; margin: 0 0 12px; }
+.footer-brand { gap: 12px; }
+.footer-logo-wrap { width: 48px; height: 48px; overflow: hidden; flex-shrink: 0; border-radius: 50%; background: var(--cream); }
 .footer-logo-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-.footer-brand strong { color: #ffffff; font-size: 20px; }
+.footer-brand strong { color: #ffffff; font-size: 18px; }
+footer h4 { color: #ffffff; font-size: 15px; font-weight: 700; }
 
-/* Chữ + link trong footer */
-footer p,
-footer a { color: rgba(255, 255, 255, .64); font-size: 13px; line-height: 1.8; text-decoration: none; }
-footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
-.footer-links { display: flex; flex-direction: column; gap: 9px; list-style: none; }
+/* 4 dòng nội dung mỗi cột: cùng cỡ chữ, cùng chiều cao dòng, cùng khoảng cách */
+.footer-links { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+.footer-links li,
+.footer-links a { color: rgba(255, 255, 255, .66); font-size: 13px; line-height: 22px; text-decoration: none; }
 .footer-links a:hover { color: #d5df9c; }
 
 /* Dòng bản quyền dưới cùng */
-.footer-bottom { padding-top: 23px; border-top: 1px solid rgba(255, 255, 255, .10); color: rgba(255, 255, 255, .44); text-align: center; font-size: 11px; }
+.footer-bottom { padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, .10); color: rgba(255, 255, 255, .44); text-align: center; font-size: 11px; }
 
 
-/* ==============================================================
-   13. NÚT CHAT NỔI (Zalo + Facebook, góc phải dưới)
-============================================================== */
-.chat-widget { position: fixed; right: 20px; bottom: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
-.chat-bubble { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #ffffff; text-decoration: none; font-weight: 800; box-shadow: 0 10px 25px rgba(0, 0, 0, .20); }
-.zalo { background: #0068ff; }
-.facebook { background: #1877f2; }
+/* ---------- CHAT WIDGET NỔI (ZALO + FANPAGE) ---------- */
+.chat-widget{position:fixed;right:20px;bottom:20px;z-index:999;display:flex;flex-direction:column;gap:14px}
+.chat-bubble{
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;text-decoration:none;
+  box-shadow:0 12px 26px rgba(0,0,0,.25);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.chat-bubble:hover{transform:scale(1.08);box-shadow:0 16px 32px rgba(0,0,0,.32)}
+.chat-zalo{background:#0068FF;font-weight:800;font-size:1.3rem}
+.chat-fb{background:#0084FF}
+.chat-fb svg{width:28px;height:28px;fill:#fff}
 
 
 /* ==============================================================
@@ -344,9 +357,9 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
     .combo-grid { grid-template-columns: repeat(2, 1fr); }      /* Combo: 4 → 2 cột */
     .benefit-grid { grid-template-columns: repeat(2, 1fr); }    /* Benefits: 4 → 2 cột */
     .benefit-item:nth-child(2)::after { display: none; }
-    .consult-grid { grid-template-columns: 1fr; gap: 40px; }    /* Tư vấn: 2 cột → 1 cột */
+    .consult-grid { grid-template-columns: 1fr; gap: 28px; }    /* Tư vấn: 2 cột → 1 cột */
     .destination-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .destination { min-height: 300px; }
+    .destination { min-height: 240px; }
     .destination:first-child { grid-row: auto; }
     .review-grid { grid-template-columns: 1fr; }                /* Đánh giá: 3 → 1 cột */
 }
@@ -378,13 +391,13 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
     .sub-menu a:hover { background: transparent; color: #ffffff; }
 
     /* --- Hero --- */
-    .hero { min-height: 600px; background-position: 66% center; }
+    .hero { min-height: 480px; background-position: 66% center; }
     .hero-content { max-width: 700px; }
     .hero h1 { font-size: clamp(44px, 7vw, 58px); letter-spacing: -2px; }
     .hero h1 span { white-space: normal; }
 
     /* --- Footer: 3 cột → 1 cột --- */
-    .footer-grid { grid-template-columns: 1fr; gap: 35px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 
 
@@ -398,8 +411,8 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
     .hero-inner { width: min(calc(100% - 32px), 1180px); }
 
     /* --- Hero: nền tối đều hơn cho dễ đọc chữ --- */
-    .hero { min-height: 590px; background: linear-gradient(rgba(17, 36, 17, .84), rgba(17, 36, 17, .74)), url("./images/banner-glampify.png"); background-size: cover; background-position: 68% center; }
-    .hero-inner { padding: 70px 0 80px; }
+    .hero { min-height: 460px; background: linear-gradient(rgba(17, 36, 17, .84), rgba(17, 36, 17, .74)), url("./images/banner-glampify.png"); background-size: cover; background-position: 68% center; }
+    .hero-inner { padding: 44px 0 48px; }
     .hero-kicker { font-size: 11px; }
     .hero h1 { font-size: 42px; line-height: 1.12; letter-spacing: -1.5px; }
     .hero h1 span { white-space: normal; }
@@ -413,12 +426,12 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
     .benefit-item::after { display: none; }
 
     /* --- Section chung --- */
-    .section { padding: 65px 0; }
+    .section { padding: 30px 0; }
     .section-header { flex-direction: column; align-items: flex-start; }
 
     /* --- Combo: 1 cột --- */
     .combo-grid { grid-template-columns: 1fr; }
-    .combo-card { min-height: 350px; }
+    .combo-card { min-height: 260px; }
 
     /* --- Form: 1 cột --- */
     .form-card { padding: 26px 20px; }
@@ -428,7 +441,7 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
 
     /* --- Destination: 1 cột --- */
     .destination-grid { grid-template-columns: 1fr; }
-    .destination { min-height: 290px; }
+    .destination { min-height: 220px; }
 }
 </style>
 </head>
@@ -628,7 +641,7 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
      04. DANH MỤC COMBO - 4 thẻ ảnh dẫn tới các trang combo
      Ảnh nền từng thẻ: sửa trong CSS mục 07.2
 =============================================================== -->
-<section class="section">
+<section class="section alt">
     <div class="container">
 
         <!-- Tiêu đề section + nút "Xem tất cả" -->
@@ -918,7 +931,7 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
 
         <div class="footer-grid">
 
-            <!-- Cột 1: Thương hiệu + địa chỉ + email -->
+            <!-- Cột 1: Thương hiệu + địa chỉ + email (4 dòng, khớp với 2 cột bên cạnh) -->
             <div>
                 <div class="footer-brand">
                     <span class="footer-logo-wrap">
@@ -927,30 +940,15 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
                     <strong>Glampify</strong>
                 </div>
 
-                <p>Camping Made Simple.</p>
-
-                <p>
-                    Chuẩn bị nhẹ hơn để bạn tận hưởng
-                    thiên nhiên nhiều hơn.
-                </p>
-
-                <p style="margin-top:12px">79 Hồ Tùng Mậu, Hà Nội</p>
-
-                <p>support@glampify.com</p>
-            </div>
-
-            <!-- Cột 2: Khám phá -->
-            <div>
-                <h4>Khám phá</h4>
                 <ul class="footer-links">
-                    <li><a href="thue-box.html">Combo Box</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="ve-chung-toi.html">Về Glampify</a></li>
-                    <li><a href="lien-he.html">Liên hệ</a></li>
+                    <li>Camping Made Simple.</li>
+                    <li>Chuẩn bị nhẹ hơn, tận hưởng nhiều hơn.</li>
+                    <li>79 Hồ Tùng Mậu, Hà Nội</li>
+                    <li>support@glampify.com</li>
                 </ul>
             </div>
 
-            <!-- Cột 3: Hỗ trợ (các link "#" chưa có trang, thay link thật sau) -->
+            <!-- Cột 2 (giữa): Hỗ trợ / chính sách (các link "#" chưa có trang, thay link thật sau) -->
             <div>
                 <h4>Hỗ trợ</h4>
                 <ul class="footer-links">
@@ -958,6 +956,17 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
                     <li><a href="#">Chính sách vận chuyển</a></li>
                     <li><a href="#">Hướng dẫn thuê Combo</a></li>
                     <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+            </div>
+
+            <!-- Cột 3: Khám phá -->
+            <div>
+                <h4>Khám phá</h4>
+                <ul class="footer-links">
+                    <li><a href="thue-box.html">Combo Box</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="ve-chung-toi.html">Về Glampify</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
                 </ul>
             </div>
 
@@ -974,14 +983,12 @@ footer h4 { margin-bottom: 16px; color: #ffffff; font-size: 14px; }
      09. NÚT CHAT NỔI - Zalo + Facebook (góc phải dưới màn hình)
      Muốn đổi link: sửa href của 2 thẻ <a> bên dưới
 =============================================================== -->
+<!-- CHAT WIDGET: ZALO + FANPAGE -->
 <div class="chat-widget">
-
-    <!-- Zalo -->
-    <a href="https://zalo.me/" target="_blank" class="chat-bubble zalo" aria-label="Zalo">Z</a>
-
-    <!-- Facebook Fanpage -->
-    <a href="https://www.facebook.com/share/19tv8fyB2P/?mibextid=wwXIfr" target="_blank" class="chat-bubble facebook" aria-label="Facebook">f</a>
-
+  <a href="https://zalo.me/" target="_blank" rel="noopener" class="chat-bubble chat-zalo" aria-label="Chat qua Zalo">Z</a>
+  <a href="https://www.facebook.com/share/19tv8fyB2P/?mibextid=wwXIfr" target="_blank" rel="noopener" class="chat-bubble chat-fb" aria-label="Nhắn tin qua Fanpage">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.45 5.49 3.72 7.19V22l3.4-1.87c.91.25 1.87.38 2.88.38 5.52 0 10-4.14 10-9.26C22 6.14 17.52 2 12 2zm1.02 12.47-2.56-2.73-4.99 2.73 5.49-5.84 2.62 2.73 4.93-2.73-5.49 5.84z"/></svg>
+  </a>
 </div>
 
 
