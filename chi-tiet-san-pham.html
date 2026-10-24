@@ -558,8 +558,10 @@ footer h4 { color: #ffffff; font-size: 15px; font-weight: 700; }
   $('pGuide').innerHTML=G.GUIDE.map(function(t){return '<li>'+t+'</li>'}).join('');
 
   /* Gallery */
-  var order=[0,1,2,3].map(function(i){return (p.img+i)%G.IMG.length});
+  var order=p.gallery||[0,1,2,3].map(function(i){return (p.img+i)%G.IMG.length});
   var main=$('mainImg'),tl=$('thumbList');
+  tl.style.gridTemplateColumns='repeat('+Math.max(order.length,4)+',1fr)';
+  main.style.objectFit=p.gallery?'contain':'cover';
   tl.innerHTML=order.map(function(n,k){return '<button type="button" class="thumb" aria-label="Xem ảnh '+(k+1)+'"><img src="'+G.IMG[n]+'" alt=""></button>'}).join('');
   function show(k){
     main.src=G.IMG[order[k]].replace('w=500','w=1000');main.alt=p.name+', ảnh '+(k+1);

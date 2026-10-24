@@ -4,7 +4,12 @@ window.GLAMPIFY={
   "https://plus.unsplash.com/premium_photo-1723291430835-18f62f56f445?w=500&auto=format&fit=crop&q=60", 
   "https://images.unsplash.com/photo-1744317287172-8ee74d6e14d9?w=500&auto=format&fit=crop&q=60", 
   "https://images.unsplash.com/photo-1634805522019-e9c3c1d25e4c?w=500&auto=format&fit=crop&q=60", 
-  "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=500&auto=format&fit=crop&q=60"
+  "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=500&auto=format&fit=crop&q=60",
+  "images/nguoimoi0.jpg",
+  "images/nguoimoi1.jpg",
+  "images/nguoimoi2.jpg",
+  "images/nguoimoi3.jpg",
+  "images/nguoimoi4.jpg"
  ],
  CATS:{
    "nguoi-moi": {"label": "Combo Theo Kinh Nghiệm", "href": "combo-kinh-nghiem.html", "note": "Combo dành riêng cho người chưa có kinh nghiệm: mọi thứ đều bật là lên, dễ tháo lắp."},
@@ -26,7 +31,7 @@ window.GLAMPIFY={
  // ==========================================
  // 1. NHÓM NGƯỜI MỚI & LÃO LÀNG
  // ==========================================
- {"id": "combo-nguoi-moi", "name": "Gà Mờ Vào Lều", "cat": "nguoi-moi", "img": 0, "people": [2], "chips": ["Lều tự bật", "Dễ lắp đặt"], "lead": "Tân Binh Lên Núi – Combo Cho Người Chưa Từng Có Kinh Nghiệm", "desc": ["Lều Liều là combo dành riêng cho bạn – tiêu chí 'bật là lên', mọi thứ đều dễ lắp, dễ tháo. Giao tận campsite, bạn đến là có sẵn.", "✅ Dành riêng cho người mới: lều pop-up tự bật 10 giây.", "✅ Tiện lợi tối đa: đèn sạc 2 in 1, bếp gas mini + nồi."], "items": [{"n": "Lều 2 người pop-up", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Thảm picnic", "u": "tấm", "per": 0, "fix": 1, "night": 0}, {"n": "Túi ngủ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sạc 2 in 1", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Bếp gas mini + nồi", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Set dụng cụ ăn", "u": "set", "per": 1, "fix": 0, "night": 0}, {"n": "Túi rác", "u": "túi", "per": 0, "fix": 1, "night": 0}], "stock": true},
+ {"id": "combo-nguoi-moi", "name": "Gà Mờ Vào Lều", "cat": "nguoi-moi", "img": 5, "gallery": [5, 6, 7, 8, 9], "people": [2], "chips": ["Lều tự bật", "Dễ lắp đặt"], "lead": "Tân Binh Lên Núi – Combo Cho Người Chưa Từng Có Kinh Nghiệm", "desc": ["Lều Liều là combo dành riêng cho bạn – tiêu chí 'bật là lên', mọi thứ đều dễ lắp, dễ tháo. Giao tận campsite, bạn đến là có sẵn.", "✅ Dành riêng cho người mới: lều pop-up tự bật 10 giây.", "✅ Tiện lợi tối đa: đèn sạc 2 in 1, bếp gas mini + nồi."], "items": [{"n": "Lều 2 người pop-up", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Thảm picnic", "u": "tấm", "per": 0, "fix": 1, "night": 0}, {"n": "Túi ngủ", "u": "chiếc", "per": 1, "fix": 0, "night": 0}, {"n": "Đèn sạc 2 in 1", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Bếp gas mini + nồi", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Set dụng cụ ăn", "u": "set", "per": 1, "fix": 0, "night": 0}, {"n": "Túi rác", "u": "túi", "per": 0, "fix": 1, "night": 0}], "stock": true},
 
  {"id": "combo-lao-lang", "name": "Lão Làng Xuất Sơn", "cat": "lao-lang", "img": 3, "people": [4, 6], "chips": ["Lều dome", "Bếp củi"], "lead": "Thuê Combo Cắm Trại Thách Thức Cho Dân Camp Muốn Tăng Độ Khó", "desc": ["Tiêu chí 'khó mới vui – dễ thì chán', mọi thứ đều thách thức kỹ năng dựng lều, nhóm lửa.", "✅ Dành riêng cho lão làng: lều dome dựng thủ công, bếp củi.", "✅ Sinh tồn cơ bản: la bàn, dao đa năng chặt củi."], "items": [{"n": "Lều dome 6 người", "u": "chiếc", "per": 6, "fix": 0, "night": 0}, {"n": "Thảm ngủ", "u": "tấm", "per": 1, "fix": 0, "night": 0}, {"n": "Thảm picnic", "u": "tấm", "per": 0, "fix": 1, "night": 0}, {"n": "Chăn mỏng", "u": "chiếc", "per": 2, "fix": 0, "night": 0}, {"n": "Dụng cụ tạo lửa - bếp củi", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Nồi đa năng", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Đèn sạc 2 in 1", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Set dụng cụ ăn uống", "u": "set", "per": 1, "fix": 0, "night": 0}, {"n": "Bàn ghế gập", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Đồ trang trí", "u": "bộ", "per": 0, "fix": 1, "night": 0}], "stock": true},
 
@@ -45,9 +50,9 @@ window.GLAMPIFY={
  // ==========================================
  // 5. CAMPBOX SỰ KIỆN
  // ==========================================
- {"id": "campbox-noel", "name": "CampBox 3: Noel", "cat": "su-kien", "img": 0, "people": [4, 10], "chips": ["Giáng Sinh", "Đèn trang trí"], "lead": "Mang Không Khí Giáng Sinh Vào Thiên Nhiên", "desc": ["Lều glamping kết hợp cây thông mini, đèn dây LED, phù hợp cho Secret Santa và Christmas party."], "items": [{"n": "Lều glamping/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Cây thông mini + Đèn LED", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Phụ kiện decor Noel", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Loa Bluetooth", "u": "chiếc", "per": 0, "fix": 1, "night": 0}], "stock": true},
+ {"id": "campbox-noel", "name": "CampBox 1: Noel", "cat": "su-kien", "img": 0, "people": [4, 10], "chips": ["Giáng Sinh", "Đèn trang trí"], "lead": "Mang Không Khí Giáng Sinh Vào Thiên Nhiên", "desc": ["Lều glamping kết hợp cây thông mini, đèn dây LED, phù hợp cho Secret Santa và Christmas party."], "items": [{"n": "Lều glamping/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Cây thông mini + Đèn LED", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Phụ kiện decor Noel", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Loa Bluetooth", "u": "chiếc", "per": 0, "fix": 1, "night": 0}], "stock": true},
 
- {"id": "campbox-ngay-le", "name": "CampBox 5: Ngày Lễ", "cat": "su-kien", "img": 0, "people": [4, 10], "chips": ["Linh hoạt", "Dịp lễ"], "lead": "Kỳ Nghỉ Nào Cũng Trở Thành Camping", "desc": ["Combo thiết bị tiêu chuẩn dễ dàng tùy biến decor cho bất kỳ dịp lễ tết hay ngày nghỉ dài nào."], "items": [{"n": "Lều dome/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Đệm/Túi ngủ", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Bếp camping + Dụng cụ ăn", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Phụ kiện trang trí linh hoạt", "u": "bộ", "per": 0, "fix": 1, "night": 0}], "stock": true},
+ {"id": "campbox-ngay-le", "name": "CampBox 2: Ngày Lễ", "cat": "su-kien", "img": 0, "people": [4, 10], "chips": ["Linh hoạt", "Dịp lễ"], "lead": "Kỳ Nghỉ Nào Cũng Trở Thành Camping", "desc": ["Combo thiết bị tiêu chuẩn dễ dàng tùy biến decor cho bất kỳ dịp lễ tết hay ngày nghỉ dài nào."], "items": [{"n": "Lều dome/family", "u": "chiếc", "per": 0, "fix": 1, "night": 0}, {"n": "Đệm/Túi ngủ", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Bếp camping + Dụng cụ ăn", "u": "bộ", "per": 0, "fix": 1, "night": 0}, {"n": "Phụ kiện trang trí linh hoạt", "u": "bộ", "per": 0, "fix": 1, "night": 0}], "stock": true},
 
  
  
